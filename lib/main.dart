@@ -177,7 +177,7 @@ class _TodayScreenState extends State<TodayScreen> {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(
-            enabled ? '今日のロック画面を設定し、毎朝7時ごろの更新を予約しました。' : '毎日の自動更新を停止しました。',
+            enabled ? '今日のロック画面を設定し、毎日0時ごろの更新を予約しました。' : '毎日の自動更新を停止しました。',
           ),
         ),
       );
@@ -218,7 +218,14 @@ class _TodayScreenState extends State<TodayScreen> {
 
   Future<void> _downloadAndroidApk() async {
     await launchUrl(
-      Uri.base.resolve('downloads/app-release.apk'),
+      Uri.parse('https://github.com/tngmshr/daily365-wallpaper/releases/latest/download/daily365-arm64-v8a.apk'),
+      mode: LaunchMode.platformDefault,
+    );
+  }
+
+  Future<void> _downloadAndroid32Apk() async {
+    await launchUrl(
+      Uri.parse('https://github.com/tngmshr/daily365-wallpaper/releases/latest/download/daily365-armeabi-v7a.apk'),
       mode: LaunchMode.platformDefault,
     );
   }
@@ -250,11 +257,11 @@ class _TodayScreenState extends State<TodayScreen> {
   }
 
   Widget _art(DayEntry item, ThemeStyle style) => AspectRatio(
-    aspectRatio: 9 / 16,
+    aspectRatio: 9 / 20,
     child: ClipRRect(
       borderRadius: BorderRadius.circular(24),
       child: Image.asset(
-        'assets/wallpapers/${item.date}.jpg',
+        'assets/wallpapers/${item.date}.webp',
         fit: BoxFit.cover,
         errorBuilder: (context, error, stack) => Container(
           decoration: BoxDecoration(
@@ -360,7 +367,7 @@ class _TodayScreenState extends State<TodayScreen> {
                       onChanged: _toggleDailyWallpaper,
                       secondary: const Icon(Icons.wallpaper),
                       title: const Text('ロック画面を毎日自動更新'),
-                      subtitle: const Text('毎朝7時ごろ。省電力設定により時刻が前後する場合があります。'),
+                      subtitle: const Text('毎日0時ごろ。省電力設定により時刻が前後する場合があります。'),
                     ),
                   ),
                 ),
@@ -382,6 +389,10 @@ class _TodayScreenState extends State<TodayScreen> {
                         onPressed: _downloadAndroidApk,
                         icon: const Icon(Icons.android),
                         label: const Text('Android版をダウンロード'),
+                      ),
+                      TextButton(
+                        onPressed: _downloadAndroid32Apk,
+                        child: const Text('古い機種（32bit）はこちら', style: TextStyle(fontSize: 12)),
                       ),
                     ],
                   ),

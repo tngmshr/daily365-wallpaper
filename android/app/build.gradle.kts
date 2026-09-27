@@ -1,7 +1,22 @@
+import java.io.File
+import java.util.Properties
+
 plugins {
     id("com.android.application")
     // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
     id("dev.flutter.flutter-gradle-plugin")
+}
+
+val keyPropertiesFile = rootProject.file("key.properties")
+val keyProperties = Properties()
+if (keyPropertiesFile.isFile) {
+    keyPropertiesFile.inputStream().use { keyProperties.load(it) }
+}
+
+gradle.taskGraph.whenReady {
+    if (!keyPropertiesFile.isFile && allTasks.any { it.name.contains("Release") }) {
+        throw GradleException("Release signing requires android/key.properties with storePassword, keyPassword, keyAlias, and an absolute storeFile path.")
+    }
 }
 
 android {
@@ -29,11 +44,31 @@ android {
         versionName = flutter.versionName
     }
 
+    signingConfigs {
+        if (keyPropertiesFile.isFile) {
+            create("release") {
+                fun required(name: String) = keyProperties.getProperty(name)?.takeIf { it.isNotBlank() }
+                    ?: throw GradleException("android/key.properties is missing $name")
+                storePassword = required("storePassword")
+                keyPassword = required("keyPassword")
+                keyAlias = required("keyAlias")
+                val keyStore = File(required("storeFile"))
+                if (!keyStore.isAbsolute) {
+                    throw GradleException("android/key.properties storeFile must be an absolute path")
+                }
+                if (!keyStore.isFile) {
+                    throw GradleException("Release signing key does not exist: $keyStore")
+                }
+                storeFile = keyStore
+            }
+        }
+    }
+
     buildTypes {
         release {
-            // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
-            signingConfig = signingConfigs.getByName("debug")
+            if (keyPropertiesFile.isFile) {
+                signingConfig = signingConfigs.getByName("release")
+            }
         }
     }
 }
