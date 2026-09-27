@@ -1,4 +1,4 @@
-"""Place each day's date, headline, summary, and attribution on its wallpaper."""
+"""Place each day's date, headline, summary, work memo, and attribution on its wallpaper."""
 
 from __future__ import annotations
 
@@ -13,12 +13,13 @@ DATA = ROOT / "assets" / "data" / "calendar.json"
 ILLUSTRATIONS = ROOT / "assets" / "illustrations"
 WALLPAPERS = ROOT / "assets" / "wallpapers"
 WIDTH, HEIGHT = 900, 1600
-CARD_MAX_HEIGHT = 900
+CARD_MAX_HEIGHT = 950
 CARD_CENTER_Y = 920
 CARD_SAFE_TOP = 485
 CARD_SAFE_BOTTOM = 150
-CARD_MARGIN_X = 42
-CARD_PADDING_X = 36
+# Keep the complete information card inside the center crop used by tall phone screens.
+CARD_MARGIN_X = 150
+CARD_PADDING_X = 24
 CARD_PADDING_TOP = 30
 CARD_PADDING_BOTTOM = 26
 NO_LINE_START = "、。，．・？！…：；）」』】〉》］｝〕〟”’％‰℃"
@@ -83,6 +84,7 @@ def layout_for(
     label = f"{month}月{day}日　｜　{entry['kind']}"
     title = str(entry["title"]).strip()
     summary = str(entry["summary"]).strip()
+    work_tip = str(entry["work_tip"]).strip()
     source = (
         f"出典: ja.wikipedia.org/wiki/{month}月{day}日　・　CC BY-SA 4.0"
     )
@@ -92,23 +94,34 @@ def layout_for(
             label_font = load_font(regular_path, 24)
             title_font = load_font(bold_path, title_size)
             summary_font = load_font(regular_path, summary_size)
+            work_label_font = load_font(bold_path, 20)
+            work_tip_font = load_font(regular_path, 22)
             source_font = load_font(regular_path, 15)
             title_lines = wrap_text(title, title_font, width)
             summary_lines = wrap_text(summary, summary_font, width)
             label_lines = wrap_text(label, label_font, width)
+            work_label_lines = wrap_text("今日の仕事メモ", work_label_font, width)
+            work_tip_lines = wrap_text(work_tip, work_tip_font, width)
             source_lines = wrap_text(source, source_font, width)
 
             label_height = 31 * len(label_lines)
             title_line_height = math.ceil(title_size * 1.23)
             summary_line_height = math.ceil(summary_size * 1.48)
+            work_label_line_height = 26
+            work_tip_line_height = math.ceil(22 * 1.48)
             source_height = 20 * len(source_lines)
-            gaps = 14 * 3
             height = (
                 CARD_PADDING_TOP
                 + label_height
-                + gaps
+                + 14
                 + title_line_height * len(title_lines)
+                + 14
                 + summary_line_height * len(summary_lines)
+                + 30
+                + work_label_line_height * len(work_label_lines)
+                + 8
+                + work_tip_line_height * len(work_tip_lines)
+                + 14
                 + source_height
                 + CARD_PADDING_BOTTOM
             )
@@ -117,18 +130,25 @@ def layout_for(
                     "date": label,
                     "title": title,
                     "summary": summary,
+                    "work_tip": work_tip,
                     "source": source,
                     "label_font": label_font,
                     "title_font": title_font,
                     "summary_font": summary_font,
+                    "work_label_font": work_label_font,
+                    "work_tip_font": work_tip_font,
                     "source_font": source_font,
                     "title_lines": title_lines,
                     "summary_lines": summary_lines,
                     "label_lines": label_lines,
+                    "work_label_lines": work_label_lines,
+                    "work_tip_lines": work_tip_lines,
                     "source_lines": source_lines,
                     "label_height": label_height,
                     "title_line_height": title_line_height,
                     "summary_line_height": summary_line_height,
+                    "work_label_line_height": work_label_line_height,
+                    "work_tip_line_height": work_tip_line_height,
                     "source_height": source_height,
                     "height": height,
                 }
@@ -216,6 +236,32 @@ def compose(entry: dict[str, object], regular_path: Path, bold_path: Path) -> No
         y,
         layout["summary_font"],
         int(layout["summary_line_height"]),
+        (43, 57, 51, 255),
+    )
+    y += 15
+    draw.line(
+        (x, y, right - CARD_PADDING_X, y),
+        fill=(132, 157, 139, 170),
+        width=2,
+    )
+    y += 15
+    y = draw_lines(
+        draw,
+        layout["work_label_lines"],
+        x,
+        y,
+        layout["work_label_font"],
+        int(layout["work_label_line_height"]),
+        (78, 111, 93, 255),
+    )
+    y += 8
+    y = draw_lines(
+        draw,
+        layout["work_tip_lines"],
+        x,
+        y,
+        layout["work_tip_font"],
+        int(layout["work_tip_line_height"]),
         (43, 57, 51, 255),
     )
     y += 14

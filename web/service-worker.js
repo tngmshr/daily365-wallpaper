@@ -1,4 +1,4 @@
-const CACHE_NAME = 'daily365-shell-v1';
+const CACHE_NAME = 'daily365-shell-v2';
 
 self.addEventListener('install', (event) => {
   event.waitUntil((async () => {

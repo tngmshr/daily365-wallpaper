@@ -30,7 +30,7 @@ Flutter 3.47.2、Android SDK、Python 3、Pillowが必要です。
     flutter build web --release --base-href "/REPOSITORY/"
     python tools/package_web.py
 
-壁紙素材を作り直す場合は、次の順に実行します。元の挿絵は `assets/illustrations/`、日付・見出し・説明・出典を組み込んだ配布壁紙は `assets/wallpapers/` に保存されます。
+壁紙素材を作り直す場合は、次の順に実行します。元の挿絵は `assets/illustrations/`、日付・見出し・説明・今日の仕事メモ・出典を組み込んだ配布壁紙は `assets/wallpapers/` に保存されます。
 
     python tools/generate_visual_assets.py
     python tools/compose_wallpapers.py
