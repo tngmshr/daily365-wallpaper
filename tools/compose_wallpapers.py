@@ -1,300 +1,251 @@
-"""Place each day's date, headline, summary, work memo, and attribution on its wallpaper."""
+"""Compose dated lock-screen wallpapers from calendar text and illustrations."""
 
 from __future__ import annotations
 
+import argparse
 import json
 import math
+import re
 from pathlib import Path
 
-from PIL import Image, ImageDraw, ImageFilter, ImageFont
+from PIL import Image, ImageDraw, ImageFilter, ImageFont, ImageStat
 
 ROOT = Path(__file__).resolve().parents[1]
-DATA = ROOT / "assets" / "data" / "calendar.json"
-ILLUSTRATIONS = ROOT / "assets" / "illustrations"
-WALLPAPERS = ROOT / "assets" / "wallpapers"
-WIDTH, HEIGHT = 900, 1600
-CARD_MAX_HEIGHT = 950
-CARD_CENTER_Y = 920
-CARD_SAFE_TOP = 485
-CARD_SAFE_BOTTOM = 150
-# Keep the complete information card inside the center crop used by tall phone screens.
-CARD_MARGIN_X = 150
-CARD_PADDING_X = 24
-CARD_PADDING_TOP = 30
-CARD_PADDING_BOTTOM = 26
-NO_LINE_START = "、。，．・？！…：；）」』】〉》］｝〕〟”’％‰℃"
-NO_LINE_END = "（「『【〈《［｛〔〝“‘"
+DATA = ROOT / "assets/data/calendar.json"
+ILLUSTRATIONS = ROOT / "assets/illustrations"
+WALLPAPERS = ROOT / "assets/wallpapers"
+FONT = ROOT / "tools/fonts/NotoSansJP[wght].ttf"
+PREVIEW = ROOT / "work/preview/contact.jpg"
+WIDTH, HEIGHT = 1440, 3200
+OUTPUT_SIZE = (1080, 2400)
+CARD_LEFT, CARD_RIGHT = 110, 1330
+CARD_TOP, CARD_BOTTOM = 900, 2050
+PAD_X, PAD_TOP, PAD_BOTTOM = 66, 55, 52
+TEXT_WIDTH = CARD_RIGHT - CARD_LEFT - 2 * PAD_X
+NO_LINE_START = "、。，．・：；？！ー)）」』】〉》々ゃゅょっぁぃぅぇぉャュョッァィゥェォ］｝〕〟”’％‰℃"
+NO_LINE_END = "(（「『【〈《［｛〔〝“‘"
+WORD = re.compile(r"[A-Za-z0-9.,:%/+\-Ａ-Ｚａ-ｚ０-９．，：％／＋－]+")
+VISUAL_COLORS = {
+    "nature": (78, 120, 85), "water": (47, 119, 132),
+    "travel": (50, 109, 122), "history": (120, 92, 73),
+    "people": (183, 101, 86), "peace": (71, 121, 94),
+    "sports": (77, 133, 93), "science": (76, 102, 132),
+    "space": (81, 88, 141), "culture": (145, 105, 75),
+    "food": (166, 111, 62), "health": (73, 130, 115),
+    "technology": (60, 104, 115), "work": (104, 98, 79),
+    "seasonal": (100, 122, 84),
+}
 
 
-def font_path(bold: bool) -> Path:
-    names = (
-        ["meiryob.ttc", "YuGothB.ttc", "NotoSansCJK-Bold.ttc"]
-        if bold
-        else ["meiryo.ttc", "YuGothR.ttc", "NotoSansCJK-Regular.ttc"]
-    )
-    roots = [
-        Path("C:/Windows/Fonts"),
-        Path("/usr/share/fonts/opentype/noto"),
-        Path("/usr/share/fonts/truetype/noto"),
-    ]
-    for root in roots:
-        for name in names:
-            candidate = root / name
-            if candidate.is_file():
-                return candidate
-    raise SystemExit("A Japanese font is required (for example, Meiryo on Windows).")
+def load_font(size: int, bold: bool = False) -> ImageFont.FreeTypeFont:
+    font = ImageFont.truetype(str(FONT), size)
+    font.set_variation_by_name("Bold" if bold else "Regular")
+    return font
 
 
-def load_font(path: Path, size: int) -> ImageFont.FreeTypeFont:
-    return ImageFont.truetype(str(path), size)
+def text_atoms(text: str) -> list[str]:
+    """Keep Latin/full-width words and Japanese prohibited breaks together."""
+    atoms: list[str] = []
+    index = 0
+    while index < len(text):
+        match = WORD.match(text, index)
+        atom = match.group() if match else text[index]
+        index += len(atom)
+        if atom.isspace():
+            if atoms and atoms[-1] != " ":
+                atoms.append(" ")
+        elif atom[0] in NO_LINE_START:
+            if atoms and atoms[-1] == " ":
+                atoms.pop()
+            if not atoms:
+                raise ValueError(f"Prohibited punctuation at paragraph start: {atom}")
+            atoms[-1] += atom
+        else:
+            atoms.append(atom)
+    for index in range(len(atoms) - 2, -1, -1):
+        if atoms[index] and atoms[index][-1] in NO_LINE_END:
+            atoms[index] += atoms.pop(index + 1)
+    return atoms
 
 
 def wrap_text(text: str, font: ImageFont.FreeTypeFont, width: int) -> list[str]:
     probe = ImageDraw.Draw(Image.new("RGB", (1, 1)))
     lines: list[str] = []
-    for paragraph in text.splitlines() or [text]:
+    for paragraph in text.splitlines() or [""]:
         current = ""
-        for character in paragraph:
-            if character.isspace() and not current:
+        for atom in text_atoms(paragraph):
+            if atom == " " and not current:
                 continue
-            candidate = current + character
-            if not current or probe.textlength(candidate, font=font) <= width:
+            candidate = current + atom
+            if probe.textlength(candidate, font=font) <= width:
                 current = candidate
-                continue
-            if character in NO_LINE_START:
-                current += character
-                continue
-            if current[-1] in NO_LINE_END and len(current) > 1:
-                opening = current[-1]
-                lines.append(current[:-1].rstrip())
-                current = opening + character
             else:
-                lines.append(current.rstrip())
-                current = "" if character.isspace() else character
+                if current.strip():
+                    lines.append(current.rstrip())
+                current = "" if atom == " " else atom
+                if current and probe.textlength(current, font=font) > width:
+                    raise ValueError(f"Unbreakable text exceeds {width}px: {current}")
         if current.strip():
             lines.append(current.rstrip())
     return lines or [""]
 
 
-def layout_for(
-    entry: dict[str, object], bold_path: Path, regular_path: Path, width: int
-) -> dict[str, object]:
-    date = str(entry["date"])
-    month, day = (int(part) for part in date.split("-"))
-    label = f"{month}月{day}日　｜　{entry['kind']}"
-    title = str(entry["title"]).strip()
-    summary = str(entry["summary"]).strip()
-    work_tip = str(entry["work_tip"]).strip()
-    source = (
-        f"出典: ja.wikipedia.org/wiki/{month}月{day}日　・　CC BY-SA 4.0"
-    )
-
-    for summary_size in range(30, 22, -1):
-        for title_size in range(52, 35, -2):
-            label_font = load_font(regular_path, 24)
-            title_font = load_font(bold_path, title_size)
-            summary_font = load_font(regular_path, summary_size)
-            work_label_font = load_font(bold_path, 20)
-            work_tip_font = load_font(regular_path, 22)
-            source_font = load_font(regular_path, 15)
-            title_lines = wrap_text(title, title_font, width)
-            summary_lines = wrap_text(summary, summary_font, width)
-            label_lines = wrap_text(label, label_font, width)
-            work_label_lines = wrap_text("今日の仕事メモ", work_label_font, width)
-            work_tip_lines = wrap_text(work_tip, work_tip_font, width)
-            source_lines = wrap_text(source, source_font, width)
-
-            label_height = 31 * len(label_lines)
-            title_line_height = math.ceil(title_size * 1.23)
-            summary_line_height = math.ceil(summary_size * 1.48)
-            work_label_line_height = 26
-            work_tip_line_height = math.ceil(22 * 1.48)
-            source_height = 20 * len(source_lines)
-            height = (
-                CARD_PADDING_TOP
-                + label_height
-                + 14
-                + title_line_height * len(title_lines)
-                + 14
-                + summary_line_height * len(summary_lines)
-                + 30
-                + work_label_line_height * len(work_label_lines)
-                + 8
-                + work_tip_line_height * len(work_tip_lines)
-                + 14
-                + source_height
-                + CARD_PADDING_BOTTOM
-            )
-            if height <= CARD_MAX_HEIGHT:
-                return {
-                    "date": label,
-                    "title": title,
-                    "summary": summary,
-                    "work_tip": work_tip,
-                    "source": source,
-                    "label_font": label_font,
-                    "title_font": title_font,
-                    "summary_font": summary_font,
-                    "work_label_font": work_label_font,
-                    "work_tip_font": work_tip_font,
-                    "source_font": source_font,
-                    "title_lines": title_lines,
-                    "summary_lines": summary_lines,
-                    "label_lines": label_lines,
-                    "work_label_lines": work_label_lines,
-                    "work_tip_lines": work_tip_lines,
-                    "source_lines": source_lines,
-                    "label_height": label_height,
-                    "title_line_height": title_line_height,
-                    "summary_line_height": summary_line_height,
-                    "work_label_line_height": work_label_line_height,
-                    "work_tip_line_height": work_tip_line_height,
-                    "source_height": source_height,
-                    "height": height,
-                }
-    raise ValueError(f"Text does not fit on a wallpaper: {date}")
+def fit_lines(text: str, maximum: int, sizes: range, bold: bool = False):
+    for size in sizes:
+        font = load_font(size, bold)
+        lines = wrap_text(text, font, TEXT_WIDTH)
+        if len(lines) <= maximum:
+            return font, lines, math.ceil(size * 1.28)
+    raise ValueError(f"Text exceeds {maximum} lines: {text[:50]}")
 
 
-def draw_lines(
-    draw: ImageDraw.ImageDraw,
-    lines: list[str],
-    x: int,
-    y: int,
-    font: ImageFont.FreeTypeFont,
-    line_height: int,
-    fill: tuple[int, int, int, int],
-) -> int:
-    for line in lines:
-        draw.text((x, y), line, font=font, fill=fill, anchor="lt")
-        y += line_height
-    return y
+def layout_for(entry: dict) -> dict:
+    month, day = (int(part) for part in entry["date"].split("-"))
+    label = f"{month}月{day}日 ・ {entry['kind']}"
+    source = f"出典: ja.wikipedia.org/wiki/{month}月{day}日 ・ CC BY-SA 4.0"
+    parts = {
+        "label": (load_font(36), [label], 48),
+        "title": fit_lines(entry["title"].strip(), 2, range(84, 63, -2), True),
+        "summary": fit_lines(entry["summary"].strip(), 4, range(52, 43, -2)),
+        "work_label": (load_font(36, True), ["今日の仕事メモ"], 48),
+        "work_tip": fit_lines(entry["work_tip"].strip(), 2, range(44, 39, -2)),
+        "source": (load_font(26), [source], 35),
+    }
+    probe = ImageDraw.Draw(Image.new("RGB", (1, 1)))
+    for key in ("label", "source"):
+        font, lines, _ = parts[key]
+        if probe.textlength(lines[0], font=font) > TEXT_WIDTH:
+            raise ValueError(f"{key} does not fit: {entry['date']}")
+    gaps = (18, 22, 29, 16, 26)
+    height = PAD_TOP + PAD_BOTTOM + sum(
+        len(lines) * line_height for font, lines, line_height in parts.values()
+    ) + sum(gaps)
+    if height > CARD_BOTTOM - CARD_TOP:
+        raise ValueError(f"Card exceeds safe area: {entry['date']}")
+    return parts | {"height": height, "gaps": gaps}
 
 
-def compose(entry: dict[str, object], regular_path: Path, bold_path: Path) -> None:
-    date = str(entry["date"])
-    artwork_path = ILLUSTRATIONS / f"{date}.jpg"
+def lighten(color: tuple[int, int, int], amount: float) -> tuple[int, int, int]:
+    return tuple(round(value + (255 - value) * amount) for value in color)
+
+
+def gradient(top: tuple[int, int, int], bottom: tuple[int, int, int]) -> Image.Image:
+    strip = Image.new("RGB", (1, HEIGHT))
+    pixels = strip.load()
+    for y in range(HEIGHT):
+        blend = y / (HEIGHT - 1)
+        pixels[0, y] = tuple(round(a * (1 - blend) + b * blend) for a, b in zip(top, bottom))
+    return strip.resize((WIDTH, HEIGHT))
+
+
+def background_for(entry: dict) -> Image.Image:
+    date = entry["date"]
+    artwork_path = ILLUSTRATIONS / f"{date}.png"
     if not artwork_path.is_file():
-        raise FileNotFoundError(artwork_path)
+        artwork_path = ILLUSTRATIONS / f"{date}.jpg"
+    if not artwork_path.is_file():
+        color = VISUAL_COLORS.get(entry.get("visual"), (39, 96, 82))
+        return gradient(lighten(color, .72), lighten(color, .34))
 
-    left = CARD_MARGIN_X
-    right = WIDTH - CARD_MARGIN_X
-    inner_width = right - left - CARD_PADDING_X * 2
-    layout = layout_for(entry, bold_path, regular_path, inner_width)
-    card_height = int(layout["height"])
-    top = round(CARD_CENTER_Y - card_height / 2)
-    top = max(CARD_SAFE_TOP, min(top, HEIGHT - CARD_SAFE_BOTTOM - card_height))
-    bottom = top + card_height
+    with Image.open(artwork_path) as source:
+        artwork = source.convert("RGB")
+    scaled_height = round(artwork.height * WIDTH / artwork.width)
+    artwork = artwork.resize((WIDTH, scaled_height), Image.Resampling.LANCZOS)
+    top = HEIGHT - scaled_height
+    sample = artwork.crop((0, round(scaled_height * .03), WIDTH, round(scaled_height * .04)))
+    color = tuple(round(value) for value in ImageStat.Stat(sample).mean[:3])
+    base = gradient(lighten(color, .28), color)
+    visible_top = max(0, top)
+    visible_height = HEIGHT - visible_top
+    artwork = artwork.crop((0, max(0, -top), WIDTH, max(0, -top) + visible_height))
+    mask = Image.new("L", (1, visible_height))
+    mask_pixels = mask.load()
+    for y in range(visible_height):
+        mask_pixels[0, y] = min(255, round(y * 255 / 160)) if top > 0 else 255
+    base.paste(artwork, (0, visible_top), mask.resize((WIDTH, visible_height)))
+    return base
 
-    base = Image.open(artwork_path).convert("RGBA")
-    if base.size != (WIDTH, HEIGHT):
-        raise ValueError(f"Expected {WIDTH}x{HEIGHT}: {artwork_path} is {base.size}")
 
-    shadow = Image.new("RGBA", base.size, (0, 0, 0, 0))
-    shadow_draw = ImageDraw.Draw(shadow)
-    shadow_draw.rounded_rectangle(
-        (left, top + 9, right, bottom + 9),
-        radius=34,
-        fill=(30, 45, 39, 54),
+def compose(entry: dict) -> Path:
+    date = entry["date"]
+    try:
+        layout = layout_for(entry)
+    except ValueError as error:
+        raise ValueError(f"{date}: {error}") from error
+    base = background_for(entry).convert("RGBA")
+    bottom = CARD_TOP + layout["height"]
+    shadow = Image.new("RGBA", base.size)
+    ImageDraw.Draw(shadow).rounded_rectangle(
+        (CARD_LEFT, CARD_TOP + 12, CARD_RIGHT, bottom + 12),
+        radius=48, fill=(30, 45, 39, 55),
     )
-    base = Image.alpha_composite(base, shadow.filter(ImageFilter.GaussianBlur(16)))
-
-    draw = ImageDraw.Draw(base, "RGBA")
+    base = Image.alpha_composite(base, shadow.filter(ImageFilter.GaussianBlur(22)))
+    card = Image.new("RGBA", base.size)
+    draw = ImageDraw.Draw(card)
     draw.rounded_rectangle(
-        (left, top, right, bottom),
-        radius=34,
-        fill=(250, 248, 239, 238),
-        outline=(255, 255, 255, 242),
-        width=3,
+        (CARD_LEFT, CARD_TOP, CARD_RIGHT, bottom), radius=48,
+        fill=(250, 248, 239, 235), outline=(255, 255, 255, 220), width=3,
     )
+    base = Image.alpha_composite(base, card)
+    draw = ImageDraw.Draw(base)
+    x, y = CARD_LEFT + PAD_X, CARD_TOP + PAD_TOP
+    order = ("label", "title", "summary", "work_label", "work_tip", "source")
+    fills = ((78, 111, 93), (32, 53, 45), (43, 57, 51),
+             (78, 111, 93), (43, 57, 51), (93, 107, 99))
+    for index, key in enumerate(order):
+        font, lines, line_height = layout[key]
+        for line in lines:
+            draw.text((x, y), line, font=font, fill=fills[index], anchor="lt")
+            y += line_height
+        if index < len(layout["gaps"]):
+            gap = layout["gaps"][index]
+            if key == "summary":
+                draw.line((x, y + gap // 2, CARD_RIGHT - PAD_X, y + gap // 2),
+                          fill=(132, 157, 139, 170), width=2)
+            y += gap
+    WALLPAPERS.mkdir(parents=True, exist_ok=True)
+    output = WALLPAPERS / f"{date}.webp"
+    base.convert("RGB").resize(OUTPUT_SIZE, Image.Resampling.LANCZOS).save(
+        output, "WEBP", quality=80, method=6,
+    )
+    return output
 
-    x = left + CARD_PADDING_X
-    y = top + CARD_PADDING_TOP
-    y = draw_lines(
-        draw,
-        layout["label_lines"],
-        x,
-        y,
-        layout["label_font"],
-        31,
-        (78, 111, 93, 255),
-    )
-    y += 14
-    y = draw_lines(
-        draw,
-        layout["title_lines"],
-        x,
-        y,
-        layout["title_font"],
-        int(layout["title_line_height"]),
-        (32, 53, 45, 255),
-    )
-    y += 14
-    y = draw_lines(
-        draw,
-        layout["summary_lines"],
-        x,
-        y,
-        layout["summary_font"],
-        int(layout["summary_line_height"]),
-        (43, 57, 51, 255),
-    )
-    y += 15
-    draw.line(
-        (x, y, right - CARD_PADDING_X, y),
-        fill=(132, 157, 139, 170),
-        width=2,
-    )
-    y += 15
-    y = draw_lines(
-        draw,
-        layout["work_label_lines"],
-        x,
-        y,
-        layout["work_label_font"],
-        int(layout["work_label_line_height"]),
-        (78, 111, 93, 255),
-    )
-    y += 8
-    y = draw_lines(
-        draw,
-        layout["work_tip_lines"],
-        x,
-        y,
-        layout["work_tip_font"],
-        int(layout["work_tip_line_height"]),
-        (43, 57, 51, 255),
-    )
-    y += 14
-    draw_lines(
-        draw,
-        layout["source_lines"],
-        x,
-        y,
-        layout["source_font"],
-        20,
-        (93, 107, 99, 255),
-    )
 
-    output = WALLPAPERS / f"{date}.jpg"
-    output.parent.mkdir(parents=True, exist_ok=True)
-    base.convert("RGB").save(
-        output,
-        "JPEG",
-        quality=88,
-        optimize=True,
-        progressive=True,
-        subsampling=0,
-    )
+def make_preview() -> None:
+    dates = [f"{month:02d}-01" for month in range(1, 13)]
+    thumb_width, thumb_height = 270, 600
+    sheet = Image.new("RGB", (thumb_width * 6, thumb_height * 2), "#f4f1e9")
+    for index, date in enumerate(dates):
+        with Image.open(WALLPAPERS / f"{date}.webp") as image:
+            sheet.paste(image.resize((thumb_width, thumb_height)),
+                        ((index % 6) * thumb_width, (index // 6) * thumb_height))
+    PREVIEW.parent.mkdir(parents=True, exist_ok=True)
+    sheet.save(PREVIEW, "JPEG", quality=85)
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--only", nargs="+", metavar="MM-DD")
+    parser.add_argument("--preview", action="store_true")
+    args = parser.parse_args()
     payload = json.loads(DATA.read_text(encoding="utf-8"))
-    entries = payload["entries"] + [payload["leap_day"]]
-    regular_path = font_path(bold=False)
-    bold_path = font_path(bold=True)
-    for entry in entries:
-        compose(entry, regular_path, bold_path)
-    print(f"Composed {len(entries)} dated wallpapers with readable summaries.")
+    entries = {entry["date"]: entry for entry in payload["entries"] + [payload["leap_day"]]}
+    if args.only:
+        unknown = set(args.only) - entries.keys()
+        if unknown:
+            parser.error(f"Unknown dates: {', '.join(sorted(unknown))}")
+    selected = args.only or list(entries)
+    for date in selected:
+        compose(entries[date])
+    for old in WALLPAPERS.glob("*.jpg"):
+        old.unlink()
+    if args.preview:
+        for month in range(1, 13):
+            date = f"{month:02d}-01"
+            if not (WALLPAPERS / f"{date}.webp").is_file():
+                compose(entries[date])
+        make_preview()
+    print(f"Composed {len(selected)} wallpapers.")
 
 
 if __name__ == "__main__":

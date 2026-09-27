@@ -9,6 +9,17 @@ import io.flutter.plugin.common.MethodChannel
 class MainActivity : FlutterActivity() {
     private val channelName = "daily365/wallpaper"
 
+    override fun onResume() {
+        super.onResume()
+        Thread {
+            try {
+                DailyWallpaperScheduler.ensureToday(applicationContext)
+            } catch (_: Exception) {
+                // The next resume or scheduled alarm will retry.
+            }
+        }.start()
+    }
+
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)
         MethodChannel(flutterEngine.dartExecutor.binaryMessenger, channelName)

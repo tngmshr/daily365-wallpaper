@@ -20,6 +20,12 @@ jobs:
           channel: stable
           flutter-version: 3.47.2
           cache: true
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install image tooling
+        run: pip install pillow
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
       - name: Resolve Flutter packages

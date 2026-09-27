@@ -15,13 +15,22 @@
     li { padding: 3px 0; }
     a { color: #276052; }
     .small { color: #53645d; font-size: .92rem; }
+    .button { display: inline-block; padding: 10px 18px; border-radius: 9px; background: #276052; color: white; text-decoration: none; font-weight: 700; }
   </style>
 </head>
 <body>
   <h1>iPhoneで壁紙を毎日切り替える</h1>
   <p>iPhoneでは、アプリの内容はホーム画面に追加して読めます。壁紙の自動変更だけ、iOSの「ショートカット」で一度設定します。</p>
 
-  <h2>1. 日付に合う画像を取るショートカットを作る</h2>
+  <section id="shortcut-link" class="card" hidden>
+    <strong>今日の壁紙ショートカット</strong><br>
+    <a id="shortcut-button" class="button" href="#">ショートカットを追加（ワンタップ）</a>
+    <p>追加後、下の手順で毎日のオートメーションを設定してください。</p>
+  </section>
+
+  <details>
+    <summary>自分で作る場合</summary>
+  <h2>日付に合う画像を取るショートカットを作る</h2>
   <ol>
     <li>「ショートカット」アプリで新しいショートカットを作り、名前を「今日の壁紙」にします。</li>
     <li>アクション「現在の日付」を追加します。</li>
@@ -31,11 +40,12 @@
     <li>「壁紙を設定」を追加し、入力画像を「ロック画面」に設定します。「プレビューを表示」はオフにします。</li>
     <li>ショートカットを一度実行し、壁紙が設定されることを確認します。</li>
   </ol>
+  </details>
 
-  <h2>2. 毎朝のオートメーションを作る</h2>
+  <h2>毎日のオートメーションを作る</h2>
   <ol>
     <li>「ショートカット」アプリの「オートメーション」で「時刻」を選びます。</li>
-    <li>午前7時、繰り返し「毎日」を選びます。</li>
+    <li>午前0時1分、繰り返し「毎日」を選びます。</li>
     <li>アクション「ショートカットを実行」を選び、「今日の壁紙」を指定します。</li>
     <li>確認画面が出る場合は「すぐに実行」を選びます。古いiOSでは「実行の前に尋ねる」をオフにします。</li>
   </ol>
@@ -48,9 +58,16 @@
 
   <div class="card">
     <strong>通信と費用</strong><br>
-    日付の説明と挿絵はアプリに事前収録され、AIや利用時APIは呼び出しません。壁紙を毎朝切り替えるときだけ、GitHub Pages上の画像を1枚取得するためインターネット接続が必要です。通信量は画像1枚分です。
+    日付の説明と挿絵はアプリに事前収録され、AIや利用時APIは呼び出しません。壁紙を毎日切り替えるときだけ、GitHub Pages上の画像を1枚取得するためインターネット接続が必要です。通信量は画像1枚分です。
   </div>
 
   <p class="small">iOSのバージョンによってアクション名や確認画面の表示は少し異なります。<a href="https://support.apple.com/guide/shortcuts/apdfbdbd7123/ios">Appleのオートメーション手順</a>・<a href="https://support.apple.com/en-sg/101583">Appleの壁紙ショートカット手順</a></p>
+  <script>
+    const SHORTCUT_URL = "";
+    if (SHORTCUT_URL) {
+      document.getElementById('shortcut-button').href = SHORTCUT_URL;
+      document.getElementById('shortcut-link').hidden = false;
+    }
+  </script>
 </body>
 </html>
