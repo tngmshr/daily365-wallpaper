@@ -24,7 +24,7 @@ PAD_X, PAD_TOP, PAD_BOTTOM = 66, 55, 52
 TEXT_WIDTH = CARD_RIGHT - CARD_LEFT - 2 * PAD_X
 NO_LINE_START = "、。，．・：；？！ー)）」』】〉》々ゃゅょっぁぃぅぇぉャュョッァィゥェォ］｝〕〟”’％‰℃"
 NO_LINE_END = "(（「『【〈《［｛〔〝“‘"
-WORD = re.compile(r"[A-Za-z0-9.,:%/+\-Ａ-Ｚａ-ｚ０-９．，：％／＋－]+")
+WORD = re.compile(r"[A-Za-z0-9.,:%/+\-Ａ-Ｚａ-ｚ０-９．，：％／＋－]+|[ァ-ヴー]{2,10}")
 VISUAL_COLORS = {
     "nature": (78, 120, 85), "water": (47, 119, 132),
     "travel": (50, 109, 122), "history": (120, 92, 73),
@@ -44,7 +44,7 @@ def load_font(size: int, bold: bool = False) -> ImageFont.FreeTypeFont:
 
 
 def text_atoms(text: str) -> list[str]:
-    """Keep Latin/full-width words and Japanese prohibited breaks together."""
+    """Keep Latin/full-width words, katakana words and Japanese prohibited breaks together."""
     atoms: list[str] = []
     index = 0
     while index < len(text):
@@ -95,6 +95,13 @@ def fit_lines(text: str, maximum: int, sizes: range, bold: bool = False):
         font = load_font(size, bold)
         lines = wrap_text(text, font, TEXT_WIDTH)
         if len(lines) <= maximum:
+            # Avoid a last line of only a few characters (e.g. "す。") by narrowing the measure.
+            for shrink in range(1, 9):
+                if len(lines) < 2 or len(lines[-1]) > 3:
+                    break
+                narrower = wrap_text(text, font, TEXT_WIDTH - shrink * TEXT_WIDTH // 40)
+                if len(narrower) == len(lines):
+                    lines = narrower
             return font, lines, math.ceil(size * 1.28)
     raise ValueError(f"Text exceeds {maximum} lines: {text[:50]}")
 
