@@ -10,7 +10,7 @@ from PIL import Image, ImageDraw
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "assets" / "data" / "calendar.json"
-WALLPAPERS = ROOT / "assets" / "wallpapers"
+ILLUSTRATIONS = ROOT / "assets" / "illustrations"
 W, H = 900, 1600
 
 PALETTES = {
@@ -332,9 +332,9 @@ def render_icon(size: int, output: Path, maskable: bool=False) -> None:
 def main() -> None:
     data=json.loads(DATA.read_text(encoding="utf-8"))
     entries=data["entries"]+[data["leap_day"]]
-    WALLPAPERS.mkdir(parents=True,exist_ok=True)
+    ILLUSTRATIONS.mkdir(parents=True,exist_ok=True)
     for item in entries:
-        render_wallpaper(item["date"],item["visual"],WALLPAPERS/(item["date"]+".jpg"))
+        render_wallpaper(item["date"],item["visual"],ILLUSTRATIONS/(item["date"]+".jpg"))
     mipmap_sizes={"mipmap-mdpi":48,"mipmap-hdpi":72,"mipmap-xhdpi":96,"mipmap-xxhdpi":144,"mipmap-xxxhdpi":192}
     for folder,size in mipmap_sizes.items():
         render_icon(size,ROOT/"android"/"app"/"src"/"main"/"res"/folder/"ic_launcher.png")
@@ -343,7 +343,7 @@ def main() -> None:
     render_icon(192,ROOT/"web"/"icons"/"Icon-maskable-192.png",True)
     render_icon(512,ROOT/"web"/"icons"/"Icon-maskable-512.png",True)
     render_icon(32,ROOT/"web"/"favicon.png")
-    print(f"Generated {len(entries)} topic-matched, text-free wallpapers and the app icons.")
+    print(f"Generated {len(entries)} topic-matched illustrations and the app icons.")
 
 
 if __name__ == "__main__":

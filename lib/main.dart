@@ -231,7 +231,7 @@ class _TodayScreenState extends State<TodayScreen> {
         title: const Text('このアプリについて'),
         content: const Text(
           '通常の365日分と、うるう日用の内容を事前収録しています。日常利用にAI検索や外部APIは必要ありません。\n\n'
-          '暦の見出しと由来は日本語版Wikipediaの日付記事をもとに短く整えています。各日の出典記事と、記事にある参考資料へのリンクを表示します。暦の文章はCC BY-SA 4.0で利用できます。壁紙とアプリアイコンはこのアプリ用のオリジナル挿絵です。',
+          '暦の見出しと由来は日本語版Wikipediaの日付記事をもとに短く整えています。各日の出典記事と、記事にある参考資料へのリンクを表示します。暦の文章はCC BY-SA 4.0で利用できます。壁紙の背景挿絵とアプリアイコンはこのアプリ用のオリジナル作品で、壁紙には日付、見出し、説明、出典を載せています。',
         ),
         actions: [
           TextButton(
@@ -277,9 +277,6 @@ class _TodayScreenState extends State<TodayScreen> {
   );
 
   Widget _page(DateTime date, DayEntry item) {
-    const weekdays = ['月', '火', '水', '木', '金', '土', '日'];
-    final weekday = weekdays[date.weekday - 1];
-    final label = '${date.month}月${date.day}日（$weekday）';
     final style = styleFor(item.visual);
     final isAndroid =
         !kIsWeb && defaultTargetPlatform == TargetPlatform.android;
@@ -299,13 +296,6 @@ class _TodayScreenState extends State<TodayScreen> {
                     style: Theme.of(context).textTheme.labelLarge,
                   ),
                   const Spacer(),
-                  Flexible(
-                    child: Text(
-                      label,
-                      textAlign: TextAlign.end,
-                      style: Theme.of(context).textTheme.labelMedium,
-                    ),
-                  ),
                   IconButton(
                     tooltip: 'このアプリについて',
                     onPressed: _showCredits,
@@ -321,22 +311,6 @@ class _TodayScreenState extends State<TodayScreen> {
                 ),
               ),
               const SizedBox(height: 19),
-              Text(
-                item.kind,
-                style: Theme.of(context).textTheme.labelMedium?.copyWith(
-                  color: style.color,
-                  fontWeight: FontWeight.w800,
-                  letterSpacing: 1.1,
-                ),
-              ),
-              const SizedBox(height: 5),
-              Text(
-                item.title,
-                style: Theme.of(context).textTheme.headlineMedium
-                    ?.copyWith(fontWeight: FontWeight.w800, height: 1.2),
-              ),
-              const SizedBox(height: 12),
-              Text(item.summary, style: Theme.of(context).textTheme.bodyLarge),
               const SizedBox(height: 14),
               Container(
                 padding: const EdgeInsets.all(16),

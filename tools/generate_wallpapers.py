@@ -7,7 +7,7 @@ from PIL import Image, ImageDraw
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "assets" / "data" / "calendar.json"
-OUT = ROOT / "assets" / "wallpapers"
+OUT = ROOT / "assets" / "illustrations"
 W, H = 900, 1600
 
 PALETTES = {
