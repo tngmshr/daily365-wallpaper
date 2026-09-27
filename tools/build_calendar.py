@@ -1,4 +1,7 @@
-"""Build the 365-day offline Japanese calendar from cached date-page sources."""
+"""Build the 365-day offline Japanese calendar from cached date-page sources.
+
+calendar.json は手作業で精選した版。このスクリプトを実行すると上書きされるので通常は使わない。
+"""
 
 from __future__ import annotations
 
@@ -9,7 +12,7 @@ from pathlib import Path
 from urllib.parse import quote
 
 ROOT = Path(__file__).resolve().parents[1]
-RAW = ROOT.parent.parent / "work" / "research" / "date_articles_raw.json"
+RAW = ROOT / "work" / "date_articles_raw.json"
 OUT = ROOT / "assets" / "data" / "calendar.json"
 
 WORK_TIPS = {
