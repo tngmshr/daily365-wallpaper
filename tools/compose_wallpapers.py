@@ -147,10 +147,9 @@ def gradient(top: tuple[int, int, int], bottom: tuple[int, int, int]) -> Image.I
 
 def background_for(entry: dict) -> Image.Image:
     date = entry["date"]
-    artwork_path = ILLUSTRATIONS / f"{date}.png"
-    if not artwork_path.is_file():
-        artwork_path = ILLUSTRATIONS / f"{date}.jpg"
-    if not artwork_path.is_file():
+    artwork_path = next((path for suffix in (".webp", ".png", ".jpg")
+                         if (path := ILLUSTRATIONS / f"{date}{suffix}").is_file()), None)
+    if artwork_path is None:
         color = VISUAL_COLORS.get(entry.get("visual"), (39, 96, 82))
         return gradient(lighten(color, .72), lighten(color, .34))
 

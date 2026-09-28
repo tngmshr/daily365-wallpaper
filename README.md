@@ -29,7 +29,7 @@ Flutter 3.47.2、Android SDK、Python 3、Pillowが必要です。
     flutter build web --release --base-href "/REPOSITORY/"
     python tools/package_web.py
 
-壁紙素材は `python tools/compose_wallpapers.py` で生成します。挿絵は `assets/illustrations/MM-DD.png`、暦文は `assets/data/calendar.json` を入力にします。現在のJPG挿絵もPNGへの差し替えまでは読み込めます。Noto Sans JP可変フォント（`tools/fonts/NotoSansJP[wght].ttf`）を使い、1440×3200のマスターから1080×2400のWebPを366枚出力します。指定日のみなら `--only 01-03 09-27`、各月1日の一覧も作るなら `--preview` を付けます。文章が指定の行数に収まらない場合は日付を示して停止します。
+壁紙素材は `python tools/compose_wallpapers.py` で生成します。挿絵は `assets/illustrations/MM-DD.webp`（PNG・JPGも可）、暦文は `assets/data/calendar.json` を入力にします。挿絵は日付ごとの場面（`scene`）をもとに画像生成AIで作ったものです。Noto Sans JP可変フォント（`tools/fonts/NotoSansJP[wght].ttf`）を使い、1440×3200のマスターから1080×2400のWebPを366枚出力します。指定日のみなら `--only 01-03 09-27`、各月1日の一覧も作るなら `--preview` を付けます。文章が指定の行数に収まらない場合は日付を示して停止します。
 
 Web公開時は `tools/package_web.py` がWebPを1080×2400のJPEGに変換し、iPhoneショートカット用の `/wallpapers/MM-DD.jpg` を作ります。
 
