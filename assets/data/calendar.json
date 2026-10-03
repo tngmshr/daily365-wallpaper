@@ -457,11 +457,15 @@
       "date": "01-30",
       "title": "3分間電話の日",
       "kind": "記念日",
-      "summary": "1970年、公衆電話の市内通話が3分10円の料金になりました。それ以前は一通話10円で時間の制限がありませんでした。",
+      "summary": "公衆電話の市内通話は、かつて10円で時間の制限がありませんでした。通話を3分で区切る仕組みが始まったことにちなむ日です。",
       "work_tip": "短い連絡でも要点が伝わる順序を考える",
       "visual": "technology",
       "scene": "A calm editorial illustration of a vintage unbranded public telephone on a quiet street, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
       "sources": [
+        {
+          "label": "NTT東日本 電信電話の歴史",
+          "url": "https://www.ntt-east.co.jp/databook/history-telecom.html"
+        },
         {
           "label": "1月30日の日付記事と脚注",
           "url": "https://ja.wikipedia.org/wiki/1%E6%9C%8830%E6%97%A5"
@@ -1852,11 +1856,15 @@
       "date": "04-25",
       "title": "世界ペンギンの日",
       "kind": "記念日",
-      "summary": "繁殖を終えたアデリーペンギンは海を目指し、南極の研究基地のそばを通る頃に祝われます。暮らしを知る日です。",
+      "summary": "南極の研究基地で、海で過ごしたアデリーペンギンが毎年この頃に同じ場所へ戻ってくると気づいたのが始まりです。暮らしを知る日です。",
       "work_tip": "季節の動きに合わせて予定を見直す",
       "visual": "nature",
       "scene": "A calm editorial illustration of Adelie penguins walking across a sunlit Antarctic shore, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
       "sources": [
+        {
+          "label": "ドイツ連邦環境庁 世界ペンギンの日",
+          "url": "https://www.umweltbundesamt.de/en/press/pressinformation/25-april-is-world-penguin-day"
+        },
         {
           "label": "4月25日の日付記事と脚注",
           "url": "https://ja.wikipedia.org/wiki/4%E6%9C%8825%E6%97%A5"
@@ -2658,11 +2666,15 @@
       "date": "06-10",
       "title": "時の記念日",
       "kind": "記念日",
-      "summary": "水時計で時を知らせたという古い記録にちなみ、天文台などが1920年に制定しました。時間の使い方を考える日です。",
+      "summary": "671年に天智天皇が漏刻（水時計）で時を知らせた記録にちなみ、1920年に生活改善同盟会が制定しました。時間を大切にする日です。",
       "work_tip": "会議の時間配分を先に決めておく",
       "visual": "science",
       "scene": "A calm editorial illustration of a simple hourglass beside a water clock model, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
       "sources": [
+        {
+          "label": "国立天文台 暦Wiki 時の記念日",
+          "url": "https://eco.mtk.nao.ac.jp/koyomi/wiki/BBFEB9EF2FBBFEA4CEB5ADC7B0C6FC.html"
+        },
         {
           "label": "6月10日の日付記事と脚注",
           "url": "https://ja.wikipedia.org/wiki/6%E6%9C%8810%E6%97%A5"
@@ -4335,11 +4347,15 @@
       "date": "09-13",
       "title": "世界の法の日",
       "kind": "記念日",
-      "summary": "1965年に始まった国際会議で、正式な法律に基づく社会を目指す宣言が採択されました。その節目にちなむ日です。",
+      "summary": "1965年のこの日、「法による世界平和」を掲げた国際会議が開幕したことにちなむ日です。法のもとで争いを解く大切さを考えます。",
       "work_tip": "皆で共有するルールを分かりやすくする",
       "visual": "peace",
       "scene": "A calm editorial illustration of balanced scales on a simple desk without inscriptions, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
       "sources": [
+        {
+          "label": "World Jurist Association 会議資料",
+          "url": "https://worldjurist.org/wp-content/uploads/2020/07/CONGRESO-GENEVA-1967.pdf"
+        },
         {
           "label": "9月13日の日付記事と脚注",
           "url": "https://ja.wikipedia.org/wiki/9%E6%9C%8813%E6%97%A5"
@@ -5474,11 +5490,15 @@
       "date": "11-21",
       "title": "インターネット記念日",
       "kind": "記念日",
-      "summary": "1969年、今のネットにつながる通信網の実験が始まりました。遠くの情報を結ぶ仕組みの歩みにちなみます。",
+      "summary": "1969年のこの日、インターネットの起源となったARPANETで、最初の常設の接続ができました。情報を結ぶ仕組みの歩みにちなみます。",
       "work_tip": "共有する情報の届き先を確かめる",
       "visual": "technology",
       "scene": "A calm editorial illustration of simple connected computers on a blank desk, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
       "sources": [
+        {
+          "label": "UCLA Samueli インターネット50周年",
+          "url": "https://samueli.ucla.edu/internet50-press/"
+        },
         {
           "label": "11月21日の日付記事と脚注",
           "url": "https://ja.wikipedia.org/wiki/11%E6%9C%8821%E6%97%A5"
