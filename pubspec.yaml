@@ -1,7 +1,7 @@
 name: kyouha_nani
 description: "AIを使わずにオフラインで読める、365日の日めくりと毎日の壁紙アプリ。"
 publish_to: 'none'
-version: 1.1.0+4
+version: 1.2.0+5
 
 environment:
   sdk: ^3.13.2
