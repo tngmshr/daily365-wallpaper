@@ -89,19 +89,52 @@ class TodayScreen extends StatefulWidget {
   State<TodayScreen> createState() => _TodayScreenState();
 }
 
-class _TodayScreenState extends State<TodayScreen> {
+class _TodayScreenState extends State<TodayScreen> with WidgetsBindingObserver {
   late final Future<Map<String, DayEntry>> entries = _loadEntries();
   bool _wallpaperEnabled = false;
+  Map<String, dynamic> _wallpaperStatus = const {};
 
   @override
   void initState() {
     super.initState();
-    if (!kIsWeb && defaultTargetPlatform == TargetPlatform.android) {
-      const MethodChannel('daily365/wallpaper')
-          .invokeMethod<bool>('isEnabled')
-          .then((enabled) {
-            if (mounted) setState(() => _wallpaperEnabled = enabled ?? false);
-          });
+    WidgetsBinding.instance.addObserver(this);
+    _refreshWallpaperStatus();
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.resumed) _refreshWallpaperStatus();
+  }
+
+  bool get _isAndroid =>
+      !kIsWeb && defaultTargetPlatform == TargetPlatform.android;
+
+  bool get _isXiaomi {
+    final manufacturer = (_wallpaperStatus['manufacturer'] as String? ?? '')
+        .toLowerCase();
+    return manufacturer.contains('xiaomi') ||
+        manufacturer.contains('redmi') ||
+        manufacturer.contains('poco');
+  }
+
+  Future<void> _refreshWallpaperStatus() async {
+    if (!_isAndroid) return;
+    try {
+      final status = await const MethodChannel('daily365/wallpaper')
+          .invokeMapMethod<String, dynamic>('status');
+      if (!mounted || status == null) return;
+      setState(() {
+        _wallpaperStatus = status;
+        _wallpaperEnabled = status['enabled'] as bool? ?? false;
+      });
+    } on PlatformException {
+      // Keep the last status visible if the platform is temporarily unavailable.
     }
   }
 
@@ -174,6 +207,8 @@ class _TodayScreenState extends State<TodayScreen> {
           .invokeMethod<bool>(enabled ? 'enableDaily' : 'disableDaily');
       if (!mounted) return;
       setState(() => _wallpaperEnabled = enabled);
+      await _refreshWallpaperStatus();
+      if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(
@@ -182,6 +217,7 @@ class _TodayScreenState extends State<TodayScreen> {
         ),
       );
     } on PlatformException catch (error) {
+      await _refreshWallpaperStatus();
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
@@ -190,6 +226,52 @@ class _TodayScreenState extends State<TodayScreen> {
       );
     }
   }
+
+  Future<void> _openWallpaperSetting(String method) async {
+    try {
+      await const MethodChannel('daily365/wallpaper')
+          .invokeMethod<void>(method);
+    } on PlatformException catch (error) {
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('設定画面を開けませんでした: ${error.message ?? '端末の設定をご確認ください。'}'),
+        ),
+      );
+    }
+  }
+
+  String _formatTimestamp(Object? value) {
+    if (value is! int || value <= 0) return '未記録';
+    final date = DateTime.fromMillisecondsSinceEpoch(value).toLocal();
+    final month = date.month.toString().padLeft(2, '0');
+    final day = date.day.toString().padLeft(2, '0');
+    final hour = date.hour.toString().padLeft(2, '0');
+    final minute = date.minute.toString().padLeft(2, '0');
+    return '${date.year}/$month/$day $hour:$minute';
+  }
+
+  String _triggerLabel(Object? value) => switch (value) {
+    'alarm' => '0時のアラーム',
+    'worker' => '予備の定期実行',
+    'resume' => 'アプリ復帰',
+    'boot' => '端末起動',
+    'system' => '時刻・タイムゾーン変更',
+    'enable' => '自動切替を有効化',
+    'setNow' => '今すぐ設定',
+    _ => '未記録',
+  };
+
+  Widget _statusRow(String label, String value) => Padding(
+    padding: const EdgeInsets.only(top: 5),
+    child: Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        SizedBox(width: 118, child: Text(label)),
+        Expanded(child: Text(value)),
+      ],
+    ),
+  );
 
   Future<void> _openSource(String url) async {
     try {
@@ -362,12 +444,107 @@ class _TodayScreenState extends State<TodayScreen> {
                   padding: const EdgeInsets.only(top: 12),
                   child: Card(
                     color: const Color(0xffe8f0eb),
-                    child: SwitchListTile.adaptive(
-                      value: _wallpaperEnabled,
-                      onChanged: _toggleDailyWallpaper,
-                      secondary: const Icon(Icons.wallpaper),
-                      title: const Text('ロック画面を毎日自動更新'),
-                      subtitle: const Text('毎日0時ごろ。省電力設定により時刻が前後する場合があります。'),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        SwitchListTile.adaptive(
+                          value: _wallpaperEnabled,
+                          onChanged: _toggleDailyWallpaper,
+                          secondary: const Icon(Icons.wallpaper),
+                          title: const Text('ロック画面を毎日自動更新'),
+                          subtitle: const Text('毎日0時ごろ。省電力設定により時刻が前後する場合があります。'),
+                        ),
+                        if (_wallpaperEnabled)
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(16, 0, 16, 14),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const Divider(height: 12),
+                                Text(
+                                  '動作状況',
+                                  style: Theme.of(context).textTheme.titleSmall
+                                      ?.copyWith(fontWeight: FontWeight.w800),
+                                ),
+                                _statusRow(
+                                  '最後の成功',
+                                  _formatTimestamp(
+                                    _wallpaperStatus['lastSuccessAt'],
+                                  ),
+                                ),
+                                _statusRow(
+                                  '最後の試行',
+                                  _formatTimestamp(
+                                    _wallpaperStatus['lastAttemptAt'],
+                                  ),
+                                ),
+                                _statusRow(
+                                  'きっかけ',
+                                  _triggerLabel(
+                                    _wallpaperStatus['lastTrigger'],
+                                  ),
+                                ),
+                                _statusRow(
+                                  '電池の最適化',
+                                  _wallpaperStatus['isIgnoringBatteryOptimizations'] ==
+                                          true
+                                      ? '対象外'
+                                      : '対象（制限される場合があります）',
+                                ),
+                                _statusRow(
+                                  '0時の予約',
+                                  _wallpaperStatus['exactAlarmsAllowed'] == true
+                                      ? '正確なアラームを利用可能'
+                                      : '非正確なアラームで予約',
+                                ),
+                                if ((_wallpaperStatus['lastError'] as String?)
+                                        ?.isNotEmpty ==
+                                    true)
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 8),
+                                    child: Text(
+                                      '直近のエラー: ${_wallpaperStatus['lastError']}',
+                                      style: TextStyle(
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .error,
+                                      ),
+                                    ),
+                                  ),
+                                if (_isXiaomi)
+                                  const Padding(
+                                    padding: EdgeInsets.only(top: 10),
+                                    child: Text(
+                                      'Xiaomi端末では「自動起動」をオン、「バッテリーセーバー」を「制限なし」に設定してください。',
+                                    ),
+                                  ),
+                                const SizedBox(height: 6),
+                                Wrap(
+                                  spacing: 4,
+                                  runSpacing: 0,
+                                  children: [
+                                    TextButton.icon(
+                                      onPressed: () => _openWallpaperSetting(
+                                        'requestIgnoreBatteryOptimizations',
+                                      ),
+                                      icon: const Icon(
+                                        Icons.battery_saver_outlined,
+                                      ),
+                                      label: const Text('電池の最適化を外す'),
+                                    ),
+                                    TextButton.icon(
+                                      onPressed: () => _openWallpaperSetting(
+                                        'openAutostartSettings',
+                                      ),
+                                      icon: const Icon(Icons.open_in_new),
+                                      label: const Text('自動起動の設定を開く'),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                      ],
                     ),
                   ),
                 ),
