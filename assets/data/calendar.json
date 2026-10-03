@@ -903,11 +903,15 @@
       "date": "02-25",
       "title": "箱根用水完成の日",
       "kind": "記念日",
-      "summary": "1670年、芦ノ湖の水を村へ導く箱根用水が完成しました。峠にトンネルを掘った工夫を振り返る日です。",
+      "summary": "寛文10年（1670年）のこの日、芦ノ湖の水を村へ引く箱根用水のトンネルが貫通しました。水が流れたのは同じ年の4月です。",
       "work_tip": "必要な人へ届く流れを図にして確かめる",
       "visual": "water",
       "scene": "A calm editorial illustration of a stone water channel carrying clear water through green hills, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
       "sources": [
+        {
+          "label": "裾野市「箱根用水」",
+          "url": "https://www.city.susono.shizuoka.jp/kanko/6/1/19960.html"
+        },
         {
           "label": "2月25日の日付記事と脚注",
           "url": "https://ja.wikipedia.org/wiki/2%E6%9C%8825%E6%97%A5"
@@ -4799,6 +4803,10 @@
       "scene": "A calm editorial illustration of simple everyday tools neatly arranged on a wooden bench, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
       "sources": [
         {
+          "label": "かっぱ橋道具街「沿革」",
+          "url": "https://www.kappabashi.or.jp/history/"
+        },
+        {
           "label": "10月9日の日付記事と脚注",
           "url": "https://ja.wikipedia.org/wiki/10%E6%9C%889%E6%97%A5"
         }
@@ -5593,6 +5601,10 @@
       "visual": "science",
       "scene": "A calm editorial illustration of a simple unmarked medal beside research notes, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
       "sources": [
+        {
+          "label": "三鷹市議会 会議録（ノーベルの遺言の日付）",
+          "url": "https://www.city.mitaka.lg.jp/c_shimin_kaigiroku/060/attached/attach_60612_1.pdf"
+        },
         {
           "label": "11月27日は何の日 - 今日は何の日",
           "url": "https://kids.yahoo.co.jp/today/1127"
