@@ -2,8 +2,8 @@
 01-01,元日,年中行事,季節,1,1,1,1,0,2,1,1,0,0,4,残す,confirmed,政府,国（祝日法）,https://www8.cao.go.jp/chosei/shukujitsu/gaiyou.html,law,,業務との接点が薄い
 01-02,初夢の日,年中行事,季節,1,1,1,1,1,2,1,1,0,0,5,残す,date_only,年中行事（制定者なし）,年中行事（初夢の慣習）,https://web-japan.org/kidsweb/ja/explore/calendar/january/hatsuyume.html,gov,,休憩時の会話向き
 01-03,ひとみの日,記念日,仕事,1,1,1,1,2,2,1,0,0,0,5,残す,date_only,不明,不明,https://www2.kyotocitylib.jp/wysiwyg/file/download/35/855,gov,,健康・環境・技術の話題；一次情報を確認できず；再調査(10/4): 京都市中央図書館の2020年1月号に1月3日・ひとみの日と語呂合わせの由来を記載しているが、制定者名はなく記念日事典を参照した紹介である。
-01-04,仕事始め,年中行事,季節,1,1,0,1,1,2,1,1,0,0,5,要検討,date_only,自治体,長野県（県庁の仕事始め）,https://www.pref.nagano.lg.jp/koho/kensei/koho/chijikaiken/2018/20181214.html,local_gov,,休憩時の会話向き；年により日付が変動
-01-05,囲碁の日,記念日,ユニーク,1,1,1,1,1,1,1,0,0,0,3,要検討,confirmed,公益・非営利団体,日本棋院・関西棋院・日本ペア碁協会,https://www.nihonkiin.or.jp/news/etc/15.html,founder,,休憩時の会話向き
+01-04,仕事始め,年中行事,季節,1,1,1,1,1,2,1,1,0,0,5,残す,date_only,自治体,長野県（県庁の仕事始め）,https://www.pref.nagano.lg.jp/koho/kensei/koho/chijikaiken/2018/20181214.html,local_gov,,休憩時の会話向き；年により日付が変動 / G3: 固定日扱い（yearly-rotation.md）（10/4 本人判断）
+01-05,囲碁の日,記念日,ユニーク,1,1,1,1,1,1,1,0,0,0,3,残す,confirmed,公益・非営利団体,日本棋院・関西棋院・日本ペア碁協会,https://www.nihonkiin.or.jp/news/etc/15.html,founder,,休憩時の会話向き / 合計4未満だが例外として残す（10/4 本人判断）
 01-06,東京消防出初式,年中行事,仕事,1,1,1,1,3,2,2,1,1,0,9,残す,confirmed,自治体,東京消防庁,https://www.tfd.metro.tokyo.lg.jp/fs/koganei/page_00104.html,gov,,2026-10-04 差し替え。東京消防庁の案内は毎年1月6日実施と説明し、行進、消防活動演技、はしご乗りを含む防火・防災行事とする。
 01-07,人日の節句,年中行事,季節,1,1,1,1,0,2,1,1,0,0,4,残す,confirmed,年中行事（制定者なし）,年中行事（人日の節句）,https://www.maff.go.jp/j/pr/aff/1712/characterinformation.html,gov,,業務との接点が薄い
 01-08,イヤホンの日,記念日,仕事,1,1,1,1,2,1,2,0,0,-1,4,残す,confirmed,業界団体,イヤホンナビ,https://www.earphones.jp/earphones-day.php,founder,,健康・環境・技術の話題
@@ -33,7 +33,7 @@
 02-01,テレビ放送記念日,記念日,仕事,1,1,1,1,2,2,1,0,1,0,6,残す,confirmed,政府,日本放送協会（東京でのテレビ放送開始）,https://www.archives.go.jp/ayumi/kobetsu/s28_1953_01.html,gov,,健康・環境・技術の話題
 02-02,世界湿地の日,国際デー,仕事,1,1,1,1,2,2,1,0,0,0,5,残す,confirmed,国際機関,湿地条約事務局・国連総会,https://www.worldwetlandsday.org/about,intl,,健康・環境・技術の話題
 02-03,米国憲法修正第16条批准,できごと,仕事,1,1,1,1,3,2,2,0,0,0,7,残す,confirmed,政府,米国の各州議会（批准）,https://www.archives.gov/milestone-documents/16th-amendment,gov,,2026-10-04 差し替え。米国国立公文書館は第16修正条項が1913年2月3日に批准され、連邦所得税の根拠となったと記載しています。
-02-04,立春,季節の行事,季節,1,1,0,1,0,2,1,1,0,0,4,要検討,date_only,年中行事（制定者なし）,年中行事（二十四節気・立春）,https://eco.mtk.nao.ac.jp/koyomi/yoko/2026/rekiyou262.html,gov,,業務との接点が薄い；年により日付が変動
+02-04,立春,季節の行事,季節,1,1,1,1,0,2,1,1,0,0,4,残す,date_only,年中行事（制定者なし）,年中行事（二十四節気・立春）,https://eco.mtk.nao.ac.jp/koyomi/yoko/2026/rekiyou262.html,gov,,業務との接点が薄い；年により日付が変動 / G3: solar_term で年ごとの日付を持つ（10/4 本人判断）
 02-05,気象関係者の日,記念日,仕事,1,1,1,1,3,2,1,0,0,0,6,残す,confirmed,不明,不明,https://www.weather.gov/ict/NationalWeathermansDay,gov,,2026-10-04 差し替え。米国国立気象局のページは2月5日を気象予報士の日とし、ジェフリーズの誕生日を記念する由来と予報・警報を担う人々への顕彰を記載しています。
 02-06,サーミ国民の日,記念日,ユニーク,1,1,1,1,1,2,2,0,0,0,5,残す,confirmed,不明,不明,https://sametinget.no/om-sametinget/samenes-nasjonaldag-og-samiske-nasjonalsymboler/,gov,,2026-10-04 差し替え。ノルウェーのサーミ議会公式ページは日付、1917年の最初の会議、国境を越えた協力を記載しています。
 02-07,長野の日（オリンピックメモリアルデー）,記念日,季節,1,1,1,1,1,2,2,1,0,0,6,残す,confirmed,公益・非営利団体,日本青年会議所北陸信越地区長野ブロック協議会,https://www.pref.nagano.lg.jp/rinsei/documents/kaigisiryo1.pdf,gov,,2026-10-04 差し替え。長野県資料は開会式日、記念日の趣旨、制定団体、平成10年開始を掲載しています。
@@ -108,7 +108,7 @@
 04-16,世界ボイスデー,国際デー,仕事,1,1,1,1,2,1,1,0,0,0,4,残す,date_only,不明,,https://worldvoiceday.org/archive/,org,,2026-10-04 差し替え。公式アーカイブは4月16日を伝統的に最も広く受け入れられた日とし、催しの時期には地域差も記載しています。
 04-17,恐竜の日,記念日,仕事,1,1,1,1,2,2,1,0,0,0,5,残す,date_only,不明,不明,https://www.city.karatsu.lg.jp/site/library/2210.html,gov,,健康・環境・技術の話題；一次情報を確認できず；再調査(10/4): 唐津市近代図書館の展示案内は4月17日を恐竜の日と明記するが、制定者や中央アジア探検にちなむ由来は記載していない。
 04-18,発明の日,記念日,仕事,1,1,1,1,2,2,1,0,0,0,5,残す,confirmed,政府,通商産業省（現・経済産業省）,https://chizai-portal.inpit.go.jp/madoguchi/aichi/news/post_62.html,gov,,健康・環境・技術の話題；一次情報を確認できず；再調査(10/4): INPIT知財総合支援窓口は1885年4月18日の専売特許条例公布を記念して通商産業省が1954年1月28日に毎年4月18日を発明の日と決定したと記載している。
-04-19,地図の日,記念日,仕事,1,1,0,1,3,2,2,0,1,0,8,要検討,date_only,不明,伊能忠敬（測量出発）,https://www.gsi.go.jp/common/000236440.pdf,gov,,安全・設備・計量の実務に関係；旧暦と西暦の対応に要照合 / 要約修正済み（10/4）
+04-19,地図の日,記念日,仕事,1,1,1,1,3,2,2,0,1,0,8,残す,date_only,不明,伊能忠敬（測量出発）,https://www.gsi.go.jp/common/000236440.pdf,gov,,安全・設備・計量の実務に関係；旧暦と西暦の対応に要照合 / 要約修正済み（10/4） / G3: 本文で旧暦との区別を説明（10/4 本人判断）
 04-20,中国語デー,国際デー,ユニーク,1,1,1,1,1,2,1,0,0,0,4,残す,date_only,不明,,https://www.unic.or.jp/activities/international_observances/days/,un,,2026-10-04 差し替え。国連広報センターの公式一覧で4月20日と名称を確認し、由来は本文から確認できませんでした。
 04-21,創造性とイノベーションの世界デー,国際デー,仕事,1,1,1,1,2,2,2,0,0,0,6,残す,date_only,不明,,https://www.unic.or.jp/activities/international_observances/days/,un,,2026-10-04 差し替え。国連広報センターの公式一覧で4月21日と名称を確認し、制定経緯は未確認です。
 04-22,国際母なる地球デー,国際デー,ユニーク,0,1,1,1,1,0,1,0,0,0,2,要検討,not_found,不明,不明,,intl,,休憩時の会話向き；一次情報を確認できず
@@ -171,7 +171,7 @@
 06-18,持続可能な食文化の日,国際デー,仕事,1,1,1,1,2,2,2,0,0,0,6,残す,date_only,不明,不明,https://www.fao.org/sustainable-gastronomy-day/en,un,,2026-10-04 差し替え。FAO公式ページが日付と持続可能な食文化の考え方を説明しています。
 06-19,世界鎌状赤血球症デー,国際デー,仕事,1,1,1,1,2,2,1,0,0,0,5,残す,confirmed,国際機関,国連総会,https://www3.paho.org/hq/dmdocuments/2009/Sickle_cell_anemia_day.pdf,un,,2026-10-04 差し替え。PAHO掲載の国際文書が課題への認識と毎年の啓発日を記載しています。
 06-20,世界難民の日,国際デー,ユニーク,1,1,1,1,1,2,1,0,0,0,4,残す,confirmed,国際機関,国連総会,https://digitallibrary.un.org/record/428904/files/A_RES_55_76-EN.pdf,un,,2026-10-04 差し替え。国連総会決議が2001年から6月20日を記念することを定めています。
-06-21,夏至,季節の行事,季節,1,1,0,1,0,2,1,1,0,0,4,要検討,date_only,年中行事（制定者なし）,年中行事（二十四節気・夏至）,https://eco.mtk.nao.ac.jp/koyomi/yoko/2026/rekiyou262.html,gov,,業務との接点が薄い；年により日付が変動
+06-21,夏至,季節の行事,季節,1,1,1,1,0,2,1,1,0,0,4,残す,date_only,年中行事（制定者なし）,年中行事（二十四節気・夏至）,https://eco.mtk.nao.ac.jp/koyomi/yoko/2026/rekiyou262.html,gov,,業務との接点が薄い；年により日付が変動 / G3: solar_term で年ごとの日付を持つ（10/4 本人判断）
 06-22,名誉回復・追悼の日,記念日,仕事,1,1,1,1,3,2,2,0,0,0,7,残す,confirmed,政府,厚生労働省,https://www.mhlw.go.jp/content/10901000/000907945.pdf,gov,,2026-10-04 差し替え。厚生労働省資料が法令施行日と追悼・名誉回復行事を示しています。
 06-23,国連パブリック・サービス・デー,国際デー,仕事,1,1,1,1,2,2,1,0,0,0,5,残す,confirmed,国際機関,国連総会,https://www.gov.pl/web/sluzbacywilna/23-czerwca--dzien-sluzby-publicznej,gov,,2026-10-04 差し替え。ポーランド政府の公務員局が日付、国連総会の制定、公共サービスの意義を説明しています。
 06-24,外交における女性の国際デー,国際デー,ユニーク,1,1,1,1,1,2,1,0,0,0,4,残す,confirmed,国際機関,国連総会,https://digitallibrary.un.org/record/3978483/files/A_RES_76_269-EN.pdf,un,,2026-10-04 差し替え。国連総会決議76/269が年次の日付と女性の平等参加を定めています。
@@ -318,7 +318,7 @@
 11-12,皮膚の日,記念日,仕事,1,1,1,1,2,1,1,0,0,0,4,残す,confirmed,公益・非営利団体,日本臨床皮膚科医会,https://www.dermatol.or.jp/public/publicnews/19256/,org,,2026-10-04 差し替え。日本臨床皮膚科医会の公式ページが制定年、日付、語呂の由来を示しています。
 11-13,あいさつの日,記念日,ユニーク,1,1,1,1,1,2,2,0,0,0,5,残す,confirmed,公益・非営利団体,一般社団法人日本あいさつ検定協会,https://www.city.kurume.fukuoka.jp/1500soshiki/9170kyousou/3010oshirase/2025-1007-1759-162.html,local_gov,,久留米市公式ページが日付と制定協会を明記
 11-14,世界糖尿病デー,国際デー,仕事,1,1,1,1,2,2,1,0,0,0,5,残す,confirmed,公益・非営利団体,International Diabetes Federation（WHO支援）,https://www.who.int/campaigns/world-diabetes-day,un,,2026-10-04 差し替え。WHO公式ページが11月14日、1991年の開始、国際糖尿病連合とWHOの関係を示しています。
-11-15,七五三,年中行事,季節,1,1,0,1,0,1,1,1,0,0,3,要検討,date_only,年中行事（制定者なし）,年中行事（七五三）,https://www.jinjahoncho.or.jp/omairi/shichigosan/,founder,,宗教行事のためG2不通過；年により日付が変動 / G2: 一般的な行事として通す（10/4 本人判断） / 要約修正済み（10/4）
+11-15,七五三,年中行事,季節,1,1,1,1,0,1,1,1,0,0,3,残す,date_only,年中行事（制定者なし）,年中行事（七五三）,https://www.jinjahoncho.or.jp/omairi/shichigosan/,founder,,宗教行事のためG2不通過；年により日付が変動 / G2: 一般的な行事として通す（10/4 本人判断） / 要約修正済み（10/4） / G3: 伝統的な日付として固定（10/4 本人判断） / 合計4未満だが例外として残す（10/4 本人判断）
 11-16,国際寛容デー,国際デー,ユニーク,1,1,1,1,1,2,1,0,0,0,4,残す,confirmed,国際機関,UNESCO加盟国,https://www.unesco.org/en/legal-affairs/declaration-principles-tolerance,un,,2026-10-04 差し替え。UNESCOの宣言本文が採択日と毎年11月16日の国際デーを明記しています。
 11-17,将棋の日,記念日,ユニーク,1,1,1,1,1,1,2,0,0,0,4,残す,confirmed,公益・非営利団体,日本将棋連盟,https://kifulog.shogi.or.jp/seirei/2021/11/post-c87c.html,org,,2026-10-04 国際学生デーから差し戻し。日本将棋連盟の公式ブログが御城将棋の由来と1975年の制定を記載。
 11-18,土木の日,記念日,仕事,1,1,1,1,3,1,2,0,0,0,6,残す,confirmed,公益・非営利団体,公益社団法人土木学会,https://www.jsce.or.jp/committee/day/index.html,org,,安全・設備・計量の実務に関係；一次情報を確認できず；再調査(10/4): 土木学会公式ページが1987年の11月18日制定と土・木を十一・十八に分解する語呂および1879年11月18日の工学会設立にちなむ由来を明記。
@@ -355,13 +355,13 @@
 12-19,日本初の動力飛行,できごと,仕事,1,1,1,1,2,2,2,0,0,0,6,残す,confirmed,個人,徳川好敏・日野熊蔵,https://www.ndl.go.jp/kaleido/entry/5/1.html,org,,2026-10-04 差し替え。国立国会図書館の解説に、飛行日と高度、速度、飛行距離が記載されている。
 12-20,国際人間の連帯デー,国際デー,ユニーク,1,1,1,1,1,2,1,0,0,0,4,残す,date_only,不明,不明,https://indonesia.un.org/en/312449-united-nations-indonesia-events-and-international-days-2026,un,,2026-10-04 差し替え。国連インドネシアの公式行事一覧で、12月20日と名称、関連する総会決議番号を確認できる。
 12-21,世界バスケットボールデー,国際デー,仕事,1,1,1,1,2,2,1,0,0,0,5,残す,confirmed,国際機関,国連総会,https://documents.un.org/doc/undoc/gen/n23/256/73/pdf/n2325673.pdf,un,,2026-10-04 差し替え。国連総会決議77/324に、12月21日とスポーツが健康や包摂、平和に果たす役割が記載されている。
-12-22,冬至,季節の行事,季節,1,1,0,1,0,2,1,1,0,0,4,要検討,date_only,年中行事（制定者なし）,年中行事（二十四節気・冬至）,https://eco.mtk.nao.ac.jp/koyomi/yoko/2026/rekiyou262.html,gov,,業務との接点が薄い；年により日付が変動
-12-23,東京タワー完成の日,記念日,ユニーク,1,1,1,1,1,1,2,0,1,-3,2,要検討,confirmed,単一企業,株式会社TOKYO TOWER,https://gallery.tokyotower.co.jp/imperial_family.html,founder,,休憩時の会話向き
+12-22,冬至,季節の行事,季節,1,1,1,1,0,2,1,1,0,0,4,残す,date_only,年中行事（制定者なし）,年中行事（二十四節気・冬至）,https://eco.mtk.nao.ac.jp/koyomi/yoko/2026/rekiyou262.html,gov,,業務との接点が薄い；年により日付が変動 / G3: solar_term で年ごとの日付を持つ（10/4 本人判断）
+12-23,東京タワー完成の日,記念日,ユニーク,1,1,1,1,1,1,2,0,1,0,5,残す,confirmed,単一企業,株式会社TOKYO TOWER,https://gallery.tokyotower.co.jp/imperial_family.html,founder,,休憩時の会話向き / E: 本文は歴史上の出来事で販促ではないため0（10/4 本人判断）
 12-24,クリスマス・イヴ,年中行事,季節,0,1,1,1,0,0,0,1,0,0,1,要検討,not_found,年中行事（制定者なし）,不明,,none,,業務との接点が薄い；一次情報を確認できず；宗教題材に配慮 / G2: 一般的な行事として通す（10/4 本人判断）
 12-25,昭和への改元,できごと,ユニーク,1,1,1,1,1,2,2,0,0,0,5,残す,confirmed,政府,日本政府,https://www.archives.go.jp/ayumi/kobetsu/t15_1926_01.html,gov,,2026-10-04 差し替え。国立公文書館の資料に、大正天皇の崩御日と改元の詔書が記録されている。
 12-26,ボクシング・デー,年中行事,季節,1,1,1,1,0,2,2,1,0,0,5,残す,date_only,政府,英国政府,https://www.gov.uk/bank-holidays,gov,,業務との接点が薄い / 要約修正済み（10/4）
 12-27,感染症流行対策の国際デー,国際デー,仕事,1,1,1,1,3,2,1,0,0,0,6,残す,confirmed,国際機関,国連総会,https://documents.un.org/doc/undoc/gen/n20/345/68/pdf/n2034568.pdf?OpenElement=,un,,2026-10-04 差し替え。国連総会決議75/27に、12月27日の制定と感染症への備えを促す目的が記載されている。
-12-28,仕事納め,年中行事,季節,1,1,0,1,1,2,1,1,0,0,5,要検討,date_only,政府,人事院（官公庁の年末年始休業期間）,https://www.jinji.go.jp/shinsei/jyohokoukai_annai.html,gov,,休憩時の会話向き；年により日付が変動
+12-28,仕事納め,年中行事,季節,1,1,1,1,1,2,1,1,0,0,5,残す,date_only,政府,人事院（官公庁の年末年始休業期間）,https://www.jinji.go.jp/shinsei/jyohokoukai_annai.html,gov,,休憩時の会話向き；年により日付が変動 / G3: 仕事始めと同じく固定日扱い（10/4 本人判断）
 12-29,清水トンネル貫通,できごと,仕事,1,1,1,1,2,2,2,0,0,0,6,残す,confirmed,不明,不明,https://www.city.minamiuonuma.niigata.jp/fs/2/6/2/1/0/8/_/%E5%8D%97%E9%AD%9A%E6%B2%BC%E5%B8%82%E5%B8%82%E5%88%B6%E6%96%BD%E8%A1%8C20%E5%91%A8%E5%B9%B4%E8%A8%98%E5%BF%B5%E8%AA%8C%EF%BC%88%E5%8D%98%E3%83%9A%E3%83%BC%E3%82%B8%EF%BC%89.pdf,gov,,2026-10-04 差し替え。南魚沼市の市制施行20周年記念誌に、貫通日と上越線全線開通日が記載されている。
-12-30,地下鉄記念日,記念日,仕事,1,1,1,1,2,1,2,0,1,-3,3,要検討,date_only,単一企業,東京地下鉄道株式会社（現・東京メトロ）,https://www.tokyometro.jp/corporate/profile/history/index.html,founder,,健康・環境・技術の話題
+12-30,地下鉄記念日,記念日,仕事,1,1,1,1,2,1,2,0,1,0,6,残す,date_only,単一企業,東京地下鉄道株式会社（現・東京メトロ）,https://www.tokyometro.jp/corporate/profile/history/index.html,founder,,健康・環境・技術の話題 / E: 本文は歴史上の出来事で販促ではないため0（10/4 本人判断）
 12-31,大晦日,年中行事,季節,1,1,1,1,0,2,1,1,0,0,4,残す,confirmed,年中行事（制定者なし）,年中行事（大晦日）,https://www.maff.go.jp/j/pr/aff/1712/characterinformation.html,gov,,業務との接点が薄い
