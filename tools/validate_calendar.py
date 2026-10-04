@@ -72,6 +72,8 @@ def main() -> int:
             errors.append(f"{key} kind {row['kind']!r}")
         if row["visual"] not in VISUALS:
             errors.append(f"{key} visual {row['visual']!r}")
+        if "solar_term" in row and row["solar_term"] not in {"立春", "夏至", "処暑", "冬至"}:
+            errors.append(f"{key} unknown solar_term {row['solar_term']!r}")
         words = len(row.get("scene", "").split())
         if not 15 <= words <= 60:
             errors.append(f"{key} scene has {words} words")
