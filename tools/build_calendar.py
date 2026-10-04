@@ -274,7 +274,7 @@ def main() -> None:
             {"label": "2月29日の日付記事", "url": date_page_url("2月29日")},
         ],
     }
-    OUT.write_text(json.dumps({"format": 1, "license": "Calendar text adapted from Japanese Wikipedia under CC BY-SA 4.0; original artwork", "entries": entries, "leap_day": leap_day}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    OUT.write_text(json.dumps({"format": 1, "license": "Calendar text: entries citing Japanese Wikipedia are adapted under CC BY-SA 4.0; other entries are original summaries of the cited primary sources; original artwork", "entries": entries, "leap_day": leap_day}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     visual_counts = Counter(row["visual"] for row in entries)
     empty_summaries = sum(not row["summary"] for row in entries)
     duplicate_titles = [key for key, count in Counter(row["title"] for row in entries).items() if count > 1]
