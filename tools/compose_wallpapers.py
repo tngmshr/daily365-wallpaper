@@ -7,6 +7,7 @@ import json
 import math
 import re
 from pathlib import Path
+from urllib.parse import urlparse
 
 from PIL import Image, ImageDraw, ImageFilter, ImageFont, ImageStat
 
@@ -106,11 +107,18 @@ def fit_lines(text: str, maximum: int, sizes: range, bold: bool = False):
     raise ValueError(f"Text exceeds {maximum} lines: {text[:50]}")
 
 
+def source_line(entry: dict) -> str:
+    url = entry["sources"][-1]["url"] if entry.get("sources") else ""
+    if url and "wikipedia.org" not in url:
+        return f"出典: {urlparse(url).netloc.removeprefix('www.')}"
+    source_month, source_day = (int(part) for part in entry.get("illustration_date", entry["date"]).split("-"))
+    return f"出典: ja.wikipedia.org/wiki/{source_month}月{source_day}日 ・ CC BY-SA 4.0"
+
+
 def layout_for(entry: dict) -> dict:
     month, day = (int(part) for part in entry["date"].split("-"))
     label = f"{month}月{day}日 ・ {entry['kind']}"
-    source_month, source_day = (int(part) for part in entry.get("illustration_date", entry["date"]).split("-"))
-    source = f"出典: ja.wikipedia.org/wiki/{source_month}月{source_day}日 ・ CC BY-SA 4.0"
+    source = source_line(entry)
     parts = {
         "label": (load_font(36), [label], 48),
         "title": fit_lines(entry["title"].strip(), 2, range(84, 63, -2), True),
@@ -147,9 +155,10 @@ def gradient(top: tuple[int, int, int], bottom: tuple[int, int, int]) -> Image.I
 
 
 def background_for(entry: dict) -> Image.Image:
-    date = entry.get("illustration_date", entry["date"])
+    stem = (f"themes/{entry['theme']}" if entry.get("theme")
+            else entry.get("illustration_date", entry["date"]))
     artwork_path = next((path for suffix in (".webp", ".png", ".jpg")
-                         if (path := ILLUSTRATIONS / f"{date}{suffix}").is_file()), None)
+                         if (path := ILLUSTRATIONS / f"{stem}{suffix}").is_file()), None)
     if artwork_path is None:
         color = VISUAL_COLORS.get(entry.get("visual"), (39, 96, 82))
         return gradient(lighten(color, .72), lighten(color, .34))
