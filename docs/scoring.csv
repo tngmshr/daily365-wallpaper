@@ -1,4 +1,4 @@
-﻿date,title,kind,category,G1,G2,G3,G4,A,B,C,D,F,E,total,verdict,status,founder_type,founder,primary_url,source_type,summary_issue,note
+date,title,kind,category,G1,G2,G3,G4,A,B,C,D,F,E,total,verdict,status,founder_type,founder,primary_url,source_type,summary_issue,note
 01-01,元日,年中行事,季節,1,1,1,1,0,2,1,1,0,0,4,残す,confirmed,政府,国（祝日法）,https://www8.cao.go.jp/chosei/shukujitsu/gaiyou.html,law,,業務との接点が薄い
 01-02,初夢の日,年中行事,季節,1,1,1,1,1,2,1,1,0,0,5,残す,date_only,年中行事（制定者なし）,年中行事（初夢の慣習）,https://web-japan.org/kidsweb/ja/explore/calendar/january/hatsuyume.html,gov,,休憩時の会話向き
 01-03,ひとみの日,記念日,仕事,1,1,1,1,2,2,1,0,0,0,5,残す,date_only,不明,不明,https://www2.kyotocitylib.jp/wysiwyg/file/download/35/855,gov,,健康・環境・技術の話題；一次情報を確認できず；再調査(10/4): 京都市中央図書館の2020年1月号に1月3日・ひとみの日と語呂合わせの由来を記載しているが、制定者名はなく記念日事典を参照した紹介である。
@@ -12,7 +12,7 @@
 01-11,鏡開き,年中行事,季節,1,1,1,1,0,2,1,1,0,0,4,残す,confirmed,年中行事（制定者なし）,年中行事（鏡開き）,https://www.maff.go.jp/j/keikaku/syokubunka/culture/wagohan/articles/2301/spe13_01.html,gov,,業務との接点が薄い
 01-12,スキーの日,記念日,ユニーク,1,1,1,1,1,2,1,0,0,0,4,残す,date_only,不明,不明,https://www.city.joetsu.niigata.jp/site/museum/japanese-ski-origination.html,local_gov,,休憩時の会話向き
 01-13,初虚空蔵,年中行事,季節,1,0,1,1,1,1,1,1,0,0,4,要検討,date_only,年中行事（制定者なし）,年中行事（寺院の初虚空蔵）,https://www.taraku.or.jp/news/info/1410/,founder,,休憩時の会話向き；宗教題材に配慮
-01-14,飾納・松納,年中行事,季節,1,1,1,1,0,1,1,1,0,0,3,要検討,date_only,年中行事（制定者なし）,年中行事（福島稲荷神社の松納）,https://www.fukushima-inari.com/nothing/186.html,founder,,業務との接点が薄い；地域・神社で日付が異なる例
+01-14,タロとジロの生存確認,できごと,仕事,1,1,1,1,2,1,2,0,0,0,5,残す,confirmed,不明,該当なし（歴史上の出来事）,https://nipr-blog.nipr.ac.jp/science-museum/cat-2/cat-6/114.html,org,,2026-10-04 飾納・松納（出典なし等）から差し替え。国立極地研究所の資料が1959年1月14日の第三次隊によるタロとジロの生存確認を記録する。
 01-15,小正月,年中行事,季節,1,1,1,1,0,2,1,1,0,0,4,残す,confirmed,年中行事（制定者なし）,年中行事（小正月）,https://www.maff.go.jp/j/pr/aff/1712/characterinformation.html,gov,,業務との接点が薄い
 01-16,藪入り,年中行事,季節,0,1,1,1,1,0,1,1,0,0,3,要検討,not_found,年中行事（制定者なし）,不明,,none,,休憩時の会話向き；一次情報を確認できず
 01-17,防災とボランティアの日,記念日,仕事,1,1,1,1,4,2,1,0,0,0,7,残す,confirmed,政府,政府（平成7年12月15日閣議了解）,https://www.bousai.go.jp/kyoiku/volunteer/detail_kakugi.html,gov,,2026-10-04 差し替え。内閣府資料が平成7年12月15日の閣議了解、毎年1月17日と制定目的を記す。
@@ -29,7 +29,7 @@
 01-28,セレンディピティの日,記念日,仕事,1,1,1,1,2,1,1,0,0,0,4,残す,date_only,不明,不明,https://serendipity.or.jp/,org,,健康・環境・技術の話題；一次情報を確認できず；再調査(10/4): 日本セレンディピティ協会の公式サイトは1月28日の同名イベントと1754年の書簡にちなむ語の由来を掲載するが、記念日を制定したという明記は確認できない。
 01-29,昭和基地開設記念日,記念日,仕事,1,1,1,1,2,2,1,0,0,0,5,残す,confirmed,年中行事（制定者なし）,年中行事（昭和基地開設の記念）,https://nipr-blog.nipr.ac.jp/science-museum/cat-4/129-5d1d.html,gov,,健康・環境・技術の話題
 01-30,インドの殉教者の日,記念日,ユニーク,1,1,1,1,1,2,2,0,0,0,5,残す,confirmed,不明,制定主体未確認,https://www.pib.gov.in/newsite/PrintRelease.aspx?lang=2&reg=48&relid=197735,gov,,2026-10-04 差し替え。インド政府の発表が1月30日の殉教者の日とガンディー追悼式を伝えるが、制定主体は確認できない。
-01-31,晦日正月,年中行事,季節,0,1,1,1,0,0,1,1,0,0,2,要検討,not_found,年中行事（制定者なし）,不明,,none,,業務との接点が薄い；一次情報を確認できず
+01-31,生命保険の日,記念日,ユニーク,1,1,1,1,1,1,2,0,0,-1,3,要検討,confirmed,業界団体,MDRT日本会,https://www.seiho.or.jp/meiji/pdf/data.pdf,org,,2026-10-04 晦日正月（出典なし等）から差し替え。生命保険協会の資料が初の保険金支払いは1月27日、新聞報道日が31日、MDRT日本会が制定者と説明する。
 02-01,テレビ放送記念日,記念日,仕事,1,1,1,1,2,2,1,0,1,0,6,残す,confirmed,政府,日本放送協会（東京でのテレビ放送開始）,https://www.archives.go.jp/ayumi/kobetsu/s28_1953_01.html,gov,,健康・環境・技術の話題
 02-02,世界湿地の日,国際デー,仕事,1,1,1,1,2,2,1,0,0,0,5,残す,confirmed,国際機関,湿地条約事務局・国連総会,https://www.worldwetlandsday.org/about,intl,,健康・環境・技術の話題
 02-03,米国憲法修正第16条批准,できごと,仕事,1,1,1,1,3,2,2,0,0,0,7,残す,confirmed,政府,米国の各州議会（批准）,https://www.archives.gov/milestone-documents/16th-amendment,gov,,2026-10-04 差し替え。米国国立公文書館は第16修正条項が1913年2月3日に批准され、連邦所得税の根拠となったと記載しています。
@@ -90,7 +90,7 @@
 03-29,マリモの日,記念日,仕事,1,1,1,1,2,2,1,0,0,0,5,残す,confirmed,政府,文化庁（特別天然記念物指定）,https://kunishitei.bunka.go.jp/bsys/maindetails/401/2,gov,,健康・環境・技術の話題
 03-30,国立競技場落成記念日,記念日,仕事,1,1,1,1,2,1,2,0,1,0,6,残す,date_only,年中行事（制定者なし）,年中行事（国立競技場の竣工・開場）,https://vm.jaaf.or.jp/history/?id=1380,founder,,健康・環境・技術の話題
 03-31,エッフェル塔完成・落成日,できごと,仕事,1,1,1,1,2,1,2,0,0,0,5,残す,confirmed,不明,該当なし（歴史上の出来事）,https://www.toureiffel.paris/en/news/130-years/1889-2019-130-years-amazement,org,,2026-10-04 差し替え。エッフェル塔の公式ページは構造体の完成日と同日の落成式を記載しています。
-04-01,衣替え,季節の行事,季節,0,1,1,1,0,0,1,1,0,0,2,要検討,not_found,不明,不明,,none,,業務との接点が薄い；一次情報を確認できず
+04-01,国の会計年度初日,年中行事,仕事,1,1,1,1,3,2,1,1,0,0,7,残す,confirmed,政府,財政法第11条,https://laws.e-gov.go.jp/law/322AC0000000034,law,,2026-10-04 衣替え（出典なし等）から差し替え。財政法第11条が4月1日開始・翌年3月31日終了を定めています。
 04-02,世界自閉症啓発デー,国際デー,仕事,1,1,1,1,2,2,1,0,0,0,5,残す,date_only,不明,,https://www.unic.or.jp/activities/international_observances/days/,un,,2026-10-04 差し替え。国連広報センターの国際デー一覧で4月2日と名称を確認し、制定由来は未確認です。
 04-03,シーサーの日,記念日,ユニーク,1,1,1,1,1,2,1,0,0,0,4,残す,date_only,不明,,https://www.city.naha.okinawa.jp/admin/pr/1011694/1011460.html,gov,,2026-10-04 差し替え。那覇市の公式記事は第25回の開催を4月3日の「シーサーの日」に合わせたと記載しています。
 04-04,地雷啓発・除去支援デー,国際デー,仕事,1,1,1,1,3,2,2,0,0,0,7,残す,date_only,不明,,https://www.unic.or.jp/activities/international_observances/days/,un,,2026-10-04 差し替え。国連広報センターの公式一覧で日付と名称を確認し、安全と被害抑止の教訓に限って候補にしました。
@@ -156,7 +156,7 @@
 06-03,世界自転車デー,国際デー,仕事,1,1,1,1,2,2,1,0,0,0,5,残す,confirmed,国際機関,国際連合総会,https://www.unic.or.jp/files/a_res_72_272.pdf,un,,健康・環境・技術の話題；一次情報を確認できず；再調査(10/4): 国連広報センター掲載の総会決議72/272邦訳は2018年4月12日に採択され、第1項で6月3日を世界自転車デーと宣言すると明記している。
 06-04,歯と口の健康週間,年中行事,仕事,1,1,1,1,2,1,2,0,0,0,5,残す,confirmed,公益・非営利団体,日本歯科医師会・厚生労働省・文部科学省・日本学校歯科医会,https://www.jda.or.jp/enlightenment/poster/index.html,org,,2026-10-04 差し替え。日本歯科医師会の案内が週間の沿革と名称改定を記載しています。
 06-05,世界環境デー,国際デー,仕事,1,1,1,1,2,2,1,0,0,0,5,残す,confirmed,国際機関,国連総会,https://www.unesco.org/en/days/environment?hub=180536,intl,,健康・環境・技術の話題
-06-06,おけいこの日,年中行事,季節,0,1,1,1,1,0,2,1,0,0,4,要検討,not_found,不明,不明,,media,,休憩時の会話向き；一次情報を確認できず
+06-06,ロシア語デー,国際デー,ユニーク,1,1,1,1,0,2,2,0,0,0,4,残す,confirmed,国際機関,国連広報局,https://www.unesco.org/en/articles/russian-language-day,un,,2026-10-04 おけいこの日（出典なし等）から差し替え。UNESCOの案内が国連広報局の2010年決定と誕生日由来を記載しています。
 06-07,世界食品安全の日,国際デー,仕事,1,1,1,1,3,2,2,0,0,0,7,残す,confirmed,国際機関,国連総会,https://www.fao.org/americas/events/event-detail/world-food-safety-day.-from-burden-to-solutions--safe-food-for-all/en,un,,2026-10-04 差し替え。FAO公式ページが毎年6月7日の制定と目的を説明しています。
 06-08,世界海洋デー,国際デー,仕事,1,1,1,1,2,2,1,0,0,0,5,残す,confirmed,国際機関,国連総会・UNESCO,https://www.unesco.org/en/days/oceans?hub=66813,intl,,健康・環境・技術の話題
 06-09,世界認定デー,国際デー,仕事,1,1,1,1,3,1,1,0,0,-1,4,残す,confirmed,業界団体,ILAC・IAF,https://global-aci.org/en/wad2026/,org,,2026-10-04 差し替え。認定機関の公式案内が2007年の共同決定と毎年の実施日を記載しています。
@@ -341,12 +341,12 @@
 12-05,国際ボランティア・デー,国際デー,ユニーク,0,1,1,1,1,0,1,0,0,0,2,要検討,not_found,不明,不明,,intl,,休憩時の会話向き；一次情報を確認できず
 12-06,音の日,記念日,仕事,1,1,1,1,2,1,2,0,0,-1,4,残す,confirmed,業界団体,一般社団法人日本オーディオ協会,https://www.jas-audio.or.jp/sound-day,org,,健康・環境・技術の話題；一次情報を確認できず；再調査(10/4): 日本オーディオ協会公式ページが自ら12月6日を音の日と定めたことと1877年12月6日のエジソンによる蓄音機完成にちなむ由来を明記。
 12-07,国際民間航空デー,国際デー,仕事,1,1,1,1,2,2,1,0,0,0,5,残す,confirmed,国際機関,国連総会・国際民間航空機関（ICAO）,https://www.icao.int/international-civil-aviation-day-7-december,intl,,健康・環境・技術の話題
-12-08,事納め,年中行事,季節,0,1,1,1,0,0,1,1,0,0,2,要検討,not_found,年中行事（制定者なし）,不明,,none,,業務との接点が薄い；一次情報を確認できず
+12-08,太平洋戦争開戦,できごと,ユニーク,1,1,1,1,1,2,1,0,0,0,4,残す,confirmed,政府,日本政府,https://www.archives.go.jp/ayumi/kobetsu/s16_1941_03.html,gov,,2026-10-04 事納め（出典なし等）から差し替え。国立公文書館の年表に、12月8日の宣戦の詔書発布と戦争の経過が記録されている。
 12-09,マウスの誕生日,記念日,仕事,1,1,1,1,2,1,2,0,0,0,5,残す,confirmed,不明,Doug Engelbart（発表者）,https://www.dougengelbart.org/mousesite/1968Demo.html,founder,,健康・環境・技術の話題
 12-10,世界人権デー,国際デー,ユニーク,1,1,1,1,1,2,1,0,0,0,4,残す,confirmed,国際機関,国連総会,https://www.unesco.org/en/days/human-rights,intl,,休憩時の会話向き
 12-11,国際山岳デー,国際デー,仕事,1,1,1,1,2,2,1,0,0,0,5,残す,confirmed,国際機関,国際連合食糧農業機関（FAO）,https://www.fao.org/mountain-partnership/events/international-mountain-day/en,un,,2026-10-04 差し替え。FAOの公式ページに、2003年からの実施と山岳地域の淡水供給に関する説明がある。
 12-12,ユニバーサル・ヘルス・カバレッジ・デー,国際デー,仕事,1,1,1,1,2,2,1,0,0,0,5,残す,confirmed,国際機関,国連総会,https://documents.un.org/doc/undoc/gen/n17/439/27/pdf/n1743927.pdf,un,,2026-10-04 差し替え。国連総会決議72/138に、12月12日の制定と医療保障の普及を進める目的が記載されている。
-12-13,正月事始め,年中行事,季節,0,1,1,1,0,0,1,1,0,0,2,要検討,not_found,年中行事（制定者なし）,不明,,none,,業務との接点が薄い；一次情報を確認できず
+12-13,ビタミンの日,記念日,仕事,1,1,1,1,2,1,2,0,0,0,5,残す,confirmed,不明,不明,https://www.vitamin-society.jp/qa/,org,,2026-10-04 正月事始め（出典なし等）から差し替え。日本ビタミン学会の解説に、報告日と研究内容、ビタミンの日の由来が記載されている。
 12-14,南極の日,記念日,仕事,1,1,1,1,2,2,1,0,0,0,5,残す,confirmed,年中行事（制定者なし）,年中行事（南極点到達の記録）,https://nipr-blog.nipr.ac.jp/science-museum/cat-4/1214-c38c.html,gov,,健康・環境・技術の話題
 12-15,世界トルコ語族言語デー,国際デー,ユニーク,1,1,1,1,1,2,2,0,0,0,5,残す,confirmed,国際機関,ユネスコ総会,https://www.unesco.org.tr/Home/Page/1967?slug=UNESCO-Taraf%C4%B1ndan-%C4%B0lan-Edilen-G%C3%BCnler,org,,2026-10-04 差し替え。ユネスコ・トルコ国内委員会の公式一覧に、総会の決定と日付の由来が記載されている。
 12-16,東京・横浜で電話交換業務開始,できごと,仕事,1,1,1,1,2,1,2,0,1,0,6,残す,confirmed,不明,不明,https://www.ntt-east.co.jp/databook/pdf/2024_allpage.pdf,org,,2026-10-04 差し替え。NTT東日本の資料に、開始日と両都市の加入者数、電話局数が記載されている。
@@ -357,7 +357,7 @@
 12-21,世界バスケットボールデー,国際デー,仕事,1,1,1,1,2,2,1,0,0,0,5,残す,confirmed,国際機関,国連総会,https://documents.un.org/doc/undoc/gen/n23/256/73/pdf/n2325673.pdf,un,,2026-10-04 差し替え。国連総会決議77/324に、12月21日とスポーツが健康や包摂、平和に果たす役割が記載されている。
 12-22,冬至,季節の行事,季節,1,1,1,1,0,2,1,1,0,0,4,残す,date_only,年中行事（制定者なし）,年中行事（二十四節気・冬至）,https://eco.mtk.nao.ac.jp/koyomi/yoko/2026/rekiyou262.html,gov,,業務との接点が薄い；年により日付が変動 / G3: solar_term で年ごとの日付を持つ（10/4 本人判断）
 12-23,東京タワー完成の日,記念日,ユニーク,1,1,1,1,1,1,2,0,1,0,5,残す,confirmed,単一企業,株式会社TOKYO TOWER,https://gallery.tokyotower.co.jp/imperial_family.html,founder,,休憩時の会話向き / E: 本文は歴史上の出来事で販促ではないため0（10/4 本人判断）
-12-24,クリスマス・イヴ,年中行事,季節,0,1,1,1,0,0,0,1,0,0,1,要検討,not_found,年中行事（制定者なし）,不明,,none,,業務との接点が薄い；一次情報を確認できず；宗教題材に配慮 / G2: 一般的な行事として通す（10/4 本人判断）
+12-24,国際サイバー犯罪対策デー,国際デー,仕事,1,1,1,1,3,2,2,0,0,0,7,残す,confirmed,国際機関,国連総会,https://documents.un.org/doc/undoc/gen/n24/426/74/pdf/n2442674.pdf?OpenElement=,un,,2026-10-04 クリスマス・イヴ（出典なし等）から差し替え。国連総会決議79/243に、12月24日の制定とサイバー犯罪対策の周知目的が記載されている。
 12-25,昭和への改元,できごと,ユニーク,1,1,1,1,1,2,2,0,0,0,5,残す,confirmed,政府,日本政府,https://www.archives.go.jp/ayumi/kobetsu/t15_1926_01.html,gov,,2026-10-04 差し替え。国立公文書館の資料に、大正天皇の崩御日と改元の詔書が記録されている。
 12-26,ボクシング・デー,年中行事,季節,1,1,1,1,0,2,2,1,0,0,5,残す,date_only,政府,英国政府,https://www.gov.uk/bank-holidays,gov,,業務との接点が薄い / 要約修正済み（10/4）
 12-27,感染症流行対策の国際デー,国際デー,仕事,1,1,1,1,3,2,1,0,0,0,6,残す,confirmed,国際機関,国連総会,https://documents.un.org/doc/undoc/gen/n20/345/68/pdf/n2034568.pdf?OpenElement=,un,,2026-10-04 差し替え。国連総会決議75/27に、12月27日の制定と感染症への備えを促す目的が記載されている。

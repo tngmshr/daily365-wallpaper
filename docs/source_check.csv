@@ -1,4 +1,4 @@
-﻿date,title,status,primary_url,source_type,founder_type,founder,tokyo,summary_issue,note
+date,title,status,primary_url,source_type,founder_type,founder,tokyo,summary_issue,note
 01-01,元日,confirmed,https://www8.cao.go.jp/chosei/shukujitsu/gaiyou.html,law,政府,国（祝日法）,0,,
 01-02,初夢の日,date_only,https://web-japan.org/kidsweb/ja/explore/calendar/january/hatsuyume.html,gov,年中行事（制定者なし）,年中行事（初夢の慣習）,0,,
 01-03,ひとみの日,date_only,https://www2.kyotocitylib.jp/wysiwyg/file/download/35/855,gov,不明,不明,0,,京都市中央図書館の2020年1月号に1月3日・ひとみの日と語呂合わせの由来を記載しているが、制定者名はなく記念日事典を参照した紹介である。
@@ -9,7 +9,7 @@
 01-09,とんちの日,not_found,,none,不明,,0,,指定基準の一次情報を確認できず
 01-11,鏡開き,confirmed,https://www.maff.go.jp/j/keikaku/syokubunka/culture/wagohan/articles/2301/spe13_01.html,gov,年中行事（制定者なし）,年中行事（鏡開き）,0,,
 01-13,初虚空蔵,date_only,https://www.taraku.or.jp/news/info/1410/,founder,年中行事（制定者なし）,年中行事（寺院の初虚空蔵）,0,,
-01-14,飾納・松納,date_only,https://www.fukushima-inari.com/nothing/186.html,founder,年中行事（制定者なし）,年中行事（福島稲荷神社の松納）,0,,日付は福島稲荷神社の例。地域・神社で異なる。
+01-14,タロとジロの生存確認,confirmed,https://nipr-blog.nipr.ac.jp/science-museum/cat-2/cat-6/114.html,org,不明,該当なし（歴史上の出来事）,0,,国立極地研究所の資料が1959年1月14日の第三次隊によるタロとジロの生存確認を記録する。
 01-15,小正月,confirmed,https://www.maff.go.jp/j/pr/aff/1712/characterinformation.html,gov,年中行事（制定者なし）,年中行事（小正月）,0,,
 01-16,藪入り,not_found,,none,年中行事（制定者なし）,,0,,指定基準の一次情報を確認できず
 01-18,都バスの日,confirmed,https://www.kotsu.metro.tokyo.jp/about/ayumi/bus.html,local_gov,不明,制定主体未確認,1,都の交通局が記念日を制定したとの説明は一次資料で確認できず。,都営バスの運行開始日が1月18日であることは都の沿革で確認。
@@ -22,7 +22,7 @@
 01-28,セレンディピティの日,date_only,https://serendipity.or.jp/,org,不明,不明,0,,日本セレンディピティ協会の公式サイトは1月28日の同名イベントと1754年の書簡にちなむ語の由来を掲載するが、記念日を制定したという明記は確認できない。
 01-29,昭和基地開設記念日,confirmed,https://nipr-blog.nipr.ac.jp/science-museum/cat-4/129-5d1d.html,gov,年中行事（制定者なし）,年中行事（昭和基地開設の記念）,0,,
 01-30,3分間電話の日,conflict,https://www.ntt-east.co.jp/databook/history-telecom.html,gov,政府,日本電信電話公社（公衆電話制度）,0,3分打ち切り制は1969年10月1日、時間制料金（3分単位）は1972年11月12日。1970年1月30日ではない。,
-01-31,晦日正月,not_found,,none,年中行事（制定者なし）,,0,,指定基準の一次情報を確認できず
+01-31,生命保険の日,confirmed,https://www.seiho.or.jp/meiji/pdf/data.pdf,org,業界団体,MDRT日本会,0,,生命保険協会の資料が初の保険金支払いは1月27日、新聞報道日が31日、MDRT日本会が制定者と説明する。
 02-01,テレビ放送記念日,confirmed,https://www.archives.go.jp/ayumi/kobetsu/s28_1953_01.html,gov,政府,日本放送協会（東京でのテレビ放送開始）,1,,
 02-04,立春,date_only,https://eco.mtk.nao.ac.jp/koyomi/yoko/2026/rekiyou262.html,gov,年中行事（制定者なし）,年中行事（二十四節気・立春）,0,,2026年の立春は2月4日。二十四節気の日付は年により変動。
 02-05,笑顔の日,not_found,,none,不明,,0,,指定基準の一次情報を確認できず
@@ -55,7 +55,7 @@
 03-29,マリモの日,confirmed,https://kunishitei.bunka.go.jp/bsys/maindetails/401/2,gov,政府,文化庁（特別天然記念物指定）,0,,
 03-30,国立競技場落成記念日,date_only,https://vm.jaaf.or.jp/history/?id=1380,founder,年中行事（制定者なし）,年中行事（国立競技場の竣工・開場）,1,,
 03-31,オーケストラの日,confirmed,https://www.orchestra.or.jp/orchestra-news/2023/,founder,公益・非営利団体,日本オーケストラ連盟,0,,
-04-01,衣替え,not_found,,none,不明,,0,,指定基準の一次情報を確認できず
+04-01,国の会計年度初日,confirmed,https://laws.e-gov.go.jp/law/322AC0000000034,law,政府,財政法第11条,0,,財政法第11条が4月1日開始・翌年3月31日終了を定めています。
 04-03,日本橋開通記念日,not_found,,none,不明,,1,,指定基準の一次情報を確認できず
 04-05,デビューの日,not_found,,none,不明,,1,,指定基準の一次情報を確認できず
 04-06,城の日,not_found,,none,不明,,0,,指定基準の一次情報を確認できず
@@ -153,11 +153,11 @@
 12-03,カレンダーの日,confirmed,https://zenkyo.net/calendar/calendars-day/,org,業界団体,全国団扇扇子カレンダー協議会・全国カレンダー出版協同組合連合会,0,,制定団体公式ページが1988年の12月3日制定・2011年の日本記念日協会登録と旧暦の明治5年12月3日を明治6年1月1日とした改暦由来を明記。
 12-04,E.T.の日,not_found,,none,不明,,0,,指定基準の一次情報を確認できず
 12-06,音の日,confirmed,https://www.jas-audio.or.jp/sound-day,org,業界団体,一般社団法人日本オーディオ協会,0,,日本オーディオ協会公式ページが自ら12月6日を音の日と定めたことと1877年12月6日のエジソンによる蓄音機完成にちなむ由来を明記。
-12-08,事納め,not_found,,none,年中行事（制定者なし）,,0,,指定基準の一次情報を確認できず
+12-08,太平洋戦争開戦,confirmed,https://www.archives.go.jp/ayumi/kobetsu/s16_1941_03.html,gov,政府,日本政府,0,,国立公文書館の年表に、12月8日の宣戦の詔書発布と戦争の経過が記録されている。
 12-09,マウスの誕生日,confirmed,https://www.dougengelbart.org/mousesite/1968Demo.html,founder,不明,Doug Engelbart（発表者）,0,,1968年12月9日の公開実演を確認。記念日の制定者は未確認。
 12-11,タンゴの日,not_found,,none,不明,,0,,指定基準の一次情報を確認できず
 12-12,中立の日,confirmed,https://turkmenistan.un.org/en/403-declaration-international-day-neutrality,intl,国際機関,国連総会（2017年に国際デーを設定）,0,,国連は1995年の中立承認日を12月12日とし、国際デーは2017年の決議で設定。
-12-13,正月事始め,not_found,,none,年中行事（制定者なし）,,0,,指定基準の一次情報を確認できず
+12-13,ビタミンの日,confirmed,https://www.vitamin-society.jp/qa/,org,不明,不明,0,,日本ビタミン学会の解説に、報告日と研究内容、ビタミンの日の由来が記載されている。
 12-14,南極の日,confirmed,https://nipr-blog.nipr.ac.jp/science-museum/cat-4/1214-c38c.html,gov,年中行事（制定者なし）,年中行事（南極点到達の記録）,0,,南極点到達の記録日を確認。
 12-16,紙の記念日,not_found,,none,不明,,1,,指定基準の一次情報を確認できず
 12-17,飛行機の日,date_only,https://www.city.iwanuma.miyagi.jp/shisei/koho/documents/iwa25..12p1-22.pdf,gov,不明,不明,0,,岩沼市広報2025年12月号の表紙が12月17日を飛行機の日と記載するが、記念日の制定者・制定経緯は未確認。
@@ -165,7 +165,7 @@
 12-21,クロスワードの日,not_found,,none,不明,,0,,指定基準の一次情報を確認できず
 12-22,冬至,date_only,https://eco.mtk.nao.ac.jp/koyomi/yoko/2026/rekiyou262.html,gov,年中行事（制定者なし）,年中行事（二十四節気・冬至）,0,,2026年は12月22日。冬至の日付は年により変動。
 12-23,東京タワー完成の日,confirmed,https://gallery.tokyotower.co.jp/imperial_family.html,founder,単一企業,株式会社TOKYO TOWER,1,,東京タワー公式資料は1958年12月23日完成と記載。
-12-24,クリスマス・イヴ,not_found,,none,年中行事（制定者なし）,,0,,指定基準の一次情報を確認できず
+12-24,国際サイバー犯罪対策デー,confirmed,https://documents.un.org/doc/undoc/gen/n24/426/74/pdf/n2442674.pdf?OpenElement=,un,国際機関,国連総会,0,,国連総会決議79/243に、12月24日の制定とサイバー犯罪対策の周知目的が記載されている。
 12-25,スケートの日,not_found,,none,不明,,0,,指定基準の一次情報を確認できず
 12-26,ボクシング・デー,date_only,https://www.gov.uk/bank-holidays,gov,政府,英国政府,0,確認した一次資料は英国政府の祝日情報で、カナダの休日扱いは未確認。,英国では週末に重なる場合の振替日あり。
 12-27,ピーターパンの日,not_found,,none,不明,,0,,指定基準の一次情報を確認できず
