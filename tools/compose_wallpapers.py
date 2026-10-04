@@ -7,6 +7,7 @@ import json
 import math
 import re
 from pathlib import Path
+from urllib.parse import urlparse
 
 from PIL import Image, ImageDraw, ImageFilter, ImageFont, ImageStat
 
@@ -106,10 +107,18 @@ def fit_lines(text: str, maximum: int, sizes: range, bold: bool = False):
     raise ValueError(f"Text exceeds {maximum} lines: {text[:50]}")
 
 
+def source_line(entry: dict) -> str:
+    url = entry["sources"][-1]["url"] if entry.get("sources") else ""
+    if url and "wikipedia.org" not in url:
+        return f"出典: {urlparse(url).netloc.removeprefix('www.')}"
+    source_month, source_day = (int(part) for part in entry.get("illustration_date", entry["date"]).split("-"))
+    return f"出典: ja.wikipedia.org/wiki/{source_month}月{source_day}日 ・ CC BY-SA 4.0"
+
+
 def layout_for(entry: dict) -> dict:
     month, day = (int(part) for part in entry["date"].split("-"))
     label = f"{month}月{day}日 ・ {entry['kind']}"
-    source = f"出典: ja.wikipedia.org/wiki/{month}月{day}日 ・ CC BY-SA 4.0"
+    source = source_line(entry)
     parts = {
         "label": (load_font(36), [label], 48),
         "title": fit_lines(entry["title"].strip(), 2, range(84, 63, -2), True),
@@ -146,9 +155,10 @@ def gradient(top: tuple[int, int, int], bottom: tuple[int, int, int]) -> Image.I
 
 
 def background_for(entry: dict) -> Image.Image:
-    date = entry["date"]
+    stem = (f"themes/{entry['theme']}" if entry.get("theme")
+            else entry.get("illustration_date", entry["date"]))
     artwork_path = next((path for suffix in (".webp", ".png", ".jpg")
-                         if (path := ILLUSTRATIONS / f"{date}{suffix}").is_file()), None)
+                         if (path := ILLUSTRATIONS / f"{stem}{suffix}").is_file()), None)
     if artwork_path is None:
         color = VISUAL_COLORS.get(entry.get("visual"), (39, 96, 82))
         return gradient(lighten(color, .72), lighten(color, .34))
@@ -172,7 +182,7 @@ def background_for(entry: dict) -> Image.Image:
     return base
 
 
-def compose(entry: dict) -> Path:
+def compose(entry: dict, out_dir: Path = WALLPAPERS) -> Path:
     date = entry["date"]
     try:
         layout = layout_for(entry)
@@ -209,20 +219,20 @@ def compose(entry: dict) -> Path:
                 draw.line((x, y + gap // 2, CARD_RIGHT - PAD_X, y + gap // 2),
                           fill=(132, 157, 139, 170), width=2)
             y += gap
-    WALLPAPERS.mkdir(parents=True, exist_ok=True)
-    output = WALLPAPERS / f"{date}.webp"
+    out_dir.mkdir(parents=True, exist_ok=True)
+    output = out_dir / f"{date}.webp"
     base.convert("RGB").resize(OUTPUT_SIZE, Image.Resampling.LANCZOS).save(
         output, "WEBP", quality=80, method=6,
     )
     return output
 
 
-def make_preview() -> None:
+def make_preview(out_dir: Path = WALLPAPERS) -> None:
     dates = [f"{month:02d}-01" for month in range(1, 13)]
     thumb_width, thumb_height = 270, 600
     sheet = Image.new("RGB", (thumb_width * 6, thumb_height * 2), "#f4f1e9")
     for index, date in enumerate(dates):
-        with Image.open(WALLPAPERS / f"{date}.webp") as image:
+        with Image.open(out_dir / f"{date}.webp") as image:
             sheet.paste(image.resize((thumb_width, thumb_height)),
                         ((index % 6) * thumb_width, (index // 6) * thumb_height))
     PREVIEW.parent.mkdir(parents=True, exist_ok=True)
@@ -233,24 +243,28 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--only", nargs="+", metavar="MM-DD")
     parser.add_argument("--preview", action="store_true")
+    parser.add_argument("--calendar", type=Path, default=DATA)
+    parser.add_argument("--out-dir", type=Path, default=WALLPAPERS)
     args = parser.parse_args()
-    payload = json.loads(DATA.read_text(encoding="utf-8"))
-    entries = {entry["date"]: entry for entry in payload["entries"] + [payload["leap_day"]]}
+    payload = json.loads(args.calendar.read_text(encoding="utf-8"))
+    rows = payload["entries"] + ([payload["leap_day"]] if payload.get("leap_day") else [])
+    entries = {entry["date"]: entry for entry in rows}
     if args.only:
         unknown = set(args.only) - entries.keys()
         if unknown:
             parser.error(f"Unknown dates: {', '.join(sorted(unknown))}")
     selected = args.only or list(entries)
     for date in selected:
-        compose(entries[date])
-    for old in WALLPAPERS.glob("*.jpg"):
-        old.unlink()
+        compose(entries[date], args.out_dir)
+    if args.out_dir.resolve() == WALLPAPERS.resolve():
+        for old in args.out_dir.glob("*.jpg"):
+            old.unlink()
     if args.preview:
         for month in range(1, 13):
             date = f"{month:02d}-01"
-            if not (WALLPAPERS / f"{date}.webp").is_file():
-                compose(entries[date])
-        make_preview()
+            if not (args.out_dir / f"{date}.webp").is_file():
+                compose(entries[date], args.out_dir)
+        make_preview(args.out_dir)
     print(f"Composed {len(selected)} wallpapers.")
 
 

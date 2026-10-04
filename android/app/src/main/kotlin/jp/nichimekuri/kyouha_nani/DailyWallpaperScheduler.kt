@@ -6,12 +6,17 @@ import android.app.WallpaperManager
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
+import android.graphics.BitmapFactory
 import android.os.Build
+import android.util.Log
 import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
 import androidx.work.Worker
 import androidx.work.WorkerParameters
+import java.io.File
+import java.net.HttpURLConnection
+import java.net.URL
 import java.util.Calendar
 import java.util.Locale
 import java.util.concurrent.TimeUnit
@@ -32,6 +37,10 @@ object DailyWallpaperScheduler {
     private const val LAST_ATTEMPT_AT = "last_attempt_at"
     private const val LAST_ERROR = "last_error"
     private const val LAST_TRIGGER = "last_trigger"
+    private const val LAST_TODAY_DOWNLOAD_ATTEMPT = "last_today_download_attempt"
+    private const val LAST_DOWNLOAD_ERROR = "last_download_error"
+    private const val LAST_DOWNLOAD_AT = "last_download_at"
+    private const val WALLPAPER_URL = "https://tngmshr.github.io/daily365-wallpaper/wallpapers"
     private const val DAILY_REQUEST_CODE = 9037
     private const val RETRY_REQUEST_CODE = 9038
     private const val RETRY_DELAY_MILLIS = 15 * 60 * 1000L
@@ -84,7 +93,17 @@ object DailyWallpaperScheduler {
         recordAttempt(context, trigger)
         try {
             val prefs = context.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
-            if (prefs.getString(LAST_SET_DATE, null) != todayKey(Calendar.getInstance())) {
+            val day = Calendar.getInstance()
+            val key = todayKey(day)
+            if (prefs.getString(LAST_SET_DATE, null) != key) {
+                // Midnight alarms use only local files; catch-up may try once per date.
+                if (trigger != TRIGGER_ALARM && trigger != TRIGGER_RETRY &&
+                    !cachedWallpaper(context, day).isFile &&
+                    prefs.getString(LAST_TODAY_DOWNLOAD_ATTEMPT, null) != key
+                ) {
+                    prefs.edit().putString(LAST_TODAY_DOWNLOAD_ATTEMPT, key).apply()
+                    downloadWallpaper(context, day)
+                }
                 setToday(context)
             } else {
                 cancelRetry(context)
@@ -141,6 +160,8 @@ object DailyWallpaperScheduler {
             "lastAttemptAt" to prefs.getLong(LAST_ATTEMPT_AT, 0L),
             "lastError" to prefs.getString(LAST_ERROR, null),
             "lastTrigger" to prefs.getString(LAST_TRIGGER, null),
+            "lastDownloadError" to prefs.getString(LAST_DOWNLOAD_ERROR, null),
+            "lastDownloadAt" to prefs.getLong(LAST_DOWNLOAD_AT, 0L),
             "isIgnoringBatteryOptimizations" to if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 powerManager.isIgnoringBatteryOptimizations(context.packageName)
             } else {
@@ -221,6 +242,90 @@ object DailyWallpaperScheduler {
         day.get(Calendar.DAY_OF_MONTH),
     )
 
+    private fun cachedWallpaper(context: Context, day: Calendar): File =
+        File(context.filesDir, "wallpapers/${todayKey(day)}.jpg")
+
+    @Synchronized
+    fun prefetchTomorrow(context: Context) {
+        if (!isEnabled(context)) return
+        val today = Calendar.getInstance()
+        val tomorrow = (today.clone() as Calendar).apply { add(Calendar.DAY_OF_YEAR, 1) }
+        downloadWallpaper(context, tomorrow)
+        try {
+            // Keep yesterday, today and tomorrow, including across a year boundary.
+            val keep = (-1..1).map { offset ->
+                todayKey((today.clone() as Calendar).apply { add(Calendar.DAY_OF_YEAR, offset) }) + ".jpg"
+            }.toSet()
+            File(context.filesDir, "wallpapers").listFiles()?.forEach { file ->
+                if (file.name.matches(Regex("\\d{4}-\\d{2}-\\d{2}\\.jpg")) && file.name !in keep) {
+                    file.delete()
+                }
+            }
+        } catch (failure: Exception) {
+            recordDownloadFailure(context, "Cache cleanup", failure)
+        }
+    }
+
+    private fun downloadWallpaper(context: Context, day: Calendar) {
+        var connection: HttpURLConnection? = null
+        var temporary: File? = null
+        val key = todayKey(day)
+        try {
+            val target = cachedWallpaper(context, day)
+            if (target.isFile) return
+            val path = "%04d/%02d-%02d.jpg".format(
+                Locale.ROOT, day.get(Calendar.YEAR), day.get(Calendar.MONTH) + 1,
+                day.get(Calendar.DAY_OF_MONTH),
+            )
+            val request = URL("$WALLPAPER_URL/$path").openConnection() as HttpURLConnection
+            connection = request
+            request.connectTimeout = 10_000
+            request.readTimeout = 10_000
+            request.instanceFollowRedirects = false
+            if (request.responseCode != HttpURLConnection.HTTP_OK) {
+                throw IllegalStateException("HTTP ${request.responseCode}")
+            }
+            val directory = target.parentFile ?: throw IllegalStateException("No cache directory")
+            if (!directory.isDirectory && !directory.mkdirs()) {
+                throw IllegalStateException("Could not create cache directory")
+            }
+            val partial = File(directory, "$key.jpg.part")
+            temporary = partial
+            request.inputStream.use { input ->
+                partial.outputStream().use { output ->
+                    val buffer = ByteArray(8192)
+                    var total = 0L
+                    while (true) {
+                        val count = input.read(buffer)
+                        if (count < 0) break
+                        total += count
+                        if (total > 12 * 1024 * 1024) throw IllegalStateException("Image exceeds cache limit")
+                        output.write(buffer, 0, count)
+                    }
+                }
+            }
+            val bitmap = BitmapFactory.decodeFile(partial.absolutePath)
+                ?: throw IllegalStateException("Downloaded image could not be decoded")
+            bitmap.recycle()
+            if (!partial.renameTo(target)) throw IllegalStateException("Could not save downloaded image")
+            context.getSharedPreferences(PREFS, Context.MODE_PRIVATE).edit()
+                .putLong(LAST_DOWNLOAD_AT, System.currentTimeMillis())
+                .remove(LAST_DOWNLOAD_ERROR).apply()
+        } catch (failure: Exception) {
+            recordDownloadFailure(context, key, failure)
+        } finally {
+            try { connection?.disconnect() } catch (_: Exception) { }
+            try { temporary?.delete() } catch (_: Exception) { }
+        }
+    }
+
+    private fun recordDownloadFailure(context: Context, label: String, failure: Exception) {
+        val message = "$label: ${failure.message ?: failure.javaClass.simpleName}"
+        Log.w("DailyWallpaper", message, failure)
+        context.getSharedPreferences(PREFS, Context.MODE_PRIVATE).edit()
+            .putString(LAST_DOWNLOAD_ERROR, message).apply()
+    }
+
     @Synchronized
     private fun setToday(context: Context) {
         val day = Calendar.getInstance()
@@ -230,8 +335,29 @@ object DailyWallpaperScheduler {
             day.get(Calendar.DAY_OF_MONTH),
         )
         val asset = "flutter_assets/assets/wallpapers/$name"
-        context.assets.open(asset).use { stream ->
-            val wallpaperManager = WallpaperManager.getInstance(context)
+        val cached = cachedWallpaper(context, day)
+        val bitmap = try {
+            if (cached.isFile) {
+                BitmapFactory.decodeFile(cached.absolutePath)
+                    ?: throw IllegalStateException("Cached image could not be decoded")
+            } else null
+        } catch (failure: Exception) {
+            recordDownloadFailure(context, todayKey(day), failure)
+            try { cached.delete() } catch (_: Exception) { }
+            null
+        }
+        val wallpaperManager = WallpaperManager.getInstance(context)
+        if (bitmap != null) {
+            try {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                    wallpaperManager.setBitmap(bitmap, null, true, WallpaperManager.FLAG_LOCK)
+                } else {
+                    wallpaperManager.setBitmap(bitmap)
+                }
+            } finally {
+                bitmap.recycle()
+            }
+        } else context.assets.open(asset).use { stream ->
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                 wallpaperManager.setStream(stream, null, true, WallpaperManager.FLAG_LOCK)
             } else {
@@ -324,5 +450,7 @@ class DailyWallpaperWorker(context: Context, params: WorkerParameters) : Worker(
         Result.success()
     } catch (_: Exception) {
         Result.retry()
+    } finally {
+        DailyWallpaperScheduler.prefetchTomorrow(applicationContext)
     }
 }

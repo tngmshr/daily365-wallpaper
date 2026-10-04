@@ -45,6 +45,14 @@ build_calendar.py は日付記事の要約を再生成する補助ツールで�
 
     gh release create v1.1.0 daily365-arm64-v8a.apk daily365-armeabi-v7a.apk --title "v1.1.0"
 
+### 更新のお知らせ
+
+Android版は起動・復帰時（12時間に1回まで）にPagesの `version.json` を読み、`pubspec.yaml` のビルド番号（`+6` の部分）が端末の版より大きければ画面上部にお知らせを出します。「あとで」を押すとその版では再表示しません。`version.json` は `tools/package_web.py` が `pubspec.yaml` と `tools/whats_new.json`（版ごとの変更点、3行まで表示）から作ります。
+
+順序に注意: **Releasesに新しいAPKを登録してから** `main` に反映します。`main` へのpushでPagesの `version.json` が先に更新されると、ダウンロードボタンが古いAPKを指します。
+
+お知らせの見た目は `flutter build web --dart-define=PREVIEW_UPDATE_NOTICE=true` のWeb版で確認できます。
+
 iPhoneのショートカットをリンクで配布する場合は `web/ios-shortcut.html` の `SHORTCUT_URL` に共有URLを設定します。空欄の間は追加ボタンが非表示で、手作業の作成手順を使えます。
 
 ## データとライセンス

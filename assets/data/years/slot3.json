@@ -1,0 +1,690 @@
+{
+  "01-12": {
+    "date": "01-12",
+    "title": "桜島の大正噴火",
+    "kind": "できごと",
+    "summary": "桜島の大正噴火は1914年の1月12日に始まり、溶岩で大隅半島と陸続きになりました。地震も伴った記録を防災の教訓として振り返ります。",
+    "work_tip": "降灰時の浄水場対応を手順書で一項目見る",
+    "visual": "nature",
+    "theme": "disaster_prep",
+    "scene": "A calm editorial illustration of an emergency kit with a flashlight, water bottles and a helmet on a shelf, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
+    "sources": [
+      {
+        "label": "鹿児島市",
+        "url": "https://www.city.kagoshima.lg.jp/kikikanri/kurashi/bosai/bosai/bosai/kiroku.html"
+      }
+    ]
+  },
+  "01-18": {
+    "date": "01-18",
+    "title": "118番の日",
+    "kind": "記念日",
+    "summary": "海上保安庁は1月18日を118番の日とし、海難や油の流出を知らせる通報先として周知しています。緊急時の連絡方法を確かめる日です。",
+    "work_tip": "海上の油流出を見つけた際の連絡先を調べる",
+    "visual": "work",
+    "theme": "emergency",
+    "scene": "A calm editorial illustration of a red fire extinguisher and a coiled fire hose beside a first aid box, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
+    "sources": [
+      {
+        "label": "国土交通省",
+        "url": "https://www.kaiho.mlit.go.jp/04kanku/contents/information/002294.html"
+      }
+    ]
+  },
+  "01-26": {
+    "date": "01-26",
+    "title": "国際クリーンエネルギー・デー",
+    "kind": "国際デー",
+    "summary": "国連の決議を受け、1月26日はクリーンエネルギーを取り上げる国際デーです。目標7の実現へ向け、各国や機関の協力を促しています。",
+    "work_tip": "浄水場の電力使用量を前月と比べてみる",
+    "visual": "nature",
+    "theme": "environment",
+    "scene": "A calm editorial illustration of a young seedling growing from rich soil beside a small globe, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
+    "sources": [
+      {
+        "label": "国連",
+        "url": "https://documents.un.org/doc/undoc/gen/n23/256/86/pdf/n2325686.pdf"
+      }
+    ]
+  },
+  "02-10": {
+    "date": "02-10",
+    "title": "世界豆デー",
+    "kind": "国際デー",
+    "summary": "国連は豆類が食料供給や農業の持続可能性に役立つ点を紹介する日を設けました。栄養を支える作物の役割を考える機会です。",
+    "work_tip": "今日の昼食に豆を使った料理を一品選ぶ",
+    "visual": "health",
+    "theme": "hygiene_food",
+    "scene": "A calm editorial illustration of hands washing under running water at a simple white sink with a bar of soap, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
+    "sources": [
+      {
+        "label": "国連食糧農業機関（FAO）",
+        "url": "https://www.fao.org/world-pulses-day/en"
+      }
+    ]
+  },
+  "02-17": {
+    "date": "02-17",
+    "title": "親切な行いの日",
+    "kind": "記念日",
+    "summary": "1995年に始まった運動は、日常の場で親切な行いを広げるよう勧めています。2月17日は身近な思いやりを考える機会です。",
+    "work_tip": "窓口で手続きに迷う人に一言声をかけてみる",
+    "visual": "people",
+    "theme": "community",
+    "scene": "A calm editorial illustration of two pairs of hands holding a small potted flower together, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
+    "sources": [
+      {
+        "label": "主催財団",
+        "url": "https://www.randomactsofkindness.org/media-kit"
+      }
+    ]
+  },
+  "02-20": {
+    "date": "02-20",
+    "title": "世界社会正義の日",
+    "kind": "国際デー",
+    "summary": "国連は2007年の決定で、2月20日を社会正義に関する国際デーとしました。公正を進めるための課題に目を向ける機会です。",
+    "work_tip": "料金相談の説明が誰にも届く言葉か見直す",
+    "visual": "people",
+    "theme": "community",
+    "scene": "A calm editorial illustration of two pairs of hands holding a small potted flower together, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
+    "sources": [
+      {
+        "label": "国連",
+        "url": "https://indonesia.un.org/en/260366-world-day-social-justice-20-february"
+      }
+    ]
+  },
+  "02-25": {
+    "date": "02-25",
+    "title": "クウェート国民の日",
+    "kind": "記念日",
+    "summary": "1964年の首長令を受け、クウェートの祝日は1965年から2月25日に変更されました。国の歩みを記念する年中行事です。",
+    "work_tip": "海外から来た利用者向けの水道案内を一枚見る",
+    "visual": "people",
+    "theme": "international",
+    "scene": "A calm editorial illustration of a world globe on a table beside colorful paper cranes and stacked books, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
+    "sources": [
+      {
+        "label": "クウェート政府",
+        "url": "https://www.e.gov.kw/sites/kgoenglish/Pages/ApplicationPages/NewsDetail.aspx?nid=5415834"
+      }
+    ]
+  },
+  "03-18": {
+    "date": "03-18",
+    "title": "世界リサイクルデー",
+    "kind": "国際デー",
+    "summary": "運営団体は毎年3月18日に行事を開き、使った素材の再利用を促します。資源を循環させる考え方を広げる国際的な記念日です。",
+    "work_tip": "使用済みの業務用品の分別先を一つ確かめる",
+    "visual": "nature",
+    "theme": "environment",
+    "scene": "A calm editorial illustration of a young seedling growing from rich soil beside a small globe, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
+    "sources": [
+      {
+        "label": "Global Recycling Foundation",
+        "url": "https://www.globalrecyclingfoundation.com/our-initiatives/initiative-3/"
+      }
+    ]
+  },
+  "03-22": {
+    "date": "03-22",
+    "title": "放送記念日",
+    "kind": "記念日",
+    "summary": "1925年の3月下旬、東京の放送局が日本でラジオ放送を始めました。NHKはその節目を放送記念日として紹介しています。",
+    "work_tip": "断水を知らせる放送文を声に出して読んでみる",
+    "visual": "technology",
+    "theme": "communication",
+    "scene": "A calm editorial illustration of a vintage telephone, a small radio and a modern smartphone arranged on a desk, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
+    "sources": [
+      {
+        "label": "日本放送協会（NHK）",
+        "url": "https://note.com/nhk_pr/n/ndadf747898da"
+      }
+    ]
+  },
+  "03-30": {
+    "date": "03-30",
+    "title": "国際ゼロ・ウェイスト・デー",
+    "kind": "国際デー",
+    "summary": "国連総会は廃棄物を減らす行動を促す国際デーを設けました。資源の使い方を見直し、持続可能な暮らしを考える機会です。",
+    "work_tip": "今日の会議資料で省ける印刷を一枚探す",
+    "visual": "nature",
+    "theme": "environment",
+    "scene": "A calm editorial illustration of a young seedling growing from rich soil beside a small globe, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
+    "sources": [
+      {
+        "label": "国連",
+        "url": "https://indonesia.un.org/en/264317-international-day-zero-waste-30-march"
+      }
+    ]
+  },
+  "04-10": {
+    "date": "04-10",
+    "title": "教科書の日",
+    "kind": "記念日",
+    "summary": "教科書の日は語呂合わせから生まれ、教科書協会を中心に2010年に定められました。4月10日に学びを支える本の役割に目を向けます。",
+    "work_tip": "業務の手引きで基本手順を一項目読み直す",
+    "visual": "culture",
+    "theme": "education",
+    "scene": "A calm editorial illustration of an open book and stacked notebooks on a school desk near a bright window, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
+    "sources": [
+      {
+        "label": "日本教科書協会",
+        "url": "https://www.textbook.or.jp/special/memorial/index.html"
+      }
+    ]
+  },
+  "04-14": {
+    "date": "04-14",
+    "title": "世界量子デー",
+    "kind": "国際デー",
+    "summary": "日付には、プランク定数を「4.14」と表す数字の関係が反映されています。量子研究の理解を広げる国際デーです。",
+    "work_tip": "測定表に記す定数の桁数を一か所確認する",
+    "visual": "science",
+    "theme": "science",
+    "scene": "A calm editorial illustration of simple laboratory glassware and an open notebook on a bright bench, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
+    "sources": [
+      {
+        "label": "世界量子デー運営委員会",
+        "url": "https://www.worldquantumday.org/why-april-14"
+      }
+    ]
+  },
+  "04-17": {
+    "date": "04-17",
+    "title": "世界血友病デー",
+    "kind": "国際デー",
+    "summary": "4月17日は世界血友病連盟の創設者の誕生日にちなむ国際デーです。血友病への理解と支援を考える機会として、毎年啓発が行われます。",
+    "work_tip": "現場用の救急箱に止血用の用品があるか見る",
+    "visual": "health",
+    "theme": "medical",
+    "scene": "A calm editorial illustration of a stethoscope, a small ribbon and a glass of water on a clean clinic table, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
+    "sources": [
+      {
+        "label": "世界血友病連盟",
+        "url": "https://wfh.org/article/everything-you-need-for-world-hemophilia-day-2025/"
+      }
+    ]
+  },
+  "04-19": {
+    "date": "04-19",
+    "title": "飼育の日",
+    "kind": "記念日",
+    "summary": "「しいく」と読めることにちなみ、4月19日は動物園や水族館の飼育係に光を当てる記念日です。飼育の現場から動物園や水族館を知る機会になります。",
+    "work_tip": "施設周辺の生き物を見つけた場所をメモする",
+    "visual": "nature",
+    "theme": "wildlife",
+    "scene": "A calm editorial illustration of a quiet mountain forest with a small deer silhouette in the distance, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
+    "sources": [
+      {
+        "label": "東京動物園協会",
+        "url": "https://www.tokyo-zoo.net/topics/events/kasai/605_26747_2021-04-09.html"
+      }
+    ]
+  },
+  "04-26": {
+    "date": "04-26",
+    "title": "世界知的財産の日",
+    "kind": "国際デー",
+    "summary": "WIPOの案内では、4月26日を知的財産の国際デーとして紹介しています。新しい技術や表現を守る仕組みに目を向ける機会です。",
+    "work_tip": "広報に使う写真の利用条件を一枚確かめる",
+    "visual": "work",
+    "theme": "law_admin",
+    "scene": "A calm editorial illustration of an open law book, a fountain pen and a document stamp on a wooden desk, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
+    "sources": [
+      {
+        "label": "世界知的所有権機関（WIPO）",
+        "url": "https://www.wipo.int/en/web/ipday/index"
+      }
+    ]
+  },
+  "04-30": {
+    "date": "04-30",
+    "title": "国際ジャズ・デー",
+    "kind": "国際デー",
+    "summary": "4月30日にUNESCOが定めた国際デーです。ジャズが人々をつなぐ力や、誰もが参加できる社会づくりへの働きに目を向けます。",
+    "work_tip": "同僚の提案に自分の工夫を一つ添えてみる",
+    "visual": "culture",
+    "theme": "arts",
+    "scene": "A calm editorial illustration of a music stand, a violin and soft theater curtains on a quiet stage, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
+    "sources": [
+      {
+        "label": "ユネスコ",
+        "url": "https://www.unesco.org/en/international-jazz-day?hub=761"
+      }
+    ]
+  },
+  "05-11": {
+    "date": "05-11",
+    "title": "長良川鵜飼開き",
+    "kind": "季節の行事",
+    "summary": "長良川の鵜飼は、5月中旬に始まり秋半ばまで続く岐阜市の季節行事です。川の増水時など、状況により中止されることもあります。",
+    "work_tip": "河川の水位情報で今日の変化を見てみる",
+    "visual": "water",
+    "theme": "river_wetland",
+    "scene": "A calm editorial illustration of a quiet river winding through reeds and wetlands under a pale sky, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
+    "sources": [
+      {
+        "label": "岐阜市",
+        "url": "https://www.city.gifu.lg.jp/shitsumon/kanko/1010077/1010078.html"
+      }
+    ]
+  },
+  "05-15": {
+    "date": "05-15",
+    "title": "沖縄本土復帰",
+    "kind": "できごと",
+    "summary": "沖縄の行政権は、戦後の米国統治を経て日本へ返還されました。5月15日の歴史を振り返り、地域の歩みに目を向ける出来事です。",
+    "work_tip": "地域の水道事業の引継ぎの歴史を一つ読む",
+    "visual": "history",
+    "theme": "history",
+    "scene": "A calm editorial illustration of an old paper scroll, a vintage pocket watch and a quill on a desk, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
+    "sources": [
+      {
+        "label": "外務省",
+        "url": "https://www.mofa.go.jp/mofaj/annai/honsho/shiryo/page24_001761.html"
+      }
+    ]
+  },
+  "05-18": {
+    "date": "05-18",
+    "title": "消費者ホットライン188の日",
+    "kind": "記念日",
+    "summary": "5月と「188」の数字を組み合わせて日付が決まり、消費者庁は相談窓口の電話番号を広めています。消費者トラブルの相談先を知る記念日です。",
+    "work_tip": "水道を装う勧誘の相談先を案内資料で見る",
+    "visual": "work",
+    "theme": "law_admin",
+    "scene": "A calm editorial illustration of an open law book, a fountain pen and a document stamp on a wooden desk, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
+    "sources": [
+      {
+        "label": "消費者庁",
+        "url": "https://www.caa.go.jp/policies/policy/local_cooperation/local_consumer_administration/hotline/188_pamphlet"
+      }
+    ]
+  },
+  "05-21": {
+    "date": "05-21",
+    "title": "国際お茶の日",
+    "kind": "国際デー",
+    "summary": "国連総会は5月21日を国際お茶の日とし、お茶の生産が農村の暮らしや食料の安定に果たす役割を伝えています。持続可能な生産を考える日です。",
+    "work_tip": "休憩のお茶を入れる水の味を意識してみる",
+    "visual": "health",
+    "theme": "hygiene_food",
+    "scene": "A calm editorial illustration of hands washing under running water at a simple white sink with a bar of soap, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
+    "sources": [
+      {
+        "label": "国連食糧農業機関（FAO）",
+        "url": "https://www.fao.org/international-tea-day/en"
+      }
+    ]
+  },
+  "05-26": {
+    "date": "05-26",
+    "title": "秋田県民防災の日",
+    "kind": "記念日",
+    "summary": "秋田県は、過去の日本海沿岸の地震を教訓に防災を考える日を設けました。5月26日の訓練や学びを通じ、地域の備えを見直す機会です。",
+    "work_tip": "津波を想定した給水拠点の位置を地図で見る",
+    "visual": "nature",
+    "theme": "disaster_prep",
+    "scene": "A calm editorial illustration of an emergency kit with a flashlight, water bottles and a helmet on a shelf, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
+    "sources": [
+      {
+        "label": "秋田県",
+        "url": "https://www.pref.akita.lg.jp/pages/archive/7203"
+      }
+    ]
+  },
+  "06-14": {
+    "date": "06-14",
+    "title": "米国国旗の日",
+    "kind": "年中行事",
+    "summary": "米国では1777年に大陸会議が星条旗を採択したことを記念します。6月14日を1949年に恒久化し、国旗の歴史を振り返る日です。",
+    "work_tip": "施設案内で使う記号の意味を一つ確かめる",
+    "visual": "people",
+    "theme": "international",
+    "scene": "A calm editorial illustration of a world globe on a table beside colorful paper cranes and stacked books, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
+    "sources": [
+      {
+        "label": "米国政府出版局",
+        "url": "https://www.govinfo.gov/features/flag-day"
+      }
+    ]
+  },
+  "06-26": {
+    "date": "06-26",
+    "title": "国連憲章署名",
+    "kind": "できごと",
+    "summary": "米国の公文書館が原本を公開する、国連の基本文書への署名です。6月26日に各国代表が調印した出来事を振り返ります。",
+    "work_tip": "水道分野の国際協力を紹介する記事を読む",
+    "visual": "people",
+    "theme": "international",
+    "scene": "A calm editorial illustration of a world globe on a table beside colorful paper cranes and stacked books, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
+    "sources": [
+      {
+        "label": "米国国立公文書館",
+        "url": "https://www.archives.gov/milestone-documents/united-nations-charter"
+      }
+    ]
+  },
+  "07-13": {
+    "date": "07-13",
+    "title": "ニューヨーク市大停電",
+    "kind": "できごと",
+    "summary": "1977年7月中旬に、ニューヨーク市内で広範囲の停電が起きました。ブッシュウィックにも影響し、都市インフラの備えを考える契機です。",
+    "work_tip": "停電時に使う浄水場の手順を一項目読む",
+    "visual": "nature",
+    "theme": "disaster_prep",
+    "scene": "A calm editorial illustration of an emergency kit with a flashlight, water bottles and a helmet on a shelf, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
+    "sources": [
+      {
+        "label": "ニューヨーク市公文書館",
+        "url": "https://www.archives.nyc/blog/2017/11/22/burning-bushwick"
+      }
+    ]
+  },
+  "07-18": {
+    "date": "07-18",
+    "title": "杉並区の光化学スモッグ被害",
+    "kind": "できごと",
+    "summary": "杉並区で高校生らに健康被害が広がったのは7月18日です。光化学スモッグへの社会的な関心が高まる契機となった出来事です。",
+    "work_tip": "屋外作業前に光化学スモッグの注意情報を見る",
+    "visual": "nature",
+    "theme": "environment",
+    "scene": "A calm editorial illustration of a young seedling growing from rich soil beside a small globe, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
+    "sources": [
+      {
+        "label": "東京都",
+        "url": "https://www.hokeniryo.metro.tokyo.lg.jp/kankyo/kankyo_eisei/taiki/smog/qa"
+      }
+    ]
+  },
+  "07-24": {
+    "date": "07-24",
+    "title": "アポロ11号の地球帰還",
+    "kind": "できごと",
+    "summary": "月面着陸を終えた宇宙船は、太平洋への着水を経て地球へ戻りました。7月24日の帰還が、ミッションを締めくくる出来事となりました。",
+    "work_tip": "現場から戻る時の機材返却先を確認する",
+    "visual": "space",
+    "theme": "space",
+    "scene": "A calm editorial illustration of a small spacecraft above Earth's curved horizon with distant stars, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
+    "sources": [
+      {
+        "label": "NASA",
+        "url": "https://www.nasa.gov/history/apollo-11-mission-overview/"
+      }
+    ]
+  },
+  "08-04": {
+    "date": "08-04",
+    "title": "栄養の日",
+    "kind": "記念日",
+    "summary": "日本栄養士会は健康を支える食生活に目を向け、8月4日を記念日にしました。栄養の働きや日々の選択を考える機会です。",
+    "work_tip": "現場へ出る日の昼食を栄養の面から選ぶ",
+    "visual": "health",
+    "theme": "hygiene_food",
+    "scene": "A calm editorial illustration of hands washing under running water at a simple white sink with a bar of soap, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
+    "sources": [
+      {
+        "label": "日本栄養士会",
+        "url": "https://www.dietitian.or.jp/84/2026/1.html"
+      }
+    ]
+  },
+  "08-20": {
+    "date": "08-20",
+    "title": "世界蚊の日",
+    "kind": "記念日",
+    "summary": "ロナルド・ロスが蚊とマラリアの関係を明らかにした日に由来します。8月20日に病気を媒介する蚊への理解を深める記念日です。",
+    "work_tip": "庁舎周辺で蚊が発生しそうな水たまりを見る",
+    "visual": "health",
+    "theme": "medical",
+    "scene": "A calm editorial illustration of a stethoscope, a small ribbon and a glass of water on a clean clinic table, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
+    "sources": [
+      {
+        "label": "英国政府",
+        "url": "https://www.gov.uk/government/news/world-mosquito-day-2010"
+      }
+    ]
+  },
+  "09-07": {
+    "date": "09-07",
+    "title": "国際クリーン・エア・デー",
+    "kind": "国際デー",
+    "summary": "国連総会が9月7日に定めた国際デーです。大気の汚れが人の健康に与える影響を知り、空気を守るための取り組みを考える日です。",
+    "work_tip": "現場周辺の大気情報を公的なページで見る",
+    "visual": "nature",
+    "theme": "environment",
+    "scene": "A calm editorial illustration of a young seedling growing from rich soil beside a small globe, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
+    "sources": [
+      {
+        "label": "国連",
+        "url": "https://indonesia.un.org/en/244342-international-day-clean-air-blue-skies-7-september"
+      }
+    ]
+  },
+  "09-11": {
+    "date": "09-11",
+    "title": "警察相談の日",
+    "kind": "記念日",
+    "summary": "警察庁が案内する9月11日の啓発日です。「#9110」で緊急時以外の相談窓口につながることを知る機会です。",
+    "work_tip": "不審な訪問販売の相談先を窓口資料で見る",
+    "visual": "work",
+    "theme": "emergency",
+    "scene": "A calm editorial illustration of a red fire extinguisher and a coiled fire hose beside a first aid box, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
+    "sources": [
+      {
+        "label": "警察庁",
+        "url": "https://www.npa.go.jp/hakusyo/h24/honbun/html/o2330000.html"
+      }
+    ]
+  },
+  "09-18": {
+    "date": "09-18",
+    "title": "しまくとぅばの日",
+    "kind": "できごと",
+    "summary": "沖縄県は条例に基づき、9月18日をしまくとぅばの日としています。地域に受け継がれた言葉を次の世代へつなぐ意義を考える機会です。",
+    "work_tip": "地域の言葉で呼ばれる水辺の地名を一つ調べる",
+    "visual": "people",
+    "theme": "international",
+    "scene": "A calm editorial illustration of a world globe on a table beside colorful paper cranes and stacked books, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
+    "sources": [
+      {
+        "label": "沖縄県",
+        "url": "https://www.pref.okinawa.jp/_res/projects/default_project/_page_/001/011/775/shimakutubanohinikansurujourei.pdf"
+      }
+    ]
+  },
+  "09-25": {
+    "date": "09-25",
+    "title": "世界薬剤師デー",
+    "kind": "国際デー",
+    "summary": "国際薬学連盟が毎年9月25日に行う国際デーです。薬剤師の専門性や、医療と地域で果たす役割を知る機会としています。",
+    "work_tip": "職場にある薬の相談先の案内を一枚見る",
+    "visual": "health",
+    "theme": "medical",
+    "scene": "A calm editorial illustration of a stethoscope, a small ribbon and a glass of water on a clean clinic table, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
+    "sources": [
+      {
+        "label": "国際薬学連合（FIP）",
+        "url": "https://www.fip.org/world-pharmacists-day?p=458"
+      }
+    ]
+  },
+  "09-29": {
+    "date": "09-29",
+    "title": "世界心臓デー",
+    "kind": "国際デー",
+    "summary": "世界心臓連盟が9月29日に設けた国際デーです。心血管疾患の知識を広げ、予防や健康づくりへの関心を高めます。",
+    "work_tip": "健診の案内で心臓の検査項目を一つ読む",
+    "visual": "health",
+    "theme": "medical",
+    "scene": "A calm editorial illustration of a stethoscope, a small ribbon and a glass of water on a clean clinic table, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
+    "sources": [
+      {
+        "label": "世界心臓連盟",
+        "url": "https://world-heart-federation.org/world-heart-day/"
+      }
+    ]
+  },
+  "10-06": {
+    "date": "10-06",
+    "title": "国際地質多様性の日",
+    "kind": "国際デー",
+    "summary": "ユネスコが設けた国際デーは、地質の多様さと自然資源のつながりを考える機会です。岩石や地層を知る日です。",
+    "work_tip": "水源地域の地層について資料を一ページ読む",
+    "visual": "science",
+    "theme": "science",
+    "scene": "A calm editorial illustration of simple laboratory glassware and an open notebook on a bright bench, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
+    "sources": [
+      {
+        "label": "ユネスコ",
+        "url": "https://www.unesco.org/en/days/geodiversity"
+      }
+    ]
+  },
+  "10-14": {
+    "date": "10-14",
+    "title": "世界標準の日",
+    "kind": "国際デー",
+    "summary": "IEC、ISO、ITUは10月14日に記念日を設けています。国際規格に関わる専門職への感謝を表し、標準化を支える協力を考えます。",
+    "work_tip": "部品の仕様書に記された規格番号を確かめる",
+    "visual": "science",
+    "theme": "science",
+    "scene": "A calm editorial illustration of simple laboratory glassware and an open notebook on a bright bench, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
+    "sources": [
+      {
+        "label": "国際標準化機構（ISO）",
+        "url": "https://www.iso.org/world-standards-day.html"
+      }
+    ]
+  },
+  "10-17": {
+    "date": "10-17",
+    "title": "貧困撲滅のための国際デー",
+    "kind": "国際デー",
+    "summary": "国連開発計画が10月17日に掲げる国際デーです。貧困をなくし、繁栄を分かち合うための決意を新たにする機会です。",
+    "work_tip": "水道料金の支払い相談の案内を一項目読む",
+    "visual": "people",
+    "theme": "community",
+    "scene": "A calm editorial illustration of two pairs of hands holding a small potted flower together, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
+    "sources": [
+      {
+        "label": "国連",
+        "url": "https://www.undp.org/speeches/international-day-eradication-poverty-17-october-2025"
+      }
+    ]
+  },
+  "10-23": {
+    "date": "10-23",
+    "title": "国際ユキヒョウの日",
+    "kind": "国際デー",
+    "summary": "国連の行事一覧に掲載される10月23日の国際デーです。決議79/143に基づき、ユキヒョウに目を向ける機会としています。",
+    "work_tip": "自然保護の資料で山の生態系を一項目読む",
+    "visual": "nature",
+    "theme": "wildlife",
+    "scene": "A calm editorial illustration of a quiet mountain forest with a small deer silhouette in the distance, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
+    "sources": [
+      {
+        "label": "国連",
+        "url": "https://indonesia.un.org/en/312449-united-nations-indonesia-events-and-international-days-2026"
+      }
+    ]
+  },
+  "10-27": {
+    "date": "10-27",
+    "title": "世界視聴覚遺産の日",
+    "kind": "国際デー",
+    "summary": "1980年の勧告を記念して設けられた国際デーです。映像や音声の資料を保存し、公開して次の世代へ伝える大切さを考えます。",
+    "work_tip": "水道の記録映像の保存先を一件確かめる",
+    "visual": "culture",
+    "theme": "arts",
+    "scene": "A calm editorial illustration of a music stand, a violin and soft theater curtains on a quiet stage, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
+    "sources": [
+      {
+        "label": "ユネスコ",
+        "url": "https://www.unesco.org/en/days/audiovisual-heritage?hub=66903"
+      }
+    ]
+  },
+  "10-31": {
+    "date": "10-31",
+    "title": "世界都市デー",
+    "kind": "国際デー",
+    "summary": "都市の持続可能な発展を考えるため、国連総会は10月31日を国際デーとしました。都市化の課題に各国が協力する機会としています。",
+    "work_tip": "都市の拡大と給水区域の関係を地図で見る",
+    "visual": "work",
+    "theme": "construction",
+    "scene": "A calm editorial illustration of a construction crane beside a building frame and a surveying tripod, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
+    "sources": [
+      {
+        "label": "国際電気通信連合（ITU）",
+        "url": "https://www.itu.int/en/ITU-T/climatechange/Pages/20201031.aspx"
+      }
+    ]
+  },
+  "11-10": {
+    "date": "11-10",
+    "title": "平和と発展のための世界科学デー",
+    "kind": "国際デー",
+    "summary": "2001年にユネスコが11月10日を国際デーとしました。科学が平和と持続的な発展で担う役割を考えます。",
+    "work_tip": "水道の研究成果を紹介する記事を一段落読む",
+    "visual": "science",
+    "theme": "science",
+    "scene": "A calm editorial illustration of simple laboratory glassware and an open notebook on a bright bench, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
+    "sources": [
+      {
+        "label": "ユネスコ",
+        "url": "https://www.unesco.org/en/days/science-peace-development?hub=686"
+      }
+    ]
+  },
+  "11-26": {
+    "date": "11-26",
+    "title": "世界持続可能な交通デー",
+    "kind": "国際デー",
+    "summary": "国連経済社会局が案内する11月26日の国際デーです。安全と環境への配慮を両立する交通が、暮らしと地球にどう役立つかを考えます。",
+    "work_tip": "業務の移動で同乗できる予定を一つ探す",
+    "visual": "travel",
+    "theme": "roads",
+    "scene": "A calm editorial illustration of a gently curving road through countryside with a small car in the distance, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
+    "sources": [
+      {
+        "label": "国連",
+        "url": "https://desapublications.un.org/un-desa-voice/more-from-undesa/november-2025/celebrating-world-sustainable-transport-day-and"
+      }
+    ]
+  },
+  "11-30": {
+    "date": "11-30",
+    "title": "化学兵器犠牲者追悼の日",
+    "kind": "国際デー",
+    "summary": "化学兵器禁止機関が11月30日に犠牲者を悼みます。兵器廃絶と国際平和に向けた活動を確認する国際デーです。",
+    "work_tip": "薬品管理の記録に用途の記載があるか見る",
+    "visual": "peace",
+    "theme": "peace",
+    "scene": "A calm editorial illustration of white doves flying over a quiet memorial garden with white flowers, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
+    "sources": [
+      {
+        "label": "化学兵器禁止機関（OPCW）",
+        "url": "https://www.opcw.org/calendar/2022/11/30/day-remembrance-all-victims-chemical-warfare"
+      }
+    ]
+  },
+  "12-04": {
+    "date": "12-04",
+    "title": "国際銀行デー",
+    "kind": "国際デー",
+    "summary": "12月4日の国際デーに、銀行が持続可能な開発の資金や国際目標の実現で担う役割を取り上げます。国連総会決議で定められた日です。",
+    "work_tip": "水道事業の資金計画で借入先を一つ確かめる",
+    "visual": "work",
+    "theme": "finance_stats",
+    "scene": "A calm editorial illustration of a calculator, a ledger and a sheet with a simple bar chart on a desk, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
+    "sources": [
+      {
+        "label": "国連",
+        "url": "https://documents.un.org/doc/undoc/gen/n19/438/15/pdf/n1943815.pdf"
+      }
+    ]
+  }
+}

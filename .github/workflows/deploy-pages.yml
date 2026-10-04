@@ -4,6 +4,8 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  schedule:
+    - cron: '30 14 31 12 *'
 
 permissions:
   contents: read
@@ -35,7 +37,11 @@ jobs:
         run: |
           repo_name="${GITHUB_REPOSITORY#*/}"
           flutter build web --release --base-href "/${repo_name}/"
-          python tools/package_web.py
+          if [ "${{ github.event_name }}" = "schedule" ]; then
+            python tools/package_web.py --rollover
+          else
+            python tools/package_web.py
+          fi
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v4
         with:

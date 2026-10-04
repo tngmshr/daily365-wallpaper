@@ -16,8 +16,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 CALENDAR = ROOT / "assets" / "data" / "calendar.json"
 CANDIDATES = ROOT / "work" / "candidates.json"
+THEMES = {t["id"] for t in json.loads((ROOT / "docs" / "themes.json").read_text(encoding="utf-8"))["themes"]}
 
-KINDS = {"記念日", "年中行事", "国際デー", "季節の行事", "暦のしくみ"}
+KINDS = {"記念日", "年中行事", "国際デー", "季節の行事", "暦のしくみ", "できごと"}
 VISUALS = {
     "nature", "water", "travel", "history", "people", "peace", "sports", "science",
     "space", "culture", "food", "health", "technology", "work", "seasonal",
@@ -72,6 +73,10 @@ def main() -> int:
             errors.append(f"{key} kind {row['kind']!r}")
         if row["visual"] not in VISUALS:
             errors.append(f"{key} visual {row['visual']!r}")
+        if "theme" in row and row["theme"] not in THEMES:
+            errors.append(f"{key} unknown theme {row['theme']!r}")
+        if "solar_term" in row and row["solar_term"] not in {"立春", "夏至", "処暑", "冬至"}:
+            errors.append(f"{key} unknown solar_term {row['solar_term']!r}")
         words = len(row.get("scene", "").split())
         if not 15 <= words <= 60:
             errors.append(f"{key} scene has {words} words")
@@ -79,9 +84,11 @@ def main() -> int:
             warnings.append(f"{key} scene mentions a banned motif: {row['scene']}")
         if SENSITIVE.search(title + summary):
             warnings.append(f"{key} sensitive keyword: {title}")
-        if not row["sources"] or "wikipedia.org" not in row["sources"][-1]["url"]:
-            if key != "02-29":
-                errors.append(f"{key} last source is not the Wikipedia date page")
+        if not row["sources"] or not row["sources"][-1].get("url"):
+            errors.append(f"{key} has no source")
+        elif any("wikipedia.org" in s["url"] for s in row["sources"][:-1]):
+            # Entries adapted from Wikipedia credit the date page last; primary-source entries cite no Wikipedia.
+            errors.append(f"{key} last source is not the Wikipedia date page")
         notes = " ".join(c["note"] for c in candidates.get(key, []))
         run = copied_run(summary, notes) if notes else None
         if run:
