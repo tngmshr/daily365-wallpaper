@@ -86,9 +86,9 @@ def main() -> int:
             warnings.append(f"{key} sensitive keyword: {title}")
         if not row["sources"] or not row["sources"][-1].get("url"):
             errors.append(f"{key} has no source")
-        elif "theme" not in row and "wikipedia.org" not in row["sources"][-1]["url"]:
-            if key != "02-29":
-                errors.append(f"{key} last source is not the Wikipedia date page")
+        elif any("wikipedia.org" in s["url"] for s in row["sources"][:-1]):
+            # Entries adapted from Wikipedia credit the date page last; primary-source entries cite no Wikipedia.
+            errors.append(f"{key} last source is not the Wikipedia date page")
         notes = " ".join(c["note"] for c in candidates.get(key, []))
         run = copied_run(summary, notes) if notes else None
         if run:

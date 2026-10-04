@@ -25,7 +25,7 @@
 01-24,学校給食週間,記念日,仕事,1,1,1,1,2,2,1,0,1,0,6,残す,confirmed,政府,文部省（現・文部科学省）,https://www.mext.go.jp/a_menu/sports/syokuiku/1299359.htm,gov,,健康・環境・技術の話題
 01-25,日本最低気温の観測記録,できごと,仕事,1,1,1,1,2,2,2,1,0,0,7,残す,confirmed,不明,該当なし（気象観測記録）,https://www.data.jma.go.jp/asahikawa/shosai/kisetsu_topics.html,gov,,2026-10-04 差し替え。旭川地方気象台の記録ページが1902年1月25日の旭川氷点下41.0度を日本の最低気温として示す。
 01-26,文化財防火デー,記念日,仕事,1,1,1,1,3,2,1,0,0,0,6,残す,confirmed,政府,文化庁・消防庁,https://www.fdma.go.jp/publication/ugoki/assets/2001_11_4.pdf,gov,,2026-10-04 差し替え。消防庁の資料が法隆寺火災、1955年の制定、文化財を火災から守る趣旨を記す。
-01-27,アウシュヴィッツ強制収容所の解放,できごと,ユニーク,1,1,1,1,1,2,2,0,0,0,5,残す,confirmed,不明,該当なし（歴史上の出来事）,https://www.coe.int/en/web/portal/27-january-holocaust-remembrance-day,org,,"2026-10-04 差し替え。欧州評議会の記録が1945年1月27日の解放、約7,000人の収容者、追悼と犯罪防止教育を記す。"
+01-27,ホロコースト犠牲者を想起する国際デー,国際デー,ユニーク,1,1,1,1,1,2,2,0,0,0,5,残す,confirmed,国際機関,国連総会,https://digitallibrary.un.org/record/559922,gov,,2026-10-04 国連の国際デーとして書き直し。決議60/7（2005年）が1月27日を指定。
 01-28,セレンディピティの日,記念日,仕事,1,1,1,1,2,1,1,0,0,0,4,残す,date_only,不明,不明,https://serendipity.or.jp/,org,,健康・環境・技術の話題；一次情報を確認できず；再調査(10/4): 日本セレンディピティ協会の公式サイトは1月28日の同名イベントと1754年の書簡にちなむ語の由来を掲載するが、記念日を制定したという明記は確認できない。
 01-29,昭和基地開設記念日,記念日,仕事,1,1,1,1,2,2,1,0,0,0,5,残す,confirmed,年中行事（制定者なし）,年中行事（昭和基地開設の記念）,https://nipr-blog.nipr.ac.jp/science-museum/cat-4/129-5d1d.html,gov,,健康・環境・技術の話題
 01-30,インドの殉教者の日,記念日,ユニーク,1,1,1,1,1,2,2,0,0,0,5,残す,confirmed,不明,制定主体未確認,https://www.pib.gov.in/newsite/PrintRelease.aspx?lang=2&reg=48&relid=197735,gov,,2026-10-04 差し替え。インド政府の発表が1月30日の殉教者の日とガンディー追悼式を伝えるが、制定主体は確認できない。
@@ -74,7 +74,7 @@
 03-14,数学の日,記念日,仕事,1,1,1,1,2,1,2,0,0,0,5,残す,confirmed,公益・非営利団体,日本数学検定協会,https://www.su-gaku.net/press_release/20210120-10798/,org,,健康・環境・技術の話題；一次情報を確認できず；再調査(10/4): 日本数学検定協会は公式発表で1997年に円周率の近似値3.14にちなみ3月14日を日本国内の数学の日に制定したと明記している。
 03-15,世界消費者権利デー,国際デー,仕事,1,1,1,1,2,2,2,0,0,0,6,残す,confirmed,公益・非営利団体,Consumers International,https://www.caa.go.jp/about_us/minister/kikawada_message_003,gov,,2026-10-04 差し替え。消費者庁の公式ページは1962年の演説とConsumers Internationalによる記念日の呼びかけを説明しています。
 03-16,インド国家予防接種の日,記念日,仕事,1,1,1,1,2,2,1,0,0,0,5,残す,date_only,不明,制定者の記載なし（インド政府が毎年実施）,https://www.pib.gov.in/PressNoteDetails.aspx?ModuleId=3&NoteId=157836&lang=1&reg=3,gov,,2026-10-04 差し替え。インド政府報道情報局の公式記事は名称、毎年の日付、1995年の初回接種を記載しています。
-03-17,ボストン撤退記念日,記念日,ユニーク,1,1,1,1,1,2,2,0,0,0,5,残す,confirmed,不明,創始者の記載なし（ボストンで毎年記念）,https://www.nps.gov/bost/learn/news/bnhp-25m-for-infrastructure-improvements.htm,gov,,2026-10-04 差し替え。米国国立公園局の公式ページは1776年の撤退と、ボストンが毎年3月17日を記念日とすることを記載しています。
+03-17,セント・パトリックス・デー,記念日,ユニーク,1,1,1,1,1,2,2,0,0,0,5,残す,confirmed,国・自治体,アイルランド（国の祝日）,https://www.ireland.ie/en/st-patricks-day-2026/everything-you-need-to-know-about-st-patricks-day/,gov,,2026-10-04 ボストン撤退記念日（出典が記念日の説明でない）から差し替え。アイルランド政府が3月17日の祝日と東京のパレードを記載。
 03-18,点字ブロックの日,記念日,仕事,1,1,1,1,3,2,2,0,0,0,7,残す,confirmed,公益・非営利団体,岡山県視覚障害者協会,https://www.city.okayama.jp/shisei/cmsfiles/contents/0000079/79684/20260311_5_tenjiblocks.pdf,gov,,2026-10-04 差し替え。岡山市の公式資料は初設置の日付と場所、記念日の制定経緯を記載しています。
 03-19,国際デジタル学習デー,国際デー,仕事,1,1,1,1,2,2,1,0,0,0,5,残す,date_only,国際機関,UNESCO（主催・推進。制定主体は未確認）,https://www.unesco.org/en/articles/international-day-digital-learning-2025-closing-gaps-technology,un,,2026-10-04 差し替え。UNESCO公式ページは名称、3月19日の日付、デジタル学習と教育格差への焦点を示しています。
 03-20,国際幸福デー,国際デー,仕事,1,1,1,1,2,2,1,0,0,0,5,残す,confirmed,国際機関,国連総会,https://indonesia.un.org/id/263102-hari-kebahagiaan-internasional-20-maret,un,,2026-10-04 差し替え。国連の公式ページは総会決議、3月20日の日付、幸福とウェルビーイングの意義を記載しています。
@@ -319,7 +319,7 @@
 11-14,世界糖尿病デー,国際デー,仕事,1,1,1,1,2,2,1,0,0,0,5,残す,confirmed,公益・非営利団体,International Diabetes Federation（WHO支援）,https://www.who.int/campaigns/world-diabetes-day,un,,2026-10-04 差し替え。WHO公式ページが11月14日、1991年の開始、国際糖尿病連合とWHOの関係を示しています。
 11-15,七五三,年中行事,季節,1,1,0,1,0,1,1,1,0,0,3,要検討,date_only,年中行事（制定者なし）,年中行事（七五三）,https://www.jinjahoncho.or.jp/omairi/shichigosan/,founder,神社本庁の説明では11月15日前後の慣習。3+5+7=15が日付由来という説は確認できず。,宗教行事のためG2不通過；年により日付が変動 / G2: 一般的な行事として通す（10/4 本人判断）
 11-16,国際寛容デー,国際デー,ユニーク,1,1,1,1,1,2,1,0,0,0,4,残す,confirmed,国際機関,UNESCO加盟国,https://www.unesco.org/en/legal-affairs/declaration-principles-tolerance,un,,2026-10-04 差し替え。UNESCOの宣言本文が採択日と毎年11月16日の国際デーを明記しています。
-11-17,国際学生デー,記念日,ユニーク,1,1,1,1,1,1,2,0,0,0,4,残す,confirmed,公益・非営利団体,International Students’ Council（英国、1941年の記念主体）,https://esu-online.org/17th-of-november-a-day-of-remembrance/,org,,2026-10-04 差し替え。欧州学生連合の公式ページが1939年の出来事と1941年の初回記念を記録しています。
+11-17,将棋の日,記念日,ユニーク,1,1,1,1,1,1,2,0,0,0,4,残す,confirmed,公益・非営利団体,日本将棋連盟,https://kifulog.shogi.or.jp/seirei/2021/11/post-c87c.html,org,,2026-10-04 国際学生デーから差し戻し。日本将棋連盟の公式ブログが御城将棋の由来と1975年の制定を記載。
 11-18,土木の日,記念日,仕事,1,1,1,1,3,1,2,0,0,0,6,残す,confirmed,公益・非営利団体,公益社団法人土木学会,https://www.jsce.or.jp/committee/day/index.html,org,,安全・設備・計量の実務に関係；一次情報を確認できず；再調査(10/4): 土木学会公式ページが1987年の11月18日制定と土・木を十一・十八に分解する語呂および1879年11月18日の工学会設立にちなむ由来を明記。
 11-19,世界トイレの日,国際デー,仕事,1,1,1,1,4,2,2,0,0,0,8,残す,date_only,不明,不明,https://www.who.int/news-room/events/detail/2021/11/19/default-calendar/world-toilet-day-19-november-2021-valuing-toilets,un,,2026-10-04 差し替え。WHO公式ページが毎年の開催日と衛生・公衆衛生への目的を示していますが、制定の由来は確認できません。
 11-20,世界子どもの日,国際デー,ユニーク,1,1,1,1,1,2,1,0,0,0,4,残す,confirmed,国際機関,国連総会,https://www.unicef.org/take-action/campaigns/world-childrens-day,un,,2026-10-04 差し替え。UNICEF公式ページが日付と二つの国連文書にちなむ由来を説明しています。

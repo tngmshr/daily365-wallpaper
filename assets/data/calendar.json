@@ -413,17 +413,17 @@
     },
     {
       "date": "01-27",
-      "title": "アウシュヴィッツ強制収容所の解放",
-      "kind": "できごと",
-      "summary": "1945年1月、ソ連軍はポーランドの強制収容所を解放しました。残された人々を悼み、人道犯罪を防ぐ教訓を受け継ぐ日です。",
-      "work_tip": "窓口で先入観を持たず相談内容を聞いてみる",
+      "title": "ホロコースト犠牲者を想起する国際デー",
+      "kind": "国際デー",
+      "summary": "2005年の国連総会決議で、アウシュヴィッツ解放の日にあたる1月27日と定められました。犠牲者を悼み、迫害を繰り返さない教訓を学ぶ日です。",
+      "work_tip": "当時の記録や証言を一つ読み、静かに振り返る",
       "visual": "peace",
       "theme": "peace",
       "scene": "A calm editorial illustration of white doves flying over a quiet memorial garden with white flowers, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
       "sources": [
         {
-          "label": "欧州評議会",
-          "url": "https://www.coe.int/en/web/portal/27-january-holocaust-remembrance-day"
+          "label": "国連総会決議60/7",
+          "url": "https://digitallibrary.un.org/record/559922"
         }
       ]
     },
@@ -462,7 +462,7 @@
       "title": "インドの殉教者の日",
       "kind": "記念日",
       "summary": "1月末、インドではガンディーを追悼する行事が行われます。1948年の暗殺を振り返り、平和と非暴力の歩みに思いを向ける日です。",
-      "work_tip": "意見が違う同僚にも落ち着いて事情を聞く",
+      "work_tip": "非暴力を説いた言葉を一つ読み、言葉づかいを見直す",
       "visual": "peace",
       "theme": "peace",
       "scene": "A calm editorial illustration of white doves flying over a quiet memorial garden with white flowers, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
@@ -1225,17 +1225,17 @@
     },
     {
       "date": "03-17",
-      "title": "ボストン撤退記念日",
+      "title": "セント・パトリックス・デー",
       "kind": "記念日",
-      "summary": "ボストン包囲戦は1776年の3月半ば、英国軍の退去で終結しました。当地ではこの日を毎年記念し、植民地時代の歴史を伝えています。",
-      "work_tip": "地域の水道史で転機となった出来事を一つ読む",
+      "summary": "アイルランドにキリスト教を広めた聖パトリックをしのぶ、同国の祝日です。緑を身につけて祝い、東京ではアジア最大級のパレードが開かれます。",
+      "work_tip": "他国の祝日や文化を一つ調べて話題にする",
       "visual": "people",
       "theme": "international",
       "scene": "A calm editorial illustration of a world globe on a table beside colorful paper cranes and stacked books, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
       "sources": [
         {
-          "label": "米国国立公園局",
-          "url": "https://www.nps.gov/bost/learn/news/bnhp-25m-for-infrastructure-improvements.htm"
+          "label": "アイルランド政府",
+          "url": "https://www.ireland.ie/en/st-patricks-day-2026/everything-you-need-to-know-about-st-patricks-day/"
         }
       ]
     },
@@ -5288,17 +5288,16 @@
     },
     {
       "date": "11-17",
-      "title": "国際学生デー",
+      "title": "将棋の日",
       "kind": "記念日",
-      "summary": "1939年の弾圧事件を振り返り、学生への権利侵害に目を向ける日です。最初の記念行事は1941年にロンドンで行われました。",
-      "work_tip": "施設を見学する学生の質問を一つ振り返る",
+      "summary": "旧暦11月17日は江戸時代、将軍の前で御城将棋が指された日でした。日本将棋連盟がこれにちなんで1975年に制定しました。",
+      "work_tip": "次の一手とその先を考えて進める",
       "visual": "culture",
-      "theme": "education",
-      "scene": "A calm editorial illustration of an open book and stacked notebooks on a school desk near a bright window, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
+      "scene": "A calm editorial illustration of a wooden shogi board with a few plain pieces, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
       "sources": [
         {
-          "label": "欧州学生連合",
-          "url": "https://esu-online.org/17th-of-november-a-day-of-remembrance/"
+          "label": "日本将棋連盟",
+          "url": "https://kifulog.shogi.or.jp/seirei/2021/11/post-c87c.html"
         }
       ]
     },
