@@ -195,16 +195,16 @@
     },
     {
       "date": "01-13",
-      "title": "初虚空蔵",
-      "kind": "年中行事",
-      "summary": "虚空蔵の縁日は毎月13日で、年が明けて最初の縁日をこの名で呼びます。知恵と慈悲を重んじる伝統が残ります。",
-      "work_tip": "学びたいことを一つ選んで静かに調べる",
+      "title": "第1回大学入試センター試験",
+      "kind": "できごと",
+      "summary": "1990年1月13日と14日、大学入試センター試験の第1回が全国で行われました。毎年この時期、多くの受験生が同じ問題に挑みます。",
+      "work_tip": "試験や点検の前日に段取りと持ち物を見直す",
       "visual": "culture",
-      "scene": "A calm editorial illustration of a quiet traditional garden path with winter trees and soft light, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
+      "scene": "A calm editorial illustration of a tidy wooden desk with sharpened pencils and an eraser by a bright winter window, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
       "sources": [
         {
-          "label": "1月13日の日付記事と脚注",
-          "url": "https://ja.wikipedia.org/wiki/1%E6%9C%8813%E6%97%A5"
+          "label": "大学入試センター 沿革",
+          "url": "https://www.dnc.ac.jp/about/enkaku/history.html"
         }
       ]
     },
@@ -843,12 +843,8 @@
       "scene": "A calm editorial illustration of several colorful speech bubbles made of abstract shapes, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
       "sources": [
         {
-          "label": "国連の国際デー一覧",
-          "url": "https://www.un.org/en/observances/list-days-weeks"
-        },
-        {
-          "label": "2月21日の日付記事と脚注",
-          "url": "https://ja.wikipedia.org/wiki/2%E6%9C%8821%E6%97%A5"
+          "label": "UNESCO",
+          "url": "https://www.unesco.org/en/days/mother-language"
         }
       ]
     },
@@ -1826,12 +1822,8 @@
       "scene": "A calm editorial illustration of a small green planet surrounded by leaves and sunlight, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
       "sources": [
         {
-          "label": "国連の国際デー一覧",
-          "url": "https://www.un.org/en/observances/list-days-weeks"
-        },
-        {
-          "label": "4月22日の日付記事と脚注",
-          "url": "https://ja.wikipedia.org/wiki/4%E6%9C%8822%E6%97%A5"
+          "label": "国連総会決議 63/278",
+          "url": "https://digitallibrary.un.org/record/652438/files/A_RES_63_278-EN.pdf"
         }
       ]
     },
@@ -2200,12 +2192,8 @@
       "scene": "A calm editorial illustration of several small figures from behind walking together in a park, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
       "sources": [
         {
-          "label": "国連の国際デー一覧",
-          "url": "https://www.un.org/en/observances/list-days-weeks"
-        },
-        {
-          "label": "5月15日の日付記事と脚注",
-          "url": "https://ja.wikipedia.org/wiki/5%E6%9C%8815%E6%97%A5"
+          "label": "国連",
+          "url": "https://www.un.org/en/observances/international-day-of-families"
         }
       ]
     },
@@ -3872,12 +3860,8 @@
       "scene": "A calm editorial illustration of late summer grasses turning golden in soft afternoon light, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
       "sources": [
         {
-          "label": "二十四節気「処暑」 立春から210日目に警戒すべき理由とは？",
-          "url": "https://weathernews.jp/s/topics/202308/220105/"
-        },
-        {
-          "label": "8月23日の日付記事と脚注",
-          "url": "https://ja.wikipedia.org/wiki/8%E6%9C%8823%E6%97%A5"
+          "label": "国立天文台 暦要項",
+          "url": "https://eco.mtk.nao.ac.jp/koyomi/yoko/2026/rekiyou262.html"
         }
       ]
     },
@@ -4521,12 +4505,8 @@
       "scene": "A calm editorial illustration of two small figures from behind talking on a park bench, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
       "sources": [
         {
-          "label": "国連の国際デー一覧",
-          "url": "https://www.un.org/en/observances/list-days-weeks"
-        },
-        {
-          "label": "10月1日の日付記事と脚注",
-          "url": "https://ja.wikipedia.org/wiki/10%E6%9C%881%E6%97%A5"
+          "label": "国連",
+          "url": "https://www.un.org/en/observances/older-persons-day"
         }
       ]
     },
@@ -5587,12 +5567,8 @@
       "scene": "A calm editorial illustration of small figures from behind tending a shared garden, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
       "sources": [
         {
-          "label": "国連の国際デー一覧",
-          "url": "https://www.un.org/en/observances/list-days-weeks"
-        },
-        {
-          "label": "12月5日の日付記事と脚注",
-          "url": "https://ja.wikipedia.org/wiki/12%E6%9C%885%E6%97%A5"
+          "label": "国連",
+          "url": "https://www.un.org/en/node/46611"
         }
       ]
     },

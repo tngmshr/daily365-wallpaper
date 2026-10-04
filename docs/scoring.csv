@@ -1,4 +1,4 @@
-date,title,kind,category,G1,G2,G3,G4,A,B,C,D,F,E,total,verdict,status,founder_type,founder,primary_url,source_type,summary_issue,note
+﻿date,title,kind,category,G1,G2,G3,G4,A,B,C,D,F,E,total,verdict,status,founder_type,founder,primary_url,source_type,summary_issue,note
 01-01,元日,年中行事,季節,1,1,1,1,0,2,1,1,0,0,4,残す,confirmed,政府,国（祝日法）,https://www8.cao.go.jp/chosei/shukujitsu/gaiyou.html,law,,業務との接点が薄い
 01-02,初夢の日,年中行事,季節,1,1,1,1,1,2,1,1,0,0,5,残す,date_only,年中行事（制定者なし）,年中行事（初夢の慣習）,https://web-japan.org/kidsweb/ja/explore/calendar/january/hatsuyume.html,gov,,休憩時の会話向き
 01-03,ひとみの日,記念日,仕事,1,1,1,1,2,2,1,0,0,0,5,残す,date_only,不明,不明,https://www2.kyotocitylib.jp/wysiwyg/file/download/35/855,gov,,健康・環境・技術の話題；一次情報を確認できず；再調査(10/4): 京都市中央図書館の2020年1月号に1月3日・ひとみの日と語呂合わせの由来を記載しているが、制定者名はなく記念日事典を参照した紹介である。
@@ -11,7 +11,7 @@ date,title,kind,category,G1,G2,G3,G4,A,B,C,D,F,E,total,verdict,status,founder_ty
 01-10,110番の日,記念日,仕事,1,1,1,1,3,2,1,0,0,0,6,残す,confirmed,政府,警察庁,https://www.npa.go.jp/hakusyo/h15/html/E2203010.html,gov,,2026-10-04 差し替え。警察庁の資料が毎年1月10日の制定と、110番の適切な利用・相談窓口の周知目的を記す。
 01-11,鏡開き,年中行事,季節,1,1,1,1,0,2,1,1,0,0,4,残す,confirmed,年中行事（制定者なし）,年中行事（鏡開き）,https://www.maff.go.jp/j/keikaku/syokubunka/culture/wagohan/articles/2301/spe13_01.html,gov,,業務との接点が薄い
 01-12,スキーの日,記念日,ユニーク,1,1,1,1,1,2,1,0,0,0,4,残す,date_only,不明,不明,https://www.city.joetsu.niigata.jp/site/museum/japanese-ski-origination.html,local_gov,,休憩時の会話向き
-01-13,初虚空蔵,年中行事,季節,1,0,1,1,1,1,1,1,0,0,4,要検討,date_only,年中行事（制定者なし）,年中行事（寺院の初虚空蔵）,https://www.taraku.or.jp/news/info/1410/,founder,,休憩時の会話向き；宗教題材に配慮
+01-13,第1回大学入試センター試験,できごと,ユニーク,1,1,1,1,1,2,1,0,0,0,4,残す,confirmed,政府,大学入試センター,https://www.dnc.ac.jp/about/enkaku/history.html,gov,,2026-10-04 初虚空蔵（宗教題材・出典弱）から差し替え。大学入試センターの沿革に1990年1月13・14日の第1回実施が記載。
 01-14,タロとジロの生存確認,できごと,仕事,1,1,1,1,2,1,2,0,0,0,5,残す,confirmed,不明,該当なし（歴史上の出来事）,https://nipr-blog.nipr.ac.jp/science-museum/cat-2/cat-6/114.html,org,,2026-10-04 飾納・松納（出典なし等）から差し替え。国立極地研究所の資料が1959年1月14日の第三次隊によるタロとジロの生存確認を記録する。
 01-15,小正月,年中行事,季節,1,1,1,1,0,2,1,1,0,0,4,残す,confirmed,年中行事（制定者なし）,年中行事（小正月）,https://www.maff.go.jp/j/pr/aff/1712/characterinformation.html,gov,,業務との接点が薄い
 01-16,藪入り,年中行事,季節,0,1,1,1,1,0,1,1,0,0,3,要検討,not_found,年中行事（制定者なし）,不明,,none,,休憩時の会話向き；一次情報を確認できず
@@ -50,7 +50,7 @@ date,title,kind,category,G1,G2,G3,G4,A,B,C,D,F,E,total,verdict,status,founder_ty
 02-18,冥王星の日,記念日,仕事,1,1,1,1,2,2,2,0,0,0,6,残す,date_only,不明,不明,https://www.kahaku.go.jp/exhibitions/vm/resource/tenmon/space/pluto/pluto01.html,gov,,健康・環境・技術の話題
 02-19,天地の日,記念日,仕事,1,1,1,1,2,2,1,0,0,0,5,残す,date_only,不明,不明,https://www.city.asakuchi.lg.jp/uploaded/attachment/9688.pdf,gov,,健康・環境・技術の話題；一次情報を確認できず；再調査(10/4): 浅口市の図書館だより令和7年2月号に2月19日・天地の日とコペルニクスの誕生日にちなむ制定を記載しているが、制定者は記載していない。
 02-20,旅券の日,記念日,ユニーク,1,1,1,1,1,2,1,0,0,0,4,残す,confirmed,政府,外務省（旅券制度の記録）,https://www.mofa.go.jp/mofaj/toko/passport/0220/,gov,,休憩時の会話向き
-02-21,国際母語デー,国際デー,ユニーク,0,1,1,1,1,0,1,0,0,0,2,要検討,not_found,不明,不明,,intl,,休憩時の会話向き；一次情報を確認できず
+02-21,国際母語デー,国際デー,ユニーク,1,1,1,1,1,2,1,0,0,0,4,残す,confirmed,国際機関,UNESCO総会,https://www.unesco.org/en/days/mother-language,intl,,2026-10-04 ⑫ 一次情報で再採点。1999年のUNESCO総会が2月21日を指定。
 02-22,世界友情の日,記念日,ユニーク,1,1,1,1,1,1,2,0,0,0,4,残す,confirmed,公益・非営利団体,世界ガールガイド・ガールスカウト連盟（WAGGGS）,https://www.wagggs.org/en/what-we-do/world-thinking-day/history/,org,,2026-10-04 差し替え。WAGGGSの歴史ページは1926年に2月22日が選ばれた理由と、1999年の名称変更を説明しています。
 02-23,税理士記念日,記念日,仕事,1,1,1,1,3,1,2,0,0,0,6,残す,confirmed,業界団体,日本税理士会連合会,https://www.nichizeiren.or.jp/cpta/system/history_memorial/,org,,2026-10-04 差し替え。日本税理士会連合会の公式ページは由来となる法律の日付と、記念日の制定年を明記しています。
 02-24,スウェーデン系フィンランド人の日,記念日,ユニーク,1,1,1,1,1,2,1,0,0,0,4,残す,confirmed,不明,スウェーデン系フィンランド人の発案（個人名・団体名は不明）,https://www.nordiskamuseet.se/utforska/hogtider/sverigefinnarnas-dag/,org,,2026-10-04 差し替え。北欧博物館の調査ページは発案、2013年開始、2月24日の日付とゴットルンドの誕生日に由来することを記載しています。
@@ -111,7 +111,7 @@ date,title,kind,category,G1,G2,G3,G4,A,B,C,D,F,E,total,verdict,status,founder_ty
 04-19,地図の日,記念日,仕事,1,1,1,1,3,2,2,0,1,0,8,残す,date_only,不明,伊能忠敬（測量出発）,https://www.gsi.go.jp/common/000236440.pdf,gov,,安全・設備・計量の実務に関係；旧暦と西暦の対応に要照合 / 要約修正済み（10/4） / G3: 本文で旧暦との区別を説明（10/4 本人判断）
 04-20,中国語デー,国際デー,ユニーク,1,1,1,1,1,2,1,0,0,0,4,残す,date_only,不明,,https://www.unic.or.jp/activities/international_observances/days/,un,,2026-10-04 差し替え。国連広報センターの公式一覧で4月20日と名称を確認し、由来は本文から確認できませんでした。
 04-21,創造性とイノベーションの世界デー,国際デー,仕事,1,1,1,1,2,2,2,0,0,0,6,残す,date_only,不明,,https://www.unic.or.jp/activities/international_observances/days/,un,,2026-10-04 差し替え。国連広報センターの公式一覧で4月21日と名称を確認し、制定経緯は未確認です。
-04-22,国際母なる地球デー,国際デー,ユニーク,0,1,1,1,1,0,1,0,0,0,2,要検討,not_found,不明,不明,,intl,,休憩時の会話向き；一次情報を確認できず
+04-22,国際母なる地球デー,国際デー,ユニーク,1,1,1,1,1,2,1,0,0,0,4,残す,confirmed,国際機関,国連総会,https://digitallibrary.un.org/record/652438/files/A_RES_63_278-EN.pdf,gov,,2026-10-04 ⑫ 一次情報で再採点。決議63/278（2009年）が4月22日を指定。
 04-23,世界図書・著作権デー,国際デー,ユニーク,1,1,1,1,1,2,2,0,0,0,5,残す,confirmed,国際機関,UNESCO,https://www.unesco.org/en/days/world-book-and-copyright?hub=66744,un,,2026-10-04 差し替え。UNESCO公式ページで毎年4月23日と、世代・文化をつなぐ本の意義を確認しました。
 04-24,世界予防接種週間,年中行事,仕事,1,1,1,1,2,2,1,0,0,0,5,残す,confirmed,国際機関,世界保健機関（WHO）,https://www.who.int/campaigns/world-immunization-week/,un,,2026-10-04 差し替え。WHO公式ページが4月24日から30日の日程と、全年齢へのワクチン普及という目的を明記しています。
 04-25,世界マラリアデー,国際デー,仕事,1,1,1,1,2,2,1,0,0,0,5,残す,confirmed,国際機関,WHO加盟国,https://www.who.int/campaigns/world-malaria-day,un,,2026-10-04 差し替え。WHO公式ページが4月25日と、2007年のWHO加盟国による設定を記載しています。
@@ -134,7 +134,7 @@ date,title,kind,category,G1,G2,G3,G4,A,B,C,D,F,E,total,verdict,status,founder_ty
 05-12,看護の日,記念日,仕事,1,1,1,1,2,1,1,0,0,0,4,残す,confirmed,政府,旧厚生省,https://www.nurse.or.jp/aim/simin/about/index.html,founder,,健康・環境・技術の話題
 05-13,防犯建物部品で安全・安心・防犯の日,記念日,仕事,1,1,1,1,3,1,1,0,0,-1,4,残す,confirmed,業界団体,5団体防犯建物部品普及促進協議会,https://www.jsma.or.jp/release/details.html?TabModule626=0&dispmid=650&itemid=16,org,,2026-10-04 差し替え。日本サッシ協会が5団体協議会の制定、日付、安全建物部品の普及啓発を説明しています。
 05-14,けん玉の日,記念日,ユニーク,1,1,1,1,1,1,2,0,0,0,4,残す,confirmed,公益・非営利団体,一般社団法人グローバルけん玉ネットワーク,https://www.gloken.net/jp/blog/201702061701/,founder,,休憩時の会話向き
-05-15,国際家族デー,国際デー,ユニーク,0,1,1,1,1,0,1,0,0,0,2,要検討,not_found,不明,不明,,intl,,休憩時の会話向き；一次情報を確認できず
+05-15,国際家族デー,国際デー,ユニーク,1,1,1,1,1,2,1,0,0,0,4,残す,confirmed,国際機関,国連総会,https://www.un.org/en/observances/international-day-of-families,gov,,2026-10-04 ⑫ 一次情報で再採点。決議47/237（1993年）が毎年5月15日を指定。
 05-16,光の国際デー,国際デー,仕事,1,1,1,1,2,2,1,0,0,0,5,残す,confirmed,国際機関,UNESCO,https://www.unesco.org/en/days/light?hub=66491,intl,,健康・環境・技術の話題
 05-17,世界情報社会・電気通信日,国際デー,仕事,1,1,1,1,2,2,2,0,0,0,6,残す,confirmed,国際機関,国際電気通信連合（ITU）・国連総会,https://www.itu.int/en/history/pages/WTISDEventsCollection.aspx,intl,,健康・環境・技術の話題
 05-18,国際博物館の日,国際デー,ユニーク,1,1,1,1,1,2,1,0,0,0,4,残す,confirmed,公益・非営利団体,国際博物館会議（ICOM）,https://www.unesco.org/en/articles/celebrating-museums-around-world,intl,,休憩時の会話向き
@@ -234,7 +234,7 @@ date,title,kind,category,G1,G2,G3,G4,A,B,C,D,F,E,total,verdict,status,founder_ty
 08-20,交通信号設置記念日,記念日,仕事,1,1,1,1,3,2,2,0,1,0,8,残す,date_only,不明,不明,https://www.police.pref.osaka.lg.jp/ochikakunokeisatsusho/keisatsushobetsujoho/42/tubuyaki/backnumber/21883.html,local_gov,,大阪府警公式が1931年8月20日の初設置を確認
 08-21,献血の日,記念日,仕事,1,1,1,1,3,1,2,0,0,0,6,残す,confirmed,政府,内閣（閣議決定）,https://www.jrc.or.jp/donation/blood/news/160818_004397.html,org,,2026-10-04 差し替え。日本赤十字社の案内は1964年8月21日の閣議決定と献血の日の名称・趣旨を示しています。
 08-22,アメリカズカップの始まり,できごと,ユニーク,1,1,1,1,1,1,2,0,0,0,4,残す,confirmed,公益・非営利団体,該当なし（歴史上の出来事）,https://www.americascup.com/history/1_WHERE-IT-ALL-BEGAN-A-RACE-AROUND-THE-ISLE-OF-WIGHT,org,,2026-10-04 チンチン電車の日（出典なし）から差し替え。大会公式の歴史ページが1851年8月22日のレースと杯の由来を記載。（A〜Fは2026-10-04に採点）
-08-23,処暑,季節の行事,季節,0,1,0,1,0,0,1,1,0,0,2,要検討,not_found,不明,不明,,media,,業務との接点が薄い；年により日付が変動；一次情報を確認できず
+08-23,処暑,季節の行事,季節,1,1,1,1,0,2,1,1,0,0,4,残す,date_only,年中行事（制定者なし）,年中行事（二十四節気・処暑）,https://eco.mtk.nao.ac.jp/koyomi/yoko/2026/rekiyou262.html,gov,,2026-10-04 ⑫ 一次情報で再採点。国立天文台 暦要項で2026・2027年とも8月23日。G3: solar_term で年ごとの日付を持つ
 08-24,ジャパンパラリンピックデー,記念日,ユニーク,1,1,1,1,1,1,2,0,1,0,5,残す,confirmed,公益・非営利団体,日本パラリンピック委員会（JPC）,https://www.parasports.or.jp/paralympic/report/rep067.html,org,,2026-10-04 差し替え。JPCの公式レポートは8月24日の制定と、東京2020大会のレガシーを継承する目的を記しています。
 08-25,東京飛行場の開港,できごと,仕事,1,1,1,1,3,2,2,0,1,0,8,残す,confirmed,不明,不明,https://www.mlit.go.jp/page/kanbo01_hy_001626.html,gov,,2026-10-04 差し替え。国土交通省の羽田空港公式史は1931年8月25日の東京飛行場開港を記しています。
 08-26,火山防災の日,記念日,仕事,1,1,1,1,3,2,2,0,0,0,7,残す,confirmed,政府,日本政府（活動火山対策特別措置法）,https://www.data.jma.go.jp/vois/data/filing/kazanbosai/02_shoukai.html,gov,,2026-10-04 差し替え。気象庁は火山防災の日の由来を浅間山の火山観測所設置とし、日付を毎年8月26日としています。
@@ -273,7 +273,7 @@ date,title,kind,category,G1,G2,G3,G4,A,B,C,D,F,E,total,verdict,status,founder_ty
 09-28,パソコン記念日,記念日,仕事,1,1,1,1,2,2,1,0,0,0,5,残す,date_only,不明,不明,https://www.city.tarumizu.lg.jp/tarumizuchuo/kurashi/kosodate/gakko/chuo/dayori/documents/29lib9.pdf,gov,,健康・環境・技術の話題；一次情報を確認できず；再調査(10/4): 垂水市立垂水中央中学校の図書館だよりが9月28日の名称と1979年のNEC製PC-8000シリーズ発売由来を記載するが、記念日の制定者は未確認。
 09-29,食品ロスと食料廃棄に関する国際デー,国際デー,仕事,1,1,1,1,2,2,1,0,0,0,5,残す,confirmed,国際機関,国連総会,https://www.fao.org/platform-food-loss-waste/flw-events/international-day-food-loss-and-waste/en,un,,2026-10-04 差し替え。FAOは2019年の国連総会決議と食品ロス削減による天然資源保全の目的を掲載しています。
 09-30,クレーンの日,記念日,仕事,1,1,1,1,3,1,1,0,0,0,5,残す,confirmed,業界団体,日本クレーン協会,https://cranenet.or.jp/gyouzi/crane_old.html,org,,2026-10-04 差し替え。日本クレーン協会は規則公布日を由来として制定し、労働災害防止を目的に活動しています。
-10-01,国際高齢者デー,国際デー,ユニーク,0,1,1,1,1,0,1,0,0,0,2,要検討,not_found,不明,不明,,intl,,休憩時の会話向き；一次情報を確認できず
+10-01,国際高齢者デー,国際デー,ユニーク,1,1,1,1,1,2,1,0,0,0,4,残す,confirmed,国際機関,国連総会,https://www.un.org/en/observances/older-persons-day,gov,,2026-10-04 ⑫ 一次情報で再採点。決議45/106（1990年）が10月1日を指定。
 10-02,ガンディー生誕記念日（ガンディー・ジャヤンティ）,年中行事,ユニーク,1,1,1,1,1,2,1,0,0,0,4,残す,confirmed,年中行事（制定者なし）,,https://eoiaddisababa.gov.in/gandhi-jayanti-02-october/,gov,,2026-10-04 差し替え。在エチオピア・インド大使館の公式案内に日付とガンディー誕生日記念の献花行事が記載されています。
 10-03,登山の日,記念日,ユニーク,1,1,1,1,1,1,2,0,0,0,4,残す,confirmed,公益・非営利団体,公益社団法人日本山岳ガイド協会（旧・日本アルパインガイド協会）,https://yamanohi.net/aboutus_foundation_history.php,founder,,制定協会沿革が1991年の設定を記載；休憩時の会話向き
 10-04,世界宇宙週間,年中行事,仕事,1,1,1,1,2,2,2,0,0,0,6,残す,confirmed,国際機関,国連総会,https://www.unoosa.org/documents/doc/outreach/events/wsw/wsw2006E.pdf,un,,2026-10-04 差し替え。UNOOSA資料は国連総会の決定、毎年10月4〜10日の期間、宇宙科学技術の目的を示しています。
@@ -338,7 +338,7 @@ date,title,kind,category,G1,G2,G3,G4,A,B,C,D,F,E,total,verdict,status,founder_ty
 12-02,日本人宇宙飛行記念日,記念日,仕事,1,1,1,1,2,2,2,0,0,0,6,残す,confirmed,年中行事（制定者なし）,年中行事（日本人初の宇宙飛行記録）,https://humans-in-space.jaxa.jp/faq/detail/000441.html,gov,,健康・環境・技術の話題
 12-03,国際障害者デー,国際デー,仕事,1,1,1,1,2,2,1,0,0,0,5,残す,confirmed,国際機関,国連総会,https://www.unesco.org.tr/Home/Page/1967?slug=UNESCO-Taraf%C4%B1ndan-%C4%B0lan-Edilen-G%C3%BCnler,org,,2026-10-04 差し替え。ユネスコ・トルコ国内委員会の公式一覧に、日付と国連総会決議47/3が記載されている。
 12-04,血清療法の確立,できごと,仕事,1,1,1,1,2,1,2,0,0,0,5,残す,confirmed,個人,北里柴三郎,https://www.kitasato.ac.jp/jp/kinen-shitsu/shibasaburo/lifetime.html,org,,2026-10-04 差し替え。北里大学の記念室年譜に、1890年12月4日の抗毒素発見と血清療法確立が記載されている。
-12-05,国際ボランティア・デー,国際デー,ユニーク,0,1,1,1,1,0,1,0,0,0,2,要検討,not_found,不明,不明,,intl,,休憩時の会話向き；一次情報を確認できず
+12-05,国際ボランティア・デー,国際デー,ユニーク,1,1,1,1,1,2,1,0,0,0,4,残す,confirmed,国際機関,国連総会,https://www.un.org/en/node/46611,gov,,2026-10-04 ⑫ 一次情報で再採点。決議40/212（1985年）が毎年12月5日を指定。
 12-06,音の日,記念日,仕事,1,1,1,1,2,1,2,0,0,-1,4,残す,confirmed,業界団体,一般社団法人日本オーディオ協会,https://www.jas-audio.or.jp/sound-day,org,,健康・環境・技術の話題；一次情報を確認できず；再調査(10/4): 日本オーディオ協会公式ページが自ら12月6日を音の日と定めたことと1877年12月6日のエジソンによる蓄音機完成にちなむ由来を明記。
 12-07,国際民間航空デー,国際デー,仕事,1,1,1,1,2,2,1,0,0,0,5,残す,confirmed,国際機関,国連総会・国際民間航空機関（ICAO）,https://www.icao.int/international-civil-aviation-day-7-december,intl,,健康・環境・技術の話題
 12-08,太平洋戦争開戦,できごと,ユニーク,1,1,1,1,1,2,1,0,0,0,4,残す,confirmed,政府,日本政府,https://www.archives.go.jp/ayumi/kobetsu/s16_1941_03.html,gov,,2026-10-04 事納め（出典なし等）から差し替え。国立公文書館の年表に、12月8日の宣戦の詔書発布と戦争の経過が記録されている。
