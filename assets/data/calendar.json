@@ -129,16 +129,17 @@
     },
     {
       "date": "01-09",
-      "title": "とんちの日",
-      "kind": "記念日",
-      "summary": "一休さんの呼び名を日付の数字に重ねた記念日です。とんちやクイズを通じて、発想を楽しむ機会になります。",
-      "work_tip": "いつもの課題を別の角度から考えてみる",
-      "visual": "culture",
-      "scene": "A calm editorial illustration of a simple wooden puzzle and scattered colorful puzzle pieces, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
+      "title": "iPhoneの発表",
+      "kind": "できごと",
+      "summary": "2007年1月9日、Appleは電話と音楽プレーヤー、ネット端末を1台にまとめたiPhoneを発表しました。指で操作する画面が特徴でした。",
+      "work_tip": "よく使う業務アプリの操作を一つ見直す",
+      "visual": "technology",
+      "theme": "communication",
+      "scene": "A calm editorial illustration of a vintage telephone, a small radio and a modern smartphone arranged on a desk, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
       "sources": [
         {
-          "label": "1月9日の日付記事と脚注",
-          "url": "https://ja.wikipedia.org/wiki/1%E6%9C%889%E6%97%A5"
+          "label": "Apple",
+          "url": "https://www.apple.com/newsroom/2007/01/09Apple-Reinvents-the-Phone-with-iPhone/"
         }
       ]
     },
@@ -678,20 +679,17 @@
     },
     {
       "date": "02-12",
-      "title": "黄ニラ記念日",
-      "kind": "記念日",
-      "summary": "岡山県の特産野菜・黄ニラを広めようと、農業団体が設けました。「にっこりいいニラ」の語呂に合わせた日です。",
-      "work_tip": "初めての食材にも興味を持ってみる",
-      "visual": "food",
-      "scene": "A calm editorial illustration of fresh yellow chives bundled on a wooden table, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
+      "title": "ダーウィンの誕生日",
+      "kind": "できごと",
+      "summary": "進化論で知られる博物学者ダーウィンは、1809年2月12日にイングランドのシュルーズベリーで生まれました。",
+      "work_tip": "現場で気づいた小さな変化を記録に残す",
+      "visual": "science",
+      "theme": "science",
+      "scene": "A calm editorial illustration of simple laboratory glassware and an open notebook on a bright bench, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
       "sources": [
         {
-          "label": "黄ニラ",
-          "url": "https://www.zennoh.or.jp/oy/product/vegetable/yellow_leek/"
-        },
-        {
-          "label": "2月12日の日付記事と脚注",
-          "url": "https://ja.wikipedia.org/wiki/2%E6%9C%8812%E6%97%A5"
+          "label": "Darwin Online",
+          "url": "https://darwin-online.org.uk/timeline.html"
         }
       ]
     },
@@ -3613,20 +3611,17 @@
     },
     {
       "date": "08-08",
-      "title": "親孝行の日",
-      "kind": "記念日",
-      "summary": "「ハハ」「パパ」と読める日付の語呂をもとに、親への感謝を伝える日として定められました。身近な人を思うきっかけです。",
-      "work_tip": "支えてくれる人へ短いお礼を伝える",
-      "visual": "people",
-      "scene": "A calm editorial illustration of two small figures from behind walking together in summer, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
+      "title": "ジェネシスの打ち上げ",
+      "kind": "できごと",
+      "summary": "2001年8月8日、NASAは太陽風の粒子を集める探査機ジェネシスを打ち上げました。帰還時に地面へ激突しましたが、試料は回収されました。",
+      "work_tip": "うまくいかなかった作業から残せた成果を確かめる",
+      "visual": "space",
+      "theme": "space",
+      "scene": "A calm editorial illustration of a small spacecraft above Earth's curved horizon with distant stars, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
       "sources": [
         {
-          "label": "親孝行の日（8月8日 記念日）",
-          "url": "https://zatsuneta.com/archives/1080802.html"
-        },
-        {
-          "label": "8月8日の日付記事と脚注",
-          "url": "https://ja.wikipedia.org/wiki/8%E6%9C%888%E6%97%A5"
+          "label": "NASA",
+          "url": "https://science.nasa.gov/mission/genesis/"
         }
       ]
     },
@@ -3702,35 +3697,33 @@
     },
     {
       "date": "08-13",
-      "title": "函館夜景の日",
-      "kind": "記念日",
-      "summary": "函館の大学生の提案をきっかけに、地域の団体が1991年から行っています。街の夜景を楽しむ記念日です。",
-      "work_tip": "一日の終わりに今日の景色を振り返る",
-      "visual": "travel",
-      "scene": "A calm editorial illustration of a harbor city glowing softly at night from a hill, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
+      "title": "ステンレス鋼の誕生",
+      "kind": "できごと",
+      "summary": "1913年8月13日、英国シェフィールドのハリー・ブレアリーが錆びにくい高クロム鋼を作りました。ステンレス鋼の始まりとされます。",
+      "work_tip": "設備のさびや腐食の点検箇所を一つ確かめる",
+      "visual": "science",
+      "theme": "science",
+      "scene": "A calm editorial illustration of simple laboratory glassware and an open notebook on a bright bench, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
       "sources": [
         {
-          "label": "8月13日の日付記事と脚注",
-          "url": "https://ja.wikipedia.org/wiki/8%E6%9C%8813%E6%97%A5"
+          "label": "シェフィールド市",
+          "url": "https://www.sheffield.gov.uk/sites/default/files/docs/libraries-and-archives/archives-and-local-studies/research/Stainless-Steel-and-Harry-Brearley-v-1-1--PDF--578-KB-.pdf"
         }
       ]
     },
     {
       "date": "08-14",
-      "title": "水泳の日",
-      "kind": "記念日",
-      "summary": "「国民皆泳の日」をもとに、水泳の団体が名称を改めて続けている記念日です。泳ぐことの楽しさと身を守る技術に目を向けます。",
-      "work_tip": "安全を確かめてから活動を始める",
-      "visual": "sports",
-      "scene": "A calm editorial illustration of an empty swimming pool with calm blue water, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
+      "title": "米国で社会保障法が成立",
+      "kind": "できごと",
+      "summary": "1935年8月14日、米国で社会保障法が承認されました。老齢給付や失業保険などを定め、働く人の暮らしを支える制度の土台になりました。",
+      "work_tip": "自分の年金や保険の加入状況を一度確かめる",
+      "visual": "work",
+      "theme": "law_admin",
+      "scene": "A calm editorial illustration of an open law book, a fountain pen and a document stamp on a wooden desk, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
       "sources": [
         {
-          "label": "きょうは何の日 8月14日 水泳の日（東京新聞）",
-          "url": "https://www.tokyo-np.co.jp/article/508523?rct=what_day"
-        },
-        {
-          "label": "8月14日の日付記事と脚注",
-          "url": "https://ja.wikipedia.org/wiki/8%E6%9C%8814%E6%97%A5"
+          "label": "米国国立公文書館",
+          "url": "https://www.archives.gov/milestone-documents/social-security-act"
         }
       ]
     },
@@ -3854,20 +3847,17 @@
     },
     {
       "date": "08-22",
-      "title": "チンチン電車の日",
-      "kind": "記念日",
-      "summary": "1903年、東京で路面電車の営業が始まりました。街の道を走る乗り物の歩みを振り返る記念日です。",
-      "work_tip": "街を歩く人の視点で案内を見直す",
-      "visual": "travel",
-      "scene": "A calm editorial illustration of a vintage unbranded streetcar on a leafy avenue, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
+      "title": "アメリカズカップの始まり",
+      "kind": "できごと",
+      "summary": "1851年8月22日、英国ワイト島一周レースで米国のヨット、アメリカ号が優勝しました。その杯が国際スポーツ最古のトロフィーになりました。",
+      "work_tip": "チームの強みを一つ言葉にして共有する",
+      "visual": "sports",
+      "theme": "sea_port",
+      "scene": "A calm editorial illustration of a white lighthouse above a calm sea with a small harbor and moored boats, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
       "sources": [
         {
-          "label": "チンチン電車の日（8月22日）｜意味や由来・広報PRに活用するポイントと事例を紹介",
-          "url": "https://prtimes.jp/magazine/today/chin_chin_train_day/"
-        },
-        {
-          "label": "8月22日の日付記事と脚注",
-          "url": "https://ja.wikipedia.org/wiki/8%E6%9C%8822%E6%97%A5"
+          "label": "アメリカズカップ公式",
+          "url": "https://www.americascup.com/history/1_WHERE-IT-ALL-BEGAN-A-RACE-AROUND-THE-ISLE-OF-WIGHT"
         }
       ]
     },
@@ -4101,16 +4091,17 @@
     },
     {
       "date": "09-06",
-      "title": "黒の日",
-      "kind": "記念日",
-      "summary": "「くろ」と読める日付の語呂をもとに、京都の黒染めに関わる団体が制定しました。伝統的な染色の技に目を向ける日です。",
-      "work_tip": "色の濃淡で見やすさを整えてみる",
-      "visual": "culture",
-      "scene": "A calm editorial illustration of folded black dyed fabric showing subtle texture, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
+      "title": "初の世界一周の達成",
+      "kind": "できごと",
+      "summary": "1522年9月6日、ビクトリア号がスペインに帰港し、マゼランが始めてエルカノが引き継いだ初の世界一周が達成されました。",
+      "work_tip": "長い作業の残り工程を区切って見直す",
+      "visual": "travel",
+      "theme": "sea_port",
+      "scene": "A calm editorial illustration of a white lighthouse above a calm sea with a small harbor and moored boats, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
       "sources": [
         {
-          "label": "9月6日の日付記事と脚注",
-          "url": "https://ja.wikipedia.org/wiki/9%E6%9C%886%E6%97%A5"
+          "label": "スペイン陸軍博物館",
+          "url": "https://ejercito.defensa.gob.es/museo/en/HECHOS_HISTORICOS/HECHOS_HISTORICOS/09.06_sept_SE_COMPLETO_LA_PRIMERA_VUELTA_AL_MUNDO_POR_ELCANO.html"
         }
       ]
     },

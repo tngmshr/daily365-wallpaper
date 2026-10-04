@@ -7,7 +7,7 @@
 01-06,東京消防出初式,年中行事,仕事,1,1,1,1,3,2,2,1,1,0,9,残す,confirmed,自治体,東京消防庁,https://www.tfd.metro.tokyo.lg.jp/fs/koganei/page_00104.html,gov,,2026-10-04 差し替え。東京消防庁の案内は毎年1月6日実施と説明し、行進、消防活動演技、はしご乗りを含む防火・防災行事とする。
 01-07,人日の節句,年中行事,季節,1,1,1,1,0,2,1,1,0,0,4,残す,confirmed,年中行事（制定者なし）,年中行事（人日の節句）,https://www.maff.go.jp/j/pr/aff/1712/characterinformation.html,gov,,業務との接点が薄い
 01-08,イヤホンの日,記念日,仕事,1,1,1,1,2,1,2,0,0,-1,4,残す,confirmed,業界団体,イヤホンナビ,https://www.earphones.jp/earphones-day.php,founder,,健康・環境・技術の話題
-01-09,とんちの日,記念日,ユニーク,0,1,1,1,1,0,1,0,0,0,2,要検討,not_found,不明,不明,,none,,休憩時の会話向き；一次情報を確認できず
+01-09,iPhoneの発表,できごと,ユニーク,1,1,1,1,,,,,,,,残す,confirmed,企業,Apple（当事者企業）,https://www.apple.com/newsroom/2007/01/09Apple-Reinvents-the-Phone-with-iPhone/,org,,2026-10-04 とんちの日（出典なし）から差し替え。Apple の2007年1月9日付プレスリリース。（A〜Eの採点は未実施）
 01-10,110番の日,記念日,仕事,1,1,1,1,3,2,1,0,0,0,6,残す,confirmed,政府,警察庁,https://www.npa.go.jp/hakusyo/h15/html/E2203010.html,gov,,2026-10-04 差し替え。警察庁の資料が毎年1月10日の制定と、110番の適切な利用・相談窓口の周知目的を記す。
 01-11,鏡開き,年中行事,季節,1,1,1,1,0,2,1,1,0,0,4,残す,confirmed,年中行事（制定者なし）,年中行事（鏡開き）,https://www.maff.go.jp/j/keikaku/syokubunka/culture/wagohan/articles/2301/spe13_01.html,gov,,業務との接点が薄い
 01-12,スキーの日,記念日,ユニーク,1,1,1,1,1,2,1,0,0,0,4,残す,date_only,不明,不明,https://www.city.joetsu.niigata.jp/site/museum/japanese-ski-origination.html,local_gov,,休憩時の会話向き
@@ -41,6 +41,7 @@
 02-09,服の日,記念日,ユニーク,1,1,1,1,1,1,1,0,0,-1,2,要検討,date_only,業界団体,日本ファッション教育振興協会,https://www.fashion-edu.jp/about/,founder,制定年1988年を一次情報で確認できず。,休憩時の会話向き
 02-10,海の安全祈念日,記念日,仕事,1,1,1,1,3,2,2,0,0,0,7,残す,confirmed,公益・非営利団体,全国水産高等学校長協会,https://www.kyoto-be.ne.jp/kaiyou-hs/cms/?p=14471,gov,,2026-10-04 差し替え。京都府立海洋高校の公式記事は制定団体、2003年の制定、えひめ丸事故の追悼と乗船実習の安全を記載しています。
 02-11,科学における女性と女児の国際デー,国際デー,仕事,1,1,1,1,2,2,1,0,0,0,5,残す,confirmed,国際機関,国連総会・UNESCO,https://www.unesco.org/en/days/women-girls-science?hub=66582,intl,,健康・環境・技術の話題
+02-12,ダーウィンの誕生日,できごと,ユニーク,1,1,1,1,,,,,,,,残す,confirmed,公益・非営利団体,該当なし（人物の生誕）,https://darwin-online.org.uk/timeline.html,org,,2026-10-04 黄ニラ記念日（食べ物PR）から差し替え。Darwin Online の年表で生誕日を確認。（A〜Eの採点は未実施）
 02-13,世界ラジオの日,国際デー,仕事,1,1,1,1,2,2,1,0,0,0,5,残す,confirmed,国際機関,UNESCO・国連総会,https://www.unesco.org/en/days/world-radio?hub=66765,intl,,健康・環境・技術の話題
 02-14,国際本贈りの日,国際デー,ユニーク,1,1,1,1,1,1,2,0,0,0,4,残す,confirmed,個人,Amy Broadmoore（発案のきっかけ）,https://giveabook.org.uk/2021/02/05/international-book-giving-day-2/,org,,2026-10-04 差し替え。運営者への公式インタビューは毎年2月14日の実施、2012年開始と発案のきっかけを説明しています。
 02-15,小児がん国際デー,国際デー,仕事,1,1,1,1,2,1,1,0,0,0,4,残す,date_only,公益・非営利団体,Childhood Cancer International（主催団体）,https://www.iccd.care/about,org,,2026-10-04 差し替え。ICCD公式ページは日付、名称、啓発と支援の目的を確認できますが、制定経緯は示していません。
@@ -218,13 +219,13 @@
 08-05,山形花笠まつり,季節の行事,季節,1,1,1,1,1,1,2,1,0,0,5,残す,confirmed,自治体,山形県・山形市・山形新聞社・山形商工会議所など,https://www.hanagasa.jp/about/,org,,2026-10-04 差し替え。公式サイトは毎年8月5～7日と記し、1963年の蔵王夏まつり内で始まった経緯を説明しています。
 08-06,広島平和記念式典,年中行事,仕事,1,1,1,1,3,2,2,0,0,0,7,残す,confirmed,自治体,広島市,https://www.city.hiroshima.lg.jp/shisei/kouchou/1021840/1006003/1027507/1011681.html,gov,,2026-10-04 差し替え。広島市の公式案内は毎年8月6日の式典と慰霊・恒久平和への目的を示しています。
 08-07,機械の日,記念日,仕事,1,1,1,1,2,1,2,1,0,0,6,残す,confirmed,公益・非営利団体,日本機械学会,https://www.jsme.or.jp/event_project/machine-day/,org,,2026-10-04 差し替え。日本機械学会は8月7日を機械の日とする理由と、機械への理解を深める目的を説明しています。
-08-08,親孝行の日,記念日,ユニーク,0,1,1,1,1,0,2,0,0,0,3,要検討,not_found,不明,不明,,media,,休憩時の会話向き；一次情報を確認できず
+08-08,ジェネシスの打ち上げ,できごと,ユニーク,1,1,1,1,,,,,,,,残す,confirmed,国・自治体,NASA,https://science.nasa.gov/mission/genesis/,gov,,2026-10-04 親孝行の日（出典なし）から差し替え。NASA のミッションページで打ち上げ日と回収を確認。（A〜Eの採点は未実施）
 08-09,ながさき平和の日,記念日,仕事,1,1,1,1,3,2,2,0,0,0,7,残す,confirmed,自治体,長崎市,https://www.city.nagasaki.lg.jp/uploaded/attachment/47026.pdf,gov,,2026-10-04 差し替え。長崎市の公式資料は8月9日をながさき平和の日とし、犠牲者の慰霊と平和への誓いを記しています。
 08-10,道の日,記念日,仕事,1,1,1,1,3,2,2,0,0,0,7,残す,confirmed,政府,国土交通省,https://www.mlit.go.jp/road/soudan/soudan_01b_01.html,gov,,2026-10-04 差し替え。国土交通省の案内は8月10日の制定と、1920年の最初の道路改良計画にちなむ由来を示しています。
 08-11,山の日,季節の行事,仕事,1,1,1,1,2,2,1,1,0,0,6,残す,confirmed,政府,国（祝日法）,https://www8.cao.go.jp/chosei/shukujitsu/gaiyou.html,law,,健康・環境・技術の話題
 08-12,国際青少年デー,国際デー,ユニーク,1,1,1,1,1,2,1,0,0,0,4,残す,confirmed,国際機関,国連総会・UNESCO,https://www.unesco.org/en/days/youth,intl,,休憩時の会話向き
-08-13,函館夜景の日,記念日,ユニーク,0,1,1,1,1,0,1,0,0,0,2,要検討,not_found,不明,不明,,none,,休憩時の会話向き；一次情報を確認できず
-08-14,水泳の日,記念日,ユニーク,0,1,1,1,1,0,1,0,0,0,2,要検討,not_found,不明,不明,,media,,休憩時の会話向き；一次情報を確認できず
+08-13,ステンレス鋼の誕生,できごと,ユニーク,1,1,1,1,,,,,,,,残す,confirmed,国・自治体,該当なし（歴史上の出来事）,https://www.sheffield.gov.uk/sites/default/files/docs/libraries-and-archives/archives-and-local-studies/research/Stainless-Steel-and-Harry-Brearley-v-1-1--PDF--578-KB-.pdf,gov,,2026-10-04 函館夜景の日（出典なし）から差し替え。シェフィールド市公文書館の資料が1913年8月13日の製造を記載。（A〜Eの採点は未実施）
+08-14,米国で社会保障法が成立,できごと,ユニーク,1,1,1,1,,,,,,,,残す,confirmed,国・自治体,該当なし（法律の成立）,https://www.archives.gov/milestone-documents/social-security-act,gov,,2026-10-04 水泳の日（出典なし）から差し替え。米国国立公文書館が1935年8月14日の承認と制度内容を記載。（A〜Eの採点は未実施）
 08-15,戦没者を追悼し平和を祈念する日,記念日,仕事,1,1,1,1,3,2,2,0,0,0,7,残す,confirmed,政府,内閣（閣議決定）,https://www.mhlw.go.jp/stf/web_magazine/closeup/53.html,gov,,2026-10-04 差し替え。厚生労働省は1982年の閣議決定と、毎年8月15日の追悼・平和祈念の趣旨を説明しています。
 08-16,16連射の日,記念日,ユニーク,1,1,1,1,1,1,2,0,0,0,4,残す,confirmed,個人,高橋利幸（高橋名人）,https://ameblo.jp/meijin16shot/entry-12932251941.html,founder,,本人公式ブログで登録と由来を確認；ゲーム史の雑談向き
 08-17,インドネシア独立記念日,記念日,ユニーク,1,1,1,1,1,2,1,0,0,0,4,残す,date_only,不明,不明,https://kemlu.go.id/files/repositori/72883/INDONESIA%20BUZZ%202018%20First%20Edition.pdf,gov,,2026-10-04 差し替え。インドネシア大使館の広報誌は国内外で毎年8月17日に祝うと記し、制定経緯は確認できませんでした。
@@ -232,7 +233,7 @@
 08-19,世界人道デー,国際デー,仕事,1,1,1,1,2,2,1,0,0,0,5,残す,date_only,不明,不明,https://www.unic.or.jp/news_press/messages_speeches/sg/4548/?lang=en,un,,2026-10-04 差し替え。国連広報センターの事務総長メッセージは毎年8月19日と追悼の趣旨を示し、制定経緯は確認できませんでした。
 08-20,交通信号設置記念日,記念日,仕事,1,1,1,1,3,2,2,0,1,0,8,残す,date_only,不明,不明,https://www.police.pref.osaka.lg.jp/ochikakunokeisatsusho/keisatsushobetsujoho/42/tubuyaki/backnumber/21883.html,local_gov,,大阪府警公式が1931年8月20日の初設置を確認
 08-21,献血の日,記念日,仕事,1,1,1,1,3,1,2,0,0,0,6,残す,confirmed,政府,内閣（閣議決定）,https://www.jrc.or.jp/donation/blood/news/160818_004397.html,org,,2026-10-04 差し替え。日本赤十字社の案内は1964年8月21日の閣議決定と献血の日の名称・趣旨を示しています。
-08-22,チンチン電車の日,記念日,ユニーク,0,1,1,1,1,0,2,0,0,0,3,要検討,not_found,不明,不明,,pr,,休憩時の会話向き；一次情報を確認できず
+08-22,アメリカズカップの始まり,できごと,ユニーク,1,1,1,1,,,,,,,,残す,confirmed,公益・非営利団体,該当なし（歴史上の出来事）,https://www.americascup.com/history/1_WHERE-IT-ALL-BEGAN-A-RACE-AROUND-THE-ISLE-OF-WIGHT,org,,2026-10-04 チンチン電車の日（出典なし）から差し替え。大会公式の歴史ページが1851年8月22日のレースと杯の由来を記載。（A〜Eの採点は未実施）
 08-23,処暑,季節の行事,季節,0,1,0,1,0,0,1,1,0,0,2,要検討,not_found,不明,不明,,media,,業務との接点が薄い；年により日付が変動；一次情報を確認できず
 08-24,ジャパンパラリンピックデー,記念日,ユニーク,1,1,1,1,1,1,2,0,1,0,5,残す,confirmed,公益・非営利団体,日本パラリンピック委員会（JPC）,https://www.parasports.or.jp/paralympic/report/rep067.html,org,,2026-10-04 差し替え。JPCの公式レポートは8月24日の制定と、東京2020大会のレガシーを継承する目的を記しています。
 08-25,東京飛行場の開港,できごと,仕事,1,1,1,1,3,2,2,0,1,0,8,残す,confirmed,不明,不明,https://www.mlit.go.jp/page/kanbo01_hy_001626.html,gov,,2026-10-04 差し替え。国土交通省の羽田空港公式史は1931年8月25日の東京飛行場開港を記しています。
@@ -247,7 +248,7 @@
 09-03,睡眠の日,記念日,仕事,1,1,1,1,2,1,1,1,0,0,5,残す,confirmed,公益・非営利団体,公益財団法人神経研究所・睡眠健康推進機構,https://www.jfnm.or.jp/nemurin/,org,,2026-10-04 差し替え。睡眠健康推進機構の公式ページに春と秋の睡眠の日および啓発活動が掲載されています。
 09-04,関西国際空港開港,できごと,仕事,1,1,1,1,2,2,2,0,0,0,6,残す,confirmed,不明,,https://www.mlit.go.jp/english/white-paper/unyu-whitepaper/1994/1994000001.html,gov,,2026-10-04 差し替え。国土交通省白書が開港日と24時間運用可能な空港としての特徴を記載しています。
 09-05,国際慈善デー,国際デー,ユニーク,1,1,1,1,1,2,1,0,0,0,4,残す,confirmed,国際機関,国連総会,https://www.un.org/sg/en/content/highlight/2019-09-05.html,un,,2026-10-04 差し替え。国連事務総長の公式資料が9月5日の国際慈善デーと慈善活動の趣旨を説明しています。
-09-06,黒の日,記念日,ユニーク,0,1,1,1,1,0,0,0,0,0,1,要検討,not_found,不明,不明,,none,,休憩時の会話向き；一次情報を確認できず
+09-06,初の世界一周の達成,できごと,ユニーク,1,1,1,1,,,,,,,,残す,confirmed,国・自治体,該当なし（歴史上の出来事）,https://ejercito.defensa.gob.es/museo/en/HECHOS_HISTORICOS/HECHOS_HISTORICOS/09.06_sept_SE_COMPLETO_LA_PRIMERA_VUELTA_AL_MUNDO_POR_ELCANO.html,gov,,2026-10-04 黒の日（出典なし）から差し替え。スペイン国防省の陸軍博物館とスペイン政府が1522年9月6日の帰港を記載。（A〜Eの採点は未実施）
 09-07,オーストラリア絶滅危惧種の日,記念日,仕事,1,1,1,1,2,2,2,0,0,0,6,残す,confirmed,公益・非営利団体,Threatened Species Network,https://www.dcceew.gov.au/sites/default/files/env/resources/d8bf66d9-c986-4dd6-a946-6bc30863878f/files/issue10.pdf,gov,,2026-10-04 差し替え。豪州政府資料は日付、1996年の開始、最後のタスマニアタイガーの死を記載しています。
 09-08,国際識字デー,国際デー,ユニーク,1,1,1,1,1,2,1,0,0,0,4,残す,confirmed,国際機関,UNESCO,https://www.unesco.org/en/days/literacy,intl,,休憩時の会話向き
 09-09,重陽の節句,年中行事,季節,1,1,1,1,0,2,1,1,0,0,4,残す,confirmed,年中行事（制定者なし）,年中行事（重陽の節句）,https://www.maff.go.jp/j/pr/aff/1712/characterinformation.html,gov,,業務との接点が薄い

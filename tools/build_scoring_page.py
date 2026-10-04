@@ -17,7 +17,7 @@ for r in csv.DictReader((DOCS / "scoring.csv").open(encoding="utf-8-sig")):
 for r in csv.DictReader((DOCS / "exclusions.csv").open(encoding="utf-8-sig")):
     if r["判定"] == "除外":
         rows.append({"date": r["date"], "title": r["title"], "verdict": "除外", "excluded": r["理由"],
-                     "summary": entries.get(r["date"], {}).get("summary", "")})
+                     "summary": e["summary"] if (e := entries.get(r["date"], {})).get("title") == r["title"] else ""})
 rows.sort(key=lambda r: r["date"])
 
 TEMPLATE = r"""<!doctype html>
