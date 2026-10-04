@@ -1,0 +1,191 @@
+{
+ "note": "挿絵のテーマ共用（2026-10-04）。entry の theme → assets/illustrations/themes/<id>.webp",
+ "themes": [
+  {
+   "id": "water_supply",
+   "covers": "水道・浄水・水の大切さ",
+   "visual": "water",
+   "scene": "A calm editorial illustration of a clear glass of water beside a simple faucet with gently rippling water below, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces."
+  },
+  {
+   "id": "river_wetland",
+   "covers": "川・湖・湿地・干潟・遊水地",
+   "visual": "water",
+   "scene": "A calm editorial illustration of a quiet river winding through reeds and wetlands under a pale sky, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces."
+  },
+  {
+   "id": "sea_port",
+   "covers": "海・港・灯台・海上の安全",
+   "visual": "travel",
+   "scene": "A calm editorial illustration of a white lighthouse above a calm sea with a small harbor and moored boats, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces."
+  },
+  {
+   "id": "disaster_prep",
+   "covers": "防災・地震・津波・火山・気象",
+   "visual": "nature",
+   "scene": "A calm editorial illustration of an emergency kit with a flashlight, water bottles and a helmet on a shelf, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces."
+  },
+  {
+   "id": "emergency",
+   "covers": "消防・救急・110番/119番・救命",
+   "visual": "work",
+   "scene": "A calm editorial illustration of a red fire extinguisher and a coiled fire hose beside a first aid box, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces."
+  },
+  {
+   "id": "workplace_safety",
+   "covers": "労働安全・国民安全・防犯",
+   "visual": "work",
+   "scene": "A calm editorial illustration of a hard hat, work gloves and a clipboard checklist on a workbench, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces."
+  },
+  {
+   "id": "medical",
+   "covers": "医療・病気の啓発デー・看護・献血・薬",
+   "visual": "health",
+   "scene": "A calm editorial illustration of a stethoscope, a small ribbon and a glass of water on a clean clinic table, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces."
+  },
+  {
+   "id": "hygiene_food",
+   "covers": "衛生・手洗い・食品安全・食品ロス",
+   "visual": "health",
+   "scene": "A calm editorial illustration of hands washing under running water at a simple white sink with a bar of soap, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces."
+  },
+  {
+   "id": "environment",
+   "covers": "環境・リサイクル・地球・気候・土壌・森林",
+   "visual": "nature",
+   "scene": "A calm editorial illustration of a young seedling growing from rich soil beside a small globe, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces."
+  },
+  {
+   "id": "wildlife",
+   "covers": "動物・生き物・山・自然保護",
+   "visual": "nature",
+   "scene": "A calm editorial illustration of a quiet mountain forest with a small deer silhouette in the distance, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces."
+  },
+  {
+   "id": "space",
+   "covers": "宇宙・天文・小惑星・探査機",
+   "visual": "space",
+   "scene": "A calm editorial illustration of a small spacecraft above Earth's curved horizon with distant stars, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces."
+  },
+  {
+   "id": "science",
+   "covers": "科学・発明・研究・計量",
+   "visual": "science",
+   "scene": "A calm editorial illustration of simple laboratory glassware and an open notebook on a bright bench, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces."
+  },
+  {
+   "id": "communication",
+   "covers": "電気・通信・電話・無線・放送・インターネット",
+   "visual": "technology",
+   "scene": "A calm editorial illustration of a vintage telephone, a small radio and a modern smartphone arranged on a desk, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces."
+  },
+  {
+   "id": "railway",
+   "covers": "鉄道・トンネル・駅",
+   "visual": "travel",
+   "scene": "A calm editorial illustration of a train crossing a gentle bridge toward a tunnel through green hills, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces."
+  },
+  {
+   "id": "aviation",
+   "covers": "空・飛行機・空港・航空",
+   "visual": "travel",
+   "scene": "A calm editorial illustration of a small airplane lifting off over a runway under a wide clear sky, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces."
+  },
+  {
+   "id": "roads",
+   "covers": "道路・自動車・交通",
+   "visual": "travel",
+   "scene": "A calm editorial illustration of a gently curving road through countryside with a small car in the distance, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces."
+  },
+  {
+   "id": "construction",
+   "covers": "建設・土木・建築・機械・クレーン",
+   "visual": "work",
+   "scene": "A calm editorial illustration of a construction crane beside a building frame and a surveying tripod, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces."
+  },
+  {
+   "id": "law_admin",
+   "covers": "法律・制度・士業・行政・税",
+   "visual": "work",
+   "scene": "A calm editorial illustration of an open law book, a fountain pen and a document stamp on a wooden desk, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces."
+  },
+  {
+   "id": "finance_stats",
+   "covers": "会計・統計・経済・貿易・保険",
+   "visual": "work",
+   "scene": "A calm editorial illustration of a calculator, a ledger and a sheet with a simple bar chart on a desk, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces."
+  },
+  {
+   "id": "education",
+   "covers": "学校・教育・学生・本・図書",
+   "visual": "culture",
+   "scene": "A calm editorial illustration of an open book and stacked notebooks on a school desk near a bright window, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces."
+  },
+  {
+   "id": "arts",
+   "covers": "音楽・演劇・美術・デザイン・文化",
+   "visual": "culture",
+   "scene": "A calm editorial illustration of a music stand, a violin and soft theater curtains on a quiet stage, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces."
+  },
+  {
+   "id": "international",
+   "covers": "国際デー一般・言語・外国の記念日・国際協力",
+   "visual": "people",
+   "scene": "A calm editorial illustration of a world globe on a table beside colorful paper cranes and stacked books, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces."
+  },
+  {
+   "id": "peace",
+   "covers": "平和・追悼・戦争の教訓",
+   "visual": "peace",
+   "scene": "A calm editorial illustration of white doves flying over a quiet memorial garden with white flowers, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces."
+  },
+  {
+   "id": "community",
+   "covers": "福祉・ボランティア・家族・高齢者・子ども・ケア",
+   "visual": "people",
+   "scene": "A calm editorial illustration of two pairs of hands holding a small potted flower together, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces."
+  },
+  {
+   "id": "sports",
+   "covers": "運動・スポーツ・健康づくり",
+   "visual": "sports",
+   "scene": "A calm editorial illustration of a running track at morning with a pair of sneakers and a ball, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces."
+  },
+  {
+   "id": "history",
+   "covers": "歴史の出来事・改元・開港・開業・制度の始まり",
+   "visual": "history",
+   "scene": "A calm editorial illustration of an old paper scroll, a vintage pocket watch and a quill on a desk, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces."
+  },
+  {
+   "id": "work_style",
+   "covers": "働き方・職場・企業・技能",
+   "visual": "work",
+   "scene": "A calm editorial illustration of a tidy office desk with a laptop, a cup of tea and an open planner, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces."
+  },
+  {
+   "id": "season_spring",
+   "covers": "春の行事・季節",
+   "visual": "seasonal",
+   "scene": "A calm editorial illustration of cherry blossom branches over a quiet path in gentle spring light, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces."
+  },
+  {
+   "id": "season_summer",
+   "covers": "夏の行事・季節",
+   "visual": "seasonal",
+   "scene": "A calm editorial illustration of a wind chime and morning glories on a shaded summer veranda, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces."
+  },
+  {
+   "id": "season_autumn",
+   "covers": "秋の行事・季節",
+   "visual": "seasonal",
+   "scene": "A calm editorial illustration of maple leaves turning red over a quiet stone path in autumn, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces."
+  },
+  {
+   "id": "season_winter",
+   "covers": "冬の行事・季節",
+   "visual": "seasonal",
+   "scene": "A calm editorial illustration of snow-covered pine branches and a warm lantern on a winter evening, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces."
+  }
+ ]
+}
