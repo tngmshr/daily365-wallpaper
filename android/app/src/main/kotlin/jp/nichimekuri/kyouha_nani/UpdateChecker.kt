@@ -67,13 +67,14 @@ object UpdateChecker {
         }
     }
 
+    // Split-per-ABI builds add 1000/2000 to versionCode; compare the pubspec build only.
     private fun currentBuild(context: Context): Int {
         val info = context.packageManager.getPackageInfo(context.packageName, 0)
         return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-            info.longVersionCode.toInt()
+            (info.longVersionCode % 1000).toInt()
         } else {
             @Suppress("DEPRECATION")
-            info.versionCode
+            info.versionCode % 1000
         }
     }
 }
