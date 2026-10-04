@@ -39,6 +39,18 @@ class MainActivity : FlutterActivity() {
                         result.success(enabled)
                     }
                     "status" -> result.success(DailyWallpaperScheduler.status(this))
+                    "checkUpdate" -> Thread {
+                        val update = try {
+                            UpdateChecker.check(applicationContext, call.argument<Boolean>("force") == true)
+                        } catch (_: Exception) {
+                            null
+                        }
+                        Handler(Looper.getMainLooper()).post { result.success(update) }
+                    }.start()
+                    "dismissUpdate" -> {
+                        UpdateChecker.dismiss(this, call.argument<Int>("build") ?: 0)
+                        result.success(true)
+                    }
                     "enableDaily" -> {
                         getSharedPreferences(DailyWallpaperScheduler.PREFS, MODE_PRIVATE)
                             .edit().putBoolean(DailyWallpaperScheduler.ENABLED, true).apply()

@@ -93,12 +93,14 @@ class _TodayScreenState extends State<TodayScreen> with WidgetsBindingObserver {
   late final Future<Map<String, DayEntry>> entries = _loadEntries();
   bool _wallpaperEnabled = false;
   Map<String, dynamic> _wallpaperStatus = const {};
+  Map<String, dynamic> _update = const {};
 
   @override
   void initState() {
     super.initState();
     WidgetsBinding.instance.addObserver(this);
     _refreshWallpaperStatus();
+    _checkUpdate();
   }
 
   @override
@@ -109,7 +111,124 @@ class _TodayScreenState extends State<TodayScreen> with WidgetsBindingObserver {
 
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
-    if (state == AppLifecycleState.resumed) _refreshWallpaperStatus();
+    if (state == AppLifecycleState.resumed) {
+      _refreshWallpaperStatus();
+      _checkUpdate();
+    }
+  }
+
+  // flutter build web --dart-define=PREVIEW_UPDATE_NOTICE=true shows the notice for design checks.
+  static const _previewUpdate = bool.fromEnvironment('PREVIEW_UPDATE_NOTICE');
+
+  Future<void> _checkUpdate() async {
+    if (_previewUpdate) {
+      setState(() => _update = const {
+        'currentBuild': 5,
+        'latestBuild': 6,
+        'latestVersion': '1.3.0',
+        'notes': ['暦の内容と出典を見直しました', '2年目以降は一部の題材が入れ替わります', '0時の切り替えをより確実にしました'],
+      });
+      return;
+    }
+    if (!_isAndroid) return;
+    try {
+      final update = await const MethodChannel('daily365/wallpaper')
+          .invokeMapMethod<String, dynamic>('checkUpdate');
+      if (!mounted || update == null) return;
+      setState(() => _update = update);
+    } on PlatformException {
+      // The notice is optional; daily use stays offline.
+    }
+  }
+
+  bool get _hasUpdate {
+    final latest = _update['latestBuild'] as int? ?? 0;
+    return latest > (_update['currentBuild'] as int? ?? latest) &&
+        latest != (_update['dismissedBuild'] as int? ?? 0);
+  }
+
+  Future<void> _dismissUpdate() async {
+    final latest = _update['latestBuild'] as int? ?? 0;
+    setState(() => _update = {..._update, 'dismissedBuild': latest});
+    try {
+      await const MethodChannel('daily365/wallpaper')
+          .invokeMethod<bool>('dismissUpdate', {'build': latest});
+    } on PlatformException {
+      // Shown again next launch at worst.
+    }
+  }
+
+  Widget _updateNotice() {
+    final version = _update['latestVersion'] as String? ?? '';
+    final notes = (_update['notes'] as List<dynamic>? ?? const [])
+        .whereType<String>()
+        .take(3)
+        .toList();
+    final is64bit = _update['is64bit'] as bool? ?? true;
+    return Container(
+      margin: const EdgeInsets.only(top: 4, bottom: 12),
+      padding: const EdgeInsets.fromLTRB(16, 14, 8, 6),
+      decoration: BoxDecoration(
+        color: const Color(0xfffff4dc),
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: const Color(0xffe8c77d)),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              const Icon(Icons.system_update, color: Color(0xff8a5a00)),
+              const SizedBox(width: 8),
+              Expanded(
+                child: Text(
+                  version.isEmpty ? '新しい版があります' : '新しい版 v$version があります',
+                  style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                    color: const Color(0xff5c3d00),
+                    fontWeight: FontWeight.w800,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          if (notes.isNotEmpty) const SizedBox(height: 6),
+          for (final note in notes)
+            Padding(
+              padding: const EdgeInsets.only(left: 32, right: 8, top: 2),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [const Text('・'), Expanded(child: Text(note))],
+              ),
+            ),
+          Padding(
+            padding: const EdgeInsets.only(left: 32, right: 8, top: 6),
+            child: Text(
+              '上書きインストールで、自動更新の設定はそのまま引き継がれます。',
+              style: Theme.of(context).textTheme.bodySmall,
+            ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              TextButton(
+                onPressed: _dismissUpdate,
+                style: TextButton.styleFrom(foregroundColor: const Color(0xff8a5a00)),
+                child: const Text('あとで'),
+              ),
+              const SizedBox(width: 4),
+              FilledButton.icon(
+                onPressed: is64bit ? _downloadAndroidApk : _downloadAndroid32Apk,
+                icon: const Icon(Icons.download, size: 18),
+                label: const Text('ダウンロード'),
+                style: FilledButton.styleFrom(
+                  backgroundColor: const Color(0xff8a5a00),
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
   }
 
   bool get _isAndroid =>
@@ -392,6 +511,7 @@ class _TodayScreenState extends State<TodayScreen> with WidgetsBindingObserver {
                   ),
                 ],
               ),
+              if ((isAndroid || _previewUpdate) && _hasUpdate) _updateNotice(),
               const SizedBox(height: 10),
               Center(
                 child: ConstrainedBox(

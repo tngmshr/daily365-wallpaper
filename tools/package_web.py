@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import shutil
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -67,6 +68,21 @@ def package_wallpapers(year: int, build: Path, only: list[str] | None = None) ->
     return counts[0], counts[1]
 
 
+def write_version(build: Path) -> None:
+    """Publish the app version the Android update notice compares against."""
+    match = re.search(r"^version:\s*(\d+\.\d+\.\d+)\+(\d+)\s*$",
+                      (ROOT / "pubspec.yaml").read_text(encoding="utf-8"), re.MULTILINE)
+    if not match:
+        raise SystemExit("pubspec.yaml needs a version like 1.3.0+6.")
+    version, build_number = match.group(1), int(match.group(2))
+    notes = json.loads((ROOT / "tools" / "whats_new.json").read_text(encoding="utf-8"))
+    (build / "version.json").write_text(
+        json.dumps({"version": version, "build": build_number, "notes": notes.get(version, [])},
+                   ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--year", type=int, help="Override the JST year for a reproducible build")
@@ -83,13 +99,14 @@ def main() -> None:
     except ValueError as error:
         parser.error(str(error))
     (build / ".nojekyll").write_text("", encoding="utf-8")
+    write_version(build)
 
     files = []
     for path in sorted(build.rglob("*")):
         if not path.is_file():
             continue
         relative = path.relative_to(build).as_posix()
-        if relative in {"service-worker.js", "precache-manifest.json"}:
+        if relative in {"service-worker.js", "precache-manifest.json", "version.json"}:
             continue
         if relative.startswith("wallpapers/"):
             continue
