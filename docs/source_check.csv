@@ -11,23 +11,23 @@ date,title,status,primary_url,source_type,founder_type,founder,tokyo,summary_iss
 01-13,初虚空蔵,date_only,https://www.taraku.or.jp/news/info/1410/,founder,年中行事（制定者なし）,年中行事（寺院の初虚空蔵）,0,,
 01-14,タロとジロの生存確認,confirmed,https://nipr-blog.nipr.ac.jp/science-museum/cat-2/cat-6/114.html,org,不明,該当なし（歴史上の出来事）,0,,国立極地研究所の資料が1959年1月14日の第三次隊によるタロとジロの生存確認を記録する。
 01-15,小正月,confirmed,https://www.maff.go.jp/j/pr/aff/1712/characterinformation.html,gov,年中行事（制定者なし）,年中行事（小正月）,0,,
-01-16,藪入り,not_found,,none,年中行事（制定者なし）,,0,,指定基準の一次情報を確認できず
+01-16,藪入り,date_only,https://www.library.metro.tokyo.lg.jp/portals/0/edo/tokyo_library/saijiki/spring.html,local_gov,年中行事（制定者なし）,年中行事（江戸の商家の奉公人の休日）,1,,東京都立図書館・新宿区の資料で確認（10/17）
 01-18,都バスの日,confirmed,https://www.kotsu.metro.tokyo.jp/about/ayumi/bus.html,local_gov,不明,制定主体未確認,1,都の交通局が記念日を制定したとの説明は一次資料で確認できず。,都営バスの運行開始日が1月18日であることは都の沿革で確認。
 01-19,のど自慢の日,not_found,,none,不明,,0,,指定基準の一次情報を確認できず
 01-20,シマエナガの日,date_only,https://shimaenaga.jp/archives/2937,founder,不明,写真家・やなぎさわごう（個人）,0,大寒は年によって1月20日または21日。毎年1月20日が大寒とは限らない。,
-01-21,スイートピーの日,date_only,https://www.pref.miyazaki.lg.jp/documents/68253/68253_20220324095803-1.pdf,local_gov,業界団体,日本スイートピーの会,0,制定団体と日付は確認。花弁数など細かな語呂の由来は一次資料で確認できず。,
+01-21,スイートピーの日,date_only,https://hinatamafin.pref.miyazaki.lg.jp/soshiki/nosanengeika/kako4/121sweetpeasday.html,local_gov,業界団体,日本スイートピーの会,0,,宮崎県のページで花弁数と時期の由来を確認（10/17）
 01-23,電子メールの日,date_only,https://web.pref.hyogo.lg.jp/bk01/kouhoushi/documents/amagasaki_128.pdf,gov,不明,不明,0,,兵庫県立尼崎総合医療センターの2025年1月広報誌は1月23日・電子メールの日と語呂合わせを紹介するが、制定者・制定年は記載していない。
 01-24,学校給食週間,confirmed,https://www.mext.go.jp/a_menu/sports/syokuiku/1299359.htm,gov,政府,文部省（現・文部科学省）,1,,
 01-26,有料駐車場の日,not_found,,none,不明,,1,,指定基準の一次情報を確認できず
 01-28,セレンディピティの日,date_only,https://serendipity.or.jp/,org,不明,不明,0,,日本セレンディピティ協会の公式サイトは1月28日の同名イベントと1754年の書簡にちなむ語の由来を掲載するが、記念日を制定したという明記は確認できない。
 01-29,昭和基地開設記念日,confirmed,https://nipr-blog.nipr.ac.jp/science-museum/cat-4/129-5d1d.html,gov,年中行事（制定者なし）,年中行事（昭和基地開設の記念）,0,,
 01-30,3分間電話の日,conflict,https://www.ntt-east.co.jp/databook/history-telecom.html,gov,政府,日本電信電話公社（公衆電話制度）,0,3分打ち切り制は1969年10月1日、時間制料金（3分単位）は1972年11月12日。1970年1月30日ではない。,
-01-31,生命保険の日,confirmed,https://www.seiho.or.jp/meiji/pdf/data.pdf,org,業界団体,MDRT日本会,0,,生命保険協会の資料が初の保険金支払いは1月27日、新聞報道日が31日、MDRT日本会が制定者と説明する。
+01-31,米国初の人工衛星打ち上げ,confirmed,https://www.nasa.gov/history/explorer-1-overview/,gov,政府,NASA,0,,10/17 生命保険の日から差し替え
 02-01,テレビ放送記念日,confirmed,https://www.archives.go.jp/ayumi/kobetsu/s28_1953_01.html,gov,政府,日本放送協会（東京でのテレビ放送開始）,1,,
 02-04,立春,date_only,https://eco.mtk.nao.ac.jp/koyomi/yoko/2026/rekiyou262.html,gov,年中行事（制定者なし）,年中行事（二十四節気・立春）,0,,2026年の立春は2月4日。二十四節気の日付は年により変動。
 02-05,笑顔の日,not_found,,none,不明,,0,,指定基準の一次情報を確認できず
 02-08,にわとりの日,confirmed,https://www.3030.co.jp/trivia/no81/,founder,単一企業,トリゼンフーズ株式会社,0,,
-02-09,服の日,date_only,https://www.fashion-edu.jp/about/,founder,業界団体,日本ファッション教育振興協会,0,制定年1988年を一次情報で確認できず。,
+02-09,日本初のプロ野球試合,confirmed,https://npb.jp/news/detail/20230526_02.html,org,不明,,0,,10/17 服の日から差し替え
 02-16,天気図記念日,confirmed,https://www.mlit.go.jp/page/kanbo01_hy_010716.html,gov,政府,気象庁（初の天気図作成）,1,,
 02-17,天使のささやきの日,date_only,https://www.town.horokanai.hokkaido.jp/shiru/town_no1,local_gov,自治体,幌加内町（最低気温記録にちなむ）,0,,
 02-20,旅券の日,confirmed,https://www.mofa.go.jp/mofaj/toko/passport/0220/,gov,政府,外務省（旅券制度の記録）,0,,
