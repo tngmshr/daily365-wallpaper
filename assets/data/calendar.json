@@ -249,6 +249,14 @@
       "scene": "A calm editorial illustration of a small travel bundle beside a country path in winter, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
       "sources": [
         {
+          "label": "東京都立図書館「江戸の歳時記 春（1月〜3月）」",
+          "url": "https://www.library.metro.tokyo.lg.jp/portals/0/edo/tokyo_library/saijiki/spring.html"
+        },
+        {
+          "label": "新宿区地域文化財一覧",
+          "url": "https://www.city.shinjuku.lg.jp/content/000360259.pdf"
+        },
+        {
           "label": "1月16日の日付記事と脚注",
           "url": "https://ja.wikipedia.org/wiki/1%E6%9C%8816%E6%97%A5"
         }
@@ -321,33 +329,38 @@
       "date": "01-21",
       "title": "スイートピーの日",
       "kind": "記念日",
-      "summary": "スイートピーの生産に関わる団体が設けた記念日です。花を飾って、部屋に春らしい彩りを添えるきっかけになります。",
+      "summary": "花びらが大・中・小の3種で1枚・2枚・1枚あることから、生産者の団体が1月21日を記念日にしました。出荷が安定する時期です。",
       "work_tip": "机まわりに季節を感じる小さな彩りを添える",
       "visual": "nature",
       "scene": "A calm editorial illustration of delicate sweet pea flowers in a clear glass vase, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
       "sources": [
         {
-          "label": "1月21日の日付記事と脚注",
-          "url": "https://ja.wikipedia.org/wiki/1%E6%9C%8821%E6%97%A5"
+          "label": "宮崎県（ひなたMAFiN）",
+          "url": "https://hinatamafin.pref.miyazaki.lg.jp/soshiki/nosanengeika/kako4/121sweetpeasday.html"
+        },
+        {
+          "label": "宮崎県",
+          "url": "https://www.pref.miyazaki.lg.jp/documents/68253/68253_20220324095803-1.pdf"
         }
       ]
     },
     {
       "date": "01-22",
-      "title": "カレーの日",
-      "kind": "記念日",
-      "summary": "学校給食の統一献立を設ける提案を受け、1982年のこの日にカレーライスが提供されました。その出来事にちなむ記念日です。",
-      "work_tip": "異なる材料を生かすように意見を組み合わせる",
-      "visual": "food",
-      "scene": "A calm editorial illustration of a bowl of homemade curry rice with vegetables, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
+      "title": "ジャンボ機の定期便就航",
+      "kind": "できごと",
+      "summary": "1970年1月22日、ジャンボジェット機がニューヨークとロンドンを結ぶ定期便に就航しました。一度に多くの人を運べるようになりました。",
+      "work_tip": "輸送力を上げる工夫を身近な作業で考える",
+      "visual": "travel",
+      "theme": "aviation",
+      "scene": "A calm editorial illustration of a small airplane lifting off over a runway under a wide clear sky, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
       "sources": [
         {
-          "label": "冬もカレーをおいしく食べよう! 1 月 22 日を「カレーの日」に制定",
-          "url": "https://www.curry.or.jp/currysday/imgs/20161122NR.pdf"
+          "label": "Boeing 747-8",
+          "url": "https://www.boeing.com/commercial/747-8"
         },
         {
-          "label": "1月22日の日付記事と脚注",
-          "url": "https://ja.wikipedia.org/wiki/1%E6%9C%8822%E6%97%A5"
+          "label": "スミソニアン航空宇宙博物館「Jumbo Jet」",
+          "url": "https://airandspace.si.edu/air-and-space-quarterly/issue-12/boeing747-jumbo-jet"
         }
       ]
     },
@@ -477,17 +490,21 @@
     },
     {
       "date": "01-31",
-      "title": "生命保険の日",
-      "kind": "記念日",
-      "summary": "1882年1月31日付の新聞が、日本で初めての生命保険金の支払いを報じました。この報道にちなみ、MDRT日本会が記念日に定めています。",
-      "work_tip": "加入している保険や福利厚生の内容を見直す",
-      "visual": "work",
-      "theme": "finance_stats",
-      "scene": "A calm editorial illustration of an open folder of documents and a cup of tea on a tidy wooden desk, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
+      "title": "米国初の人工衛星打ち上げ",
+      "kind": "できごと",
+      "summary": "1958年1月31日（米国東部時間）、米国初の人工衛星エクスプローラー1号が打ち上げられ、地球を囲む放射線帯の発見につながりました。",
+      "work_tip": "測定値の違和感を見過ごさずに記録する",
+      "visual": "space",
+      "theme": "space",
+      "scene": "A calm editorial illustration of a small spacecraft above Earth's curved horizon with distant stars, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
       "sources": [
         {
-          "label": "生命保険協会",
-          "url": "https://www.seiho.or.jp/meiji/pdf/data.pdf"
+          "label": "NASA",
+          "url": "https://www.nasa.gov/history/explorer-1-overview/"
+        },
+        {
+          "label": "NASA JPL",
+          "url": "https://www.jpl.nasa.gov/missions/explorer-1/"
         }
       ]
     },
@@ -627,16 +644,21 @@
     },
     {
       "date": "02-09",
-      "title": "服の日",
-      "kind": "記念日",
-      "summary": "2月9日を「ふく（服）」と読む語呂合わせにちなむ日です。ファッション教育に関わる団体が、毎年この日に催しを開いています。",
-      "work_tip": "場面に合う装いと動きやすさを考える",
-      "visual": "culture",
-      "scene": "A calm editorial illustration of neatly folded colorful clothes on a wooden shelf, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
+      "title": "日本初のプロ野球試合",
+      "kind": "できごと",
+      "summary": "1936年2月9日、名古屋の鳴海球場で名古屋金鯱軍と東京巨人軍が対戦しました。日本で初めてのプロ球団どうしの試合です。",
+      "work_tip": "初めての取り組みは振り返りの場も設ける",
+      "visual": "sports",
+      "theme": "sports",
+      "scene": "A calm editorial illustration of a running track at morning with a pair of sneakers and a ball, in soft natural light. Simple shapes and gentle shadows leave open space above, with no lettering, numbers, logos, flags, weapons, or recognizable faces.",
       "sources": [
         {
-          "label": "2月9日の日付記事と脚注",
-          "url": "https://ja.wikipedia.org/wiki/2%E6%9C%889%E6%97%A5"
+          "label": "日本野球機構（NPB）「球跡巡り」鳴海球場",
+          "url": "https://npb.jp/news/detail/20230526_02.html"
+        },
+        {
+          "label": "日本野球機構（NPB）野球伝来150年 聖地・名所150選",
+          "url": "https://npb.jp/archives/japanesebaseball150th/sights/detail067.html"
         }
       ]
     },

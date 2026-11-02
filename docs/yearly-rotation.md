@@ -21,6 +21,18 @@
    - 0 時の切り替えでは保存済みの画像を使う。無い・壊れている場合は同梱の `assets/wallpapers/MM-DD.webp`（1 年目）を使う。
    - `INTERNET` 権限を追加する。取得先は `tngmshr.github.io` のみ。
 
+## 節気の照合（2026-10-17）
+
+- `docs/solar_terms_check.csv` に、年・節気ごとの暦要項の時刻（公表済みの年だけ）と、ERFA（astropy）による視黄経の独立計算（JST、分単位）を置く。
+- `python tools/check_solar_terms.py` で次を確かめる（標準ライブラリだけで動く）。
+  - 2027〜2034 年の 4 節気がそろい、日付が節気ごとのありうる範囲に入っている。
+  - 暦要項が公表済みの年は、その日付と一致し、`_sources` が暦要項の URL になっている（計算値のままならエラー）。
+  - 未公表の年は、独立計算の日付と一致する。0 時まで 30 分未満なら警告。
+  - 公表済みの年は、独立計算と暦要項の差が 2 分以内（計算方法の確認）。
+  - `calendar.json` の節気エントリが 4 件そろい、`build_year` が各年の日付に置く。
+- 暦要項（毎年 2 月ごろに翌年分が公表）が出たら、CSV の `published_jst` と `published_source`、`solar_terms.json` の日付と `_sources` を書き換える。計算をやり直すときは `--recompute`（astropy が必要）。
+- テスト: `python -m unittest discover -s tools -p 'test_*.py'`
+
 ## 未決（別途）
 
 - ~~挿絵のテーマ共用化、更新のお知らせ（手順4の残り）~~ 実装済み（お知らせは README「更新のお知らせ」）
