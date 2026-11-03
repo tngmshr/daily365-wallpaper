@@ -9,6 +9,9 @@ const CACHE_NAME = CACHE_PREFIX + '__PRECACHE_VERSION__';
 const FONT_CACHE = 'daily365-fonts-v1';
 const FONT_ORIGIN = 'https://fonts.gstatic.com';
 const MANIFEST = 'precache-manifest.json';
+// Year-specific wallpapers the app shows on replaced or moved days (wallpapers/YYYY/MM-DD.jpg).
+const YEAR_WALLPAPER_CACHE = 'daily365-year-wallpapers-v1';
+const YEAR_WALLPAPER_LIMIT = 7;
 
 async function previousRevisions(cacheName) {
   const cache = await caches.open(cacheName);
@@ -71,7 +74,8 @@ self.addEventListener('activate', (event) => {
   event.waitUntil((async () => {
     const names = await caches.keys();
     await Promise.all(names
-      .filter((name) => name.startsWith('daily365-') && name !== CACHE_NAME && name !== FONT_CACHE)
+      .filter((name) => name.startsWith('daily365-') &&
+        ![CACHE_NAME, FONT_CACHE, YEAR_WALLPAPER_CACHE].includes(name))
       .map((name) => caches.delete(name)));
     await self.clients.claim();
   })());
@@ -101,6 +105,21 @@ self.addEventListener('fetch', (event) => {
   // The Android app's update check and the Shortcut images must always come from the network.
   const scopePath = new URL(self.registration.scope).pathname;
   const relative = requestUrl.pathname.startsWith(scopePath) ? requestUrl.pathname.slice(scopePath.length) : '';
+  if (/^wallpapers\/\d{4}\/\d{2}-\d{2}\.jpg$/.test(relative)) {
+    // Network first so a republished image wins; the last few stay available offline.
+    event.respondWith((async () => {
+      try {
+        const response = await fromNetwork(event.request, YEAR_WALLPAPER_CACHE);
+        const cache = await caches.open(YEAR_WALLPAPER_CACHE);
+        const keys = await cache.keys();
+        await Promise.all(keys.slice(0, Math.max(0, keys.length - YEAR_WALLPAPER_LIMIT)).map((key) => cache.delete(key)));
+        return response;
+      } catch (_) {
+        return (await caches.match(event.request, { cacheName: YEAR_WALLPAPER_CACHE })) || Response.error();
+      }
+    })());
+    return;
+  }
   if (relative === 'version.json' || relative.startsWith('wallpapers/')) return;
 
   event.respondWith((async () => {

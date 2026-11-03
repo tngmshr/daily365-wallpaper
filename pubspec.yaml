@@ -20,4 +20,5 @@ flutter:
   uses-material-design: true
   assets:
     - assets/data/
+    - assets/data/years/
     - assets/wallpapers/

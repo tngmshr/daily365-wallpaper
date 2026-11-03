@@ -37,4 +37,6 @@
 
 - ~~挿絵のテーマ共用化、更新のお知らせ（手順4の残り）~~ 実装済み（お知らせは README「更新のお知らせ」）
 - 2〜4 年目の中身（Codex の候補収集 → 採点 → slot 割り当て）
-- アプリ画面の表示（2026-11-03 確認、未対応）: Android・Web のアプリ画面は今も `calendar.json`（1 年目）と同梱の `assets/wallpapers/MM-DD.webp` を日付だけで引いている。2028 年以降、slot の差し替え日と節気が動く日（例: 2028 年の処暑 08-22・冬至 12-21、2029 年の立春 02-03）は、ロック画面（年別の画像）とアプリ画面の内容が食い違う。直すには、アプリ側でも年を解決する（`years/` と `solar_terms.json` を同梱し、画像は Android ならキャッシュ済みの年別画像、Web なら `wallpapers/YYYY/` を使う）必要がある。
+- アプリ画面の表示（2026-11-03 実装）: アプリ（Android・Web）も `lib/year_calendar.dart` で同じ規則により年を解決する（`assets/data/years/` と `solar_terms.json` を同梱）。1 年目と同じ内容の日は同梱の `assets/wallpapers/MM-DD.webp`、差し替え・節気の移動がある日は Pages の `wallpapers/YYYY/MM-DD.jpg` を表示し、読めないときは文章のカード（日付・種類・見出し・説明）で見せる。Web 版は表示した年別画像を直近 7 枚まで Service Worker に残す。`test/year_calendar_test.dart` が 2026〜2034 年について `build_year.py` の出力と突き合わせる。
+  - slot の計算上、2026 年は 4 年目（`slot4.json`）にあたり、Pages は 2026 年分から差し替えを配っている。
+  - Android の 0 時の切り替え（Kotlin）は変えていない。翌日分の先読みに失敗した日は、同梱の 1 年目の壁紙がロック画面に入る。
