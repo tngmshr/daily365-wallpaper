@@ -1,5 +1,10 @@
 # きょうは何の日？ 365日の日めくり
 
+## アプリを使う
+
+- iPhone: [日めくりを開く](https://tngmshr.github.io/daily365-wallpaper/)（Safari で開いてホーム画面に追加）
+- Android: [最新版をダウンロード（GitHub Releases）](https://github.com/tngmshr/daily365-wallpaper/releases/latest)
+
 今日の日付に合わせて、記念日・年中行事の短い説明、仕事メモ、テーマ挿絵を表示するアプリです。通常の365日分に加え、うるう年の2月29日用データも収録しています。
 
 内容と、日付・説明文を画像内に組み込んだ壁紙はインストール時に端末へ入ります。日常利用にChatGPT、生成AI、アカウント、サーバー処理、従量課金APIは必要ありません。出典リンクを開くときと、iPhoneの自動壁紙を切り替えるときだけインターネットを使います。
