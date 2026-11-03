@@ -1,4 +1,4 @@
-import 'dart:convert';
+import 'dart:async';
 
 import 'package:flutter/foundation.dart'
     show defaultTargetPlatform, kIsWeb, TargetPlatform;
@@ -6,7 +6,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import 'day_logic.dart';
+import 'year_calendar.dart';
+
 void main() => runApp(const DailyApp());
+
+/// Pages の年別壁紙（Android が翌日分を先読みするのと同じ画像）。Web 版は同じサイトから読む。
+Uri yearWallpaperUrl(DateTime date) {
+  final path = 'wallpapers/${date.year}/${dayKey(date)}.jpg';
+  return kIsWeb
+      ? Uri.base.resolve(path)
+      : Uri.parse('https://tngmshr.github.io/daily365-wallpaper/$path');
+}
 
 class DayEntry {
   const DayEntry({
@@ -83,28 +94,47 @@ class DailyApp extends StatelessWidget {
 }
 
 class TodayScreen extends StatefulWidget {
-  const TodayScreen({super.key});
+  const TodayScreen({
+    super.key,
+    this.clock = DateTime.now,
+    this.loadAsset = _bundled,
+    this.wallpaperUrl = yearWallpaperUrl,
+  });
+
+  /// 現在時刻。テストで日付の切り替えを再現するために差し替える。
+  final DateTime Function() clock;
+
+  /// assets/data/ のファイルを読む。テストではファイルから直接渡す。
+  final Future<String> Function(String path) loadAsset;
+
+  /// 1 年目と内容が違う日に表示する、年別の壁紙の URL。
+  final Uri Function(DateTime date) wallpaperUrl;
+
+  static Future<String> _bundled(String path) => rootBundle.loadString(path);
 
   @override
   State<TodayScreen> createState() => _TodayScreenState();
 }
 
 class _TodayScreenState extends State<TodayScreen> with WidgetsBindingObserver {
-  late final Future<Map<String, DayEntry>> entries = _loadEntries();
+  late final Future<YearCalendar> calendar = YearCalendar.load(widget.loadAsset);
   bool _wallpaperEnabled = false;
   Map<String, dynamic> _wallpaperStatus = const {};
   Map<String, dynamic> _update = const {};
+  Timer? _midnight;
 
   @override
   void initState() {
     super.initState();
     WidgetsBinding.instance.addObserver(this);
+    _scheduleMidnight();
     _refreshWallpaperStatus();
     _checkUpdate();
   }
 
   @override
   void dispose() {
+    _midnight?.cancel();
     WidgetsBinding.instance.removeObserver(this);
     super.dispose();
   }
@@ -112,9 +142,22 @@ class _TodayScreenState extends State<TodayScreen> with WidgetsBindingObserver {
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
     if (state == AppLifecycleState.resumed) {
+      // ホーム画面の Web アプリや Android で、前日のページを開いたまま復帰した場合に日付を合わせる。
+      setState(() {});
+      _scheduleMidnight();
       _refreshWallpaperStatus();
       _checkUpdate();
     }
+  }
+
+  /// 開いたまま 0 時を過ぎたら、その日のページに描き直す。
+  void _scheduleMidnight() {
+    _midnight?.cancel();
+    _midnight = Timer(untilNextDay(widget.clock()), () {
+      if (!mounted) return;
+      setState(() {});
+      _scheduleMidnight();
+    });
   }
 
   // flutter build web --dart-define=PREVIEW_UPDATE_NOTICE=true shows the notice for design checks.
@@ -141,11 +184,7 @@ class _TodayScreenState extends State<TodayScreen> with WidgetsBindingObserver {
     }
   }
 
-  bool get _hasUpdate {
-    final latest = _update['latestBuild'] as int? ?? 0;
-    return latest > (_update['currentBuild'] as int? ?? latest) &&
-        latest != (_update['dismissedBuild'] as int? ?? 0);
-  }
+  bool get _hasUpdate => shouldShowUpdate(_update);
 
   Future<void> _dismissUpdate() async {
     final latest = _update['latestBuild'] as int? ?? 0;
@@ -257,32 +296,13 @@ class _TodayScreenState extends State<TodayScreen> with WidgetsBindingObserver {
     }
   }
 
-  Future<Map<String, DayEntry>> _loadEntries() async {
-    final payload = jsonDecode(
-      await rootBundle.loadString('assets/data/calendar.json'),
-    ) as Map<String, dynamic>;
-    final list = payload['entries'] as List<dynamic>;
-    final loaded = <String, DayEntry>{
-      for (final row in list)
-        (row as Map<String, dynamic>)['date'] as String: DayEntry.fromJson(row),
-    };
-    final leapDay = payload['leap_day'] as Map<String, dynamic>?;
-    if (leapDay != null) {
-      loaded[leapDay['date'] as String] = DayEntry.fromJson(leapDay);
-    }
-    return loaded;
-  }
-
-  String _keyFor(DateTime date) =>
-      '${date.month.toString().padLeft(2, '0')}-${date.day.toString().padLeft(2, '0')}';
-
   @override
   Widget build(BuildContext context) {
-    final today = DateTime.now();
+    final today = widget.clock();
     return Scaffold(
       body: SafeArea(
-        child: FutureBuilder<Map<String, DayEntry>>(
-          future: entries,
+        child: FutureBuilder<YearCalendar>(
+          future: calendar,
           builder: (context, snapshot) {
             if (snapshot.hasError) {
               return _message('データを読み込めません', 'アプリに収録した日付データを確認してください。');
@@ -290,14 +310,14 @@ class _TodayScreenState extends State<TodayScreen> with WidgetsBindingObserver {
             if (!snapshot.hasData) {
               return const Center(child: CircularProgressIndicator());
             }
-            final item = snapshot.data![_keyFor(today)];
-            if (item == null) {
+            final found = snapshot.data!.entryFor(today);
+            if (found == null) {
               return _message(
                 '${today.month}月${today.day}日',
                 '今日のページを準備しています。',
               );
             }
-            return _page(today, item);
+            return _page(today, DayEntry.fromJson(found.entry), found.sameAsBase);
           },
         ),
       ),
@@ -457,34 +477,68 @@ class _TodayScreenState extends State<TodayScreen> with WidgetsBindingObserver {
     );
   }
 
-  Widget _art(DayEntry item, ThemeStyle style) => AspectRatio(
-    aspectRatio: 9 / 20,
-    child: ClipRRect(
-      borderRadius: BorderRadius.circular(24),
-      child: Image.asset(
-        'assets/wallpapers/${item.date}.webp',
-        fit: BoxFit.cover,
-        errorBuilder: (context, error, stack) => Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: [style.color.withValues(alpha: .2), style.color],
-            ),
-          ),
-          child: Center(
-            child: Icon(
-              style.icon,
-              size: 120,
-              color: Colors.white.withValues(alpha: .88),
-            ),
-          ),
+  /// 1 年目と同じ日は同梱の壁紙。差し替え・節気の移動がある日は、その年の壁紙を Pages から読み、
+  /// 読めない（オフラインなど）ときは同梱の別の題材を出さず、文章のカードで見せる。
+  Widget _art(DateTime date, DayEntry item, ThemeStyle style, bool sameAsBase) {
+    Widget card(BuildContext context, Object? error, StackTrace? stack) => _textCard(date, item, style);
+    return AspectRatio(
+      aspectRatio: 9 / 20,
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(24),
+        child: sameAsBase
+            ? Image.asset('assets/wallpapers/${item.date}.webp', fit: BoxFit.cover, errorBuilder: card)
+            : Image.network(
+                widget.wallpaperUrl(date).toString(),
+                fit: BoxFit.cover,
+                errorBuilder: card,
+                loadingBuilder: (context, child, progress) =>
+                    progress == null ? child : _textCard(date, item, style),
+              ),
+      ),
+    );
+  }
+
+  Widget _textCard(DateTime date, DayEntry item, ThemeStyle style) {
+    final theme = Theme.of(context).textTheme;
+    return Container(
+      key: const ValueKey('wallpaper-text-card'),
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [style.color.withValues(alpha: .25), style.color],
         ),
       ),
-    ),
-  );
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            width: double.infinity,
+            padding: const EdgeInsets.all(18),
+            decoration: BoxDecoration(
+              color: Colors.white.withValues(alpha: .92),
+              borderRadius: BorderRadius.circular(18),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('${date.month}月${date.day}日 ・ ${item.kind}', style: theme.labelMedium),
+                const SizedBox(height: 6),
+                Text(item.title, style: theme.headlineSmall?.copyWith(fontWeight: FontWeight.w800)),
+                const SizedBox(height: 8),
+                Text(item.summary, style: theme.bodyMedium),
+              ],
+            ),
+          ),
+          const SizedBox(height: 28),
+          Icon(style.icon, size: 72, color: Colors.white.withValues(alpha: .88)),
+        ],
+      ),
+    );
+  }
 
-  Widget _page(DateTime date, DayEntry item) {
+  Widget _page(DateTime date, DayEntry item, bool sameAsBase) {
     final style = styleFor(item.visual);
     final isAndroid =
         !kIsWeb && defaultTargetPlatform == TargetPlatform.android;
@@ -516,7 +570,7 @@ class _TodayScreenState extends State<TodayScreen> with WidgetsBindingObserver {
               Center(
                 child: ConstrainedBox(
                   constraints: const BoxConstraints(maxWidth: 520),
-                  child: _art(item, style),
+                  child: _art(date, item, style, sameAsBase),
                 ),
               ),
               const SizedBox(height: 19),

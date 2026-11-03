@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import re
 import shutil
@@ -16,6 +17,11 @@ ROOT = Path(__file__).resolve().parents[1]
 BUILD = ROOT / "build" / "web"
 SOURCE_WALLPAPERS = ROOT / "assets" / "wallpapers"
 JST = timezone(timedelta(hours=9))
+# web/service-worker.js names its cache with this placeholder; packaging replaces it with a
+# hash of the precached files so every deploy that changes the app installs a fresh cache.
+CACHE_VERSION_PLACEHOLDER = "__PRECACHE_VERSION__"
+# Split-per-ABI APKs add 1000/2000 to versionCode and UpdateChecker.kt compares versionCode % 1000.
+MAX_BUILD_NUMBER = 999
 
 
 def publishing_year(now: datetime, rollover: bool = False) -> int:
@@ -68,19 +74,62 @@ def package_wallpapers(year: int, build: Path, only: list[str] | None = None) ->
     return counts[0], counts[1]
 
 
-def write_version(build: Path) -> None:
-    """Publish the app version the Android update notice compares against."""
-    match = re.search(r"^version:\s*(\d+\.\d+\.\d+)\+(\d+)\s*$",
-                      (ROOT / "pubspec.yaml").read_text(encoding="utf-8"), re.MULTILINE)
+def read_version(pubspec: str) -> tuple[str, int]:
+    match = re.search(r"^version:\s*(\d+\.\d+\.\d+)\+(\d+)\s*$", pubspec, re.MULTILINE)
     if not match:
         raise SystemExit("pubspec.yaml needs a version like 1.3.0+6.")
     version, build_number = match.group(1), int(match.group(2))
-    notes = json.loads((ROOT / "tools" / "whats_new.json").read_text(encoding="utf-8"))
+    if not 1 <= build_number <= MAX_BUILD_NUMBER:
+        # versionCode % 1000 on the device would wrap and the notice would compare the wrong numbers.
+        raise SystemExit(f"pubspec.yaml build number must be 1-{MAX_BUILD_NUMBER} (got {build_number}).")
+    return version, build_number
+
+
+def write_version(build: Path, root: Path = ROOT) -> None:
+    """Publish the app version the Android update notice compares against."""
+    version, build_number = read_version((root / "pubspec.yaml").read_text(encoding="utf-8"))
+    notes = json.loads((root / "tools" / "whats_new.json").read_text(encoding="utf-8"))
     (build / "version.json").write_text(
         json.dumps({"version": version, "build": build_number, "notes": notes.get(version, [])},
                    ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8",
     )
+
+
+def write_precache(build: Path) -> list[str]:
+    """List the offline app files with content revisions and stamp the service worker cache name."""
+    revisions: dict[str, str] = {}
+    for path in sorted(build.rglob("*")):
+        if not path.is_file():
+            continue
+        relative = path.relative_to(build).as_posix()
+        if relative in {"service-worker.js", "precache-manifest.json", "version.json",
+                        "flutter_service_worker.js"}:
+            continue
+        # upload-pages-artifact leaves out dotfiles (.nojekyll, .last_build_id); one 404 would
+        # make cache.addAll fail and the whole offline install with it.
+        if any(part.startswith(".") for part in relative.split("/")):
+            continue
+        if relative.startswith("wallpapers/"):
+            continue
+        revisions["./" + relative] = hashlib.sha256(path.read_bytes()).hexdigest()[:16]
+    # "./" is the same document as index.html for navigation requests.
+    if "./index.html" in revisions:
+        revisions["./"] = revisions["./index.html"]
+    files = sorted(revisions)
+    manifest = {"files": files, "revisions": {key: revisions[key] for key in files}}
+    (build / "precache-manifest.json").write_text(
+        json.dumps(manifest, ensure_ascii=False, separators=(",", ":")) + "\n",
+        encoding="utf-8",
+    )
+    worker = build / "service-worker.js"
+    if worker.is_file():
+        version = hashlib.sha256(json.dumps(manifest, sort_keys=True).encode("utf-8")).hexdigest()[:12]
+        source = worker.read_text(encoding="utf-8")
+        if CACHE_VERSION_PLACEHOLDER not in source:
+            raise SystemExit(f"service-worker.js has no {CACHE_VERSION_PLACEHOLDER}; was it packaged twice?")
+        worker.write_text(source.replace(CACHE_VERSION_PLACEHOLDER, version), encoding="utf-8")
+    return files
 
 
 def main() -> None:
@@ -101,22 +150,7 @@ def main() -> None:
     (build / ".nojekyll").write_text("", encoding="utf-8")
     write_version(build)
 
-    files = []
-    for path in sorted(build.rglob("*")):
-        if not path.is_file():
-            continue
-        relative = path.relative_to(build).as_posix()
-        if relative in {"service-worker.js", "precache-manifest.json", "version.json"}:
-            continue
-        if relative.startswith("wallpapers/"):
-            continue
-        files.append("./" + relative)
-    if "./" not in files:
-        files.insert(0, "./")
-    (build / "precache-manifest.json").write_text(
-        json.dumps({"files": files}, ensure_ascii=False, separators=(",", ":")) + "\n",
-        encoding="utf-8",
-    )
+    files = write_precache(build)
     print(f"Prepared {len(files)} offline app files, {current_count} Shortcut wallpapers, "
           f"and year directories {year} ({current_count}) / {year + 1} ({next_count}).")
 

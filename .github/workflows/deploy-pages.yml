@@ -32,11 +32,21 @@ jobs:
         uses: actions/configure-pages@v5
       - name: Resolve Flutter packages
         run: flutter pub get
+      # Stop before publishing when the data or the app is broken (Pages updates iPhones at once).
+      - name: Validate calendar data
+        run: python tools/validate_calendar.py
+      - name: Run Python tests
+        run: python -m unittest discover -s tools -p 'test_*.py'
+      - name: Analyze and test the Flutter app
+        run: |
+          flutter analyze
+          flutter test
       - name: Build the cross-platform web app
         shell: bash
         run: |
           repo_name="${GITHUB_REPOSITORY#*/}"
-          flutter build web --release --base-href "/${repo_name}/"
+          # Serve CanvasKit from Pages, not gstatic, so the home-screen app starts offline.
+          flutter build web --release --no-web-resources-cdn --base-href "/${repo_name}/"
           if [ "${{ github.event_name }}" = "schedule" ]; then
             python tools/package_web.py --rollover
           else
