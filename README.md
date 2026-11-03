@@ -43,7 +43,7 @@ Flutter 3.47.2、Android SDK、Python 3、Pillowが必要です。
 
 壁紙素材は `python tools/compose_wallpapers.py` で生成します。挿絵は `assets/illustrations/MM-DD.webp`（PNG・JPGも可）、暦文は `assets/data/calendar.json` を入力にします。挿絵は日付ごとの場面（`scene`）をもとに画像生成AIで作ったものです。Noto Sans JP可変フォント（`tools/fonts/NotoSansJP[wght].ttf`）を使い、1440×3200のマスターから1080×2400のWebPを366枚出力します。指定日のみなら `--only 01-03 09-27`、各月1日の一覧も作るなら `--preview` を付けます。文章が指定の行数に収まらない場合は日付を示して停止します。
 
-Web公開時は `tools/package_web.py` がWebPを1080×2400のJPEGに変換し、iPhoneショートカット用の `/wallpapers/MM-DD.jpg` を作ります。2年目以降の差し替え（`assets/data/years/slot*.json`）と節気の移動を反映した年別の `/wallpapers/YYYY/MM-DD.jpg` も今年分と来年分を作ります。アプリ画面も同じ規則（`lib/year_calendar.dart`）で年を解決し、1年目と内容が違う日はこの年別画像を表示します。
+Web公開時は `tools/package_web.py` がWebPを1080×2400のJPEGに変換し、iPhoneショートカット用の `/wallpapers/MM-DD.jpg` を作ります。2年目以降の差し替え（`assets/data/years/slot*.json`）と節気の移動を反映した年別の `/wallpapers/YYYY/MM-DD.jpg` も今年分と来年分を作ります。アプリ画面も同じ規則（`lib/year_calendar.dart`）で年を解決し、1年目と内容が違う日はこの年別画像を表示します。Android版のロック画面も同じ規則（`YearRotation.kt`）で、その日の年別画像を使います。取得できていない日は、1年目の壁紙（別の題材）ではなく、その日の文章を載せた画像を入れ、取得でき次第差し替えます。
 
 build_calendar.py は日付記事の要約を再生成する補助ツールです。更新する場合だけ collect_date_articles.py でWikipediaからデータを取得し、その後に build_calendar.py と compose_wallpapers.py を実行します。完成したアプリはその取得処理を呼びません。
 

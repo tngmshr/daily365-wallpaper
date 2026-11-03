@@ -40,6 +40,7 @@ object DailyWallpaperScheduler {
     private const val LAST_TODAY_DOWNLOAD_ATTEMPT = "last_today_download_attempt"
     private const val LAST_DOWNLOAD_ERROR = "last_download_error"
     private const val LAST_DOWNLOAD_AT = "last_download_at"
+    private const val LAST_CARD_DATE = "last_card_date"
     private const val WALLPAPER_URL = "https://tngmshr.github.io/daily365-wallpaper/wallpapers"
     private const val DAILY_REQUEST_CODE = 9037
     private const val RETRY_REQUEST_CODE = 9038
@@ -96,10 +97,11 @@ object DailyWallpaperScheduler {
             val day = Calendar.getInstance()
             val key = todayKey(day)
             if (prefs.getString(LAST_SET_DATE, null) != key) {
-                // Midnight alarms use only local files; catch-up may try once per date.
+                // Midnight alarms use only local files; catch-up may try once per date, or on every
+                // catch-up for a replaced/moved day whose year image is still missing.
                 if (trigger != TRIGGER_ALARM && trigger != TRIGGER_RETRY &&
                     !cachedWallpaper(context, day).isFile &&
-                    prefs.getString(LAST_TODAY_DOWNLOAD_ATTEMPT, null) != key
+                    (prefs.getString(LAST_TODAY_DOWNLOAD_ATTEMPT, null) != key || yearDay(context, day)?.changed == true)
                 ) {
                     prefs.edit().putString(LAST_TODAY_DOWNLOAD_ATTEMPT, key).apply()
                     downloadWallpaper(context, day)
@@ -135,7 +137,11 @@ object DailyWallpaperScheduler {
         Thread {
             recordAttempt(context, trigger)
             val error = try {
-                setToday(context)
+                val day = Calendar.getInstance()
+                if (!cachedWallpaper(context, day).isFile && yearDay(context, day)?.changed == true) {
+                    downloadWallpaper(context, day)
+                }
+                setToday(context, force = true)
                 null
             } catch (failure: Exception) {
                 recordFailure(context, failure)
@@ -251,6 +257,17 @@ object DailyWallpaperScheduler {
         val today = Calendar.getInstance()
         val tomorrow = (today.clone() as Calendar).apply { add(Calendar.DAY_OF_YEAR, 1) }
         downloadWallpaper(context, tomorrow)
+        // A replaced/moved day set from the text card is upgraded once its year image arrives.
+        if (yearDay(context, today)?.changed == true && !cachedWallpaper(context, today).isFile) {
+            downloadWallpaper(context, today)
+            if (cachedWallpaper(context, today).isFile) {
+                try {
+                    ensureToday(context, TRIGGER_WORKER)
+                } catch (_: Exception) {
+                    // The next catch-up tries again.
+                }
+            }
+        }
         try {
             // Keep yesterday, today and tomorrow, including across a year boundary.
             val keep = (-1..1).map { offset ->
@@ -266,6 +283,28 @@ object DailyWallpaperScheduler {
         }
     }
 
+    @Volatile
+    private var rotation: YearRotation? = null
+
+    /** Today's entry for this year (2nd-4th year replacements, moved solar terms). Null if unreadable. */
+    private fun yearDay(context: Context, day: Calendar): YearRotation.Day? = try {
+        val loaded = rotation ?: YearRotation.load { name ->
+            try {
+                context.assets.open("flutter_assets/assets/data/$name").bufferedReader(Charsets.UTF_8).use { it.readText() }
+            } catch (_: java.io.IOException) {
+                null
+            }
+        }.also { rotation = it }
+        loaded.day(
+            day.get(Calendar.YEAR),
+            "%02d-%02d".format(Locale.ROOT, day.get(Calendar.MONTH) + 1, day.get(Calendar.DAY_OF_MONTH)),
+        )
+    } catch (failure: Exception) {
+        Log.w("DailyWallpaper", "Year rotation unavailable", failure)
+        null
+    }
+
+    @Synchronized
     private fun downloadWallpaper(context: Context, day: Calendar) {
         var connection: HttpURLConnection? = null
         var temporary: File? = null
@@ -327,7 +366,7 @@ object DailyWallpaperScheduler {
     }
 
     @Synchronized
-    private fun setToday(context: Context) {
+    private fun setToday(context: Context, force: Boolean = false) {
         val day = Calendar.getInstance()
         val name = "%02d-%02d.webp".format(
             Locale.ROOT,
@@ -347,6 +386,33 @@ object DailyWallpaperScheduler {
             null
         }
         val wallpaperManager = WallpaperManager.getInstance(context)
+        val prefs = context.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+        val entry = if (bitmap == null) yearDay(context, day)?.takeIf { it.changed }?.entry else null
+        if (entry != null) {
+            // This year's image for a replaced/moved day is not here yet: never show the bundled
+            // first-year image (another topic). Show the text and keep LAST_SET_DATE unset so the
+            // next catch-up downloads the image and replaces the card.
+            if (force || prefs.getString(LAST_CARD_DATE, null) != todayKey(day)) {
+                val card = WallpaperCard.render(entry)
+                try {
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                        wallpaperManager.setBitmap(card, null, true, WallpaperManager.FLAG_LOCK)
+                    } else {
+                        wallpaperManager.setBitmap(card)
+                    }
+                } finally {
+                    card.recycle()
+                }
+            }
+            val saved = prefs.edit()
+                .putString(LAST_CARD_DATE, todayKey(day))
+                .putLong(LAST_SUCCESS_AT, System.currentTimeMillis())
+                .remove(LAST_ERROR)
+                .commit()
+            if (!saved) throw IllegalStateException("Could not save the wallpaper card date.")
+            cancelRetry(context)
+            return
+        }
         if (bitmap != null) {
             try {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {

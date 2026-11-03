@@ -18,7 +18,7 @@
    - 定期実行: 毎年 12/31 23:30 JST（`cron: '30 14 31 12 *'`）。12/31 分はその朝に設定済みなので、切り替えの影響を受けない。手動実行（workflow_dispatch）も残す。
 3. **Android**
    - 日中（WorkManager の定期実行）に**翌日分**を `wallpapers/YYYY/MM-dd.jpg` から取得し、アプリ内に保存する。
-   - 0 時の切り替えでは保存済みの画像を使う。無い・壊れている場合は同梱の `assets/wallpapers/MM-DD.webp`（1 年目）を使う。
+   - 0 時の切り替えでは保存済みの画像を使う。無い・壊れている場合は、1 年目と同じ内容の日なら同梱の `assets/wallpapers/MM-DD.webp`、違う日なら文章のカードを使う（下記「Android のロック画面」）。
    - `INTERNET` 権限を追加する。取得先は `tngmshr.github.io` のみ。
 
 ## 節気の照合（2026-10-17）
@@ -39,4 +39,4 @@
 - 2〜4 年目の中身（Codex の候補収集 → 採点 → slot 割り当て）
 - アプリ画面の表示（2026-11-03 実装）: アプリ（Android・Web）も `lib/year_calendar.dart` で同じ規則により年を解決する（`assets/data/years/` と `solar_terms.json` を同梱）。1 年目と同じ内容の日は同梱の `assets/wallpapers/MM-DD.webp`、差し替え・節気の移動がある日は Pages の `wallpapers/YYYY/MM-DD.jpg` を表示し、読めないときは文章のカード（日付・種類・見出し・説明）で見せる。Web 版は表示した年別画像を直近 7 枚まで Service Worker に残す。`test/year_calendar_test.dart` が 2026〜2034 年について `build_year.py` の出力と突き合わせる。
   - 以前の式では 2026 年が 4 年目（`slot4.json`）になり、Pages は 2026 年分を差し替えて配っていた。2026 年以前は 1 年目のままにした（`slot_for`）。
-  - Android の 0 時の切り替え（Kotlin）は変えていない。翌日分の先読みに失敗した日は、同梱の 1 年目の壁紙がロック画面に入る。
+- Android のロック画面（2026-11-03 実装）: `YearRotation.kt` が同じ規則でその日の項目を解決する。1 年目と内容が違う日（差し替え・節気の移動）に年別画像を取得できていなければ、同梱の 1 年目の壁紙（別の題材）は入れず、`WallpaperCard.kt` で日付・見出し・説明・仕事メモを描いた画像を入れる。この場合は「設定済み」として扱わず、予備の定期実行・アプリ復帰のたびに年別画像の取得をやり直し、取得できたら差し替える（1 年目と同じ日は従来どおり 1 日 1 回）。Kotlin の結果も 2025〜2034 年について `build_year.py` の出力と突き合わせて確認した（Android SDK のない環境で、JVM 上で実施）。
