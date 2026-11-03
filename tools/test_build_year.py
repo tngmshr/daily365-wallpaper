@@ -13,7 +13,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from unittest.mock import patch
 
-from build_year import DATA, build_year, calendar_rows, resolve_year, write_calendar
+from build_year import DATA, build_year, calendar_rows, resolve_year, slot_for, write_calendar
 
 
 class BuildYearTests(unittest.TestCase):
@@ -105,7 +105,7 @@ class BuildYearTests(unittest.TestCase):
                     self.assertEqual(rows[target]["solar_term"], term)
                 placed = [row["date"] for row in rows.values() if row.get("solar_term")]
                 self.assertEqual(len(placed), len(terms[str(year)]))
-                slot = (year - 2027) % 4 + 1
+                slot = slot_for(year)
                 overrides = {} if slot == 1 else json.loads(
                     (DATA / "years" / f"slot{slot}.json").read_text(encoding="utf-8"))
                 expected = [overrides.get(key, row)["title"] for key, row in base_rows.items()
@@ -119,6 +119,15 @@ class BuildYearTests(unittest.TestCase):
         self.assertEqual(result["02-03"]["title"], "立春")
         self.assertEqual(result["02-04"]["title"], before["02-03"]["title"])
         self.assertEqual(result["02-02"]["title"], before["02-02"]["title"])
+
+    def test_years_before_2027_use_the_base_data(self):
+        self.assertEqual([slot_for(year) for year in range(2024, 2032)], [1, 1, 1, 1, 2, 3, 4, 1])
+        with redirect_stderr(io.StringIO()):
+            for year in (2025, 2026):
+                with self.subTest(year=year):
+                    result = build_year(year)
+                    self.assertEqual(result["entries"], self.base["entries"])
+                    self.assertEqual("leap_day" in result, year % 4 == 0)
 
     def test_year_boundary_switches_slot(self):
         # 2027-12-31 is slot 1 (base); 2028-01-01 starts slot 2; 2031 returns to slot 1.

@@ -97,7 +97,7 @@ void main() {
     expect(find.text(tips['02-04']!), findsOneWidget);
   });
 
-  // 年別の内容。2026 年は 4 年目（slot4）、2028 年は slot2、2029 年は立春が 02-03 に移る。
+  // 年別の内容。2026 年は 1 年目のまま、2028 年は slot2、2029 年は立春が 02-03 に移り、2030 年は slot4。
   final slot4 = jsonDecode(File('assets/data/years/slot4.json').readAsStringSync()) as Map<String, dynamic>;
   final slot2 = jsonDecode(File('assets/data/years/slot2.json').readAsStringSync()) as Map<String, dynamic>;
   final titles = <String, String>{
@@ -114,11 +114,18 @@ void main() {
     expect(textCard, findsNothing);
   });
 
-  testWidgets('2026 年（4 年目）の差し替え日は slot4 の内容を出し、1 年目の壁紙は出さない', (tester) async {
-    final key = (slot4.keys.toList()..sort()).last; // 年内に残る日（12-18）
+  testWidgets('2026 年は slot4 の日付でも 1 年目の内容と同梱の壁紙を出す', (tester) async {
+    await show(tester, () => DateTime(2026, 12, 18, 9));
+    expect(find.text(tips['12-18']!), findsOneWidget);
+    expect(baseImage('12-18'), findsOneWidget);
+    expect(textCard, findsNothing);
+  });
+
+  testWidgets('2030 年（4 年目）の差し替え日は slot4 の内容を出し、1 年目の壁紙は出さない', (tester) async {
+    final key = (slot4.keys.toList()..sort()).last; // 12-18
     final row = slot4[key] as Map<String, dynamic>;
     final parts = key.split('-').map(int.parse).toList();
-    await show(tester, () => DateTime(2026, parts[0], parts[1], 9));
+    await show(tester, () => DateTime(2030, parts[0], parts[1], 9));
     expect(find.text(row['work_tip'] as String), findsOneWidget);
     expect(find.text(tips[key]!), findsNothing);
     expect(baseImage(key), findsNothing);

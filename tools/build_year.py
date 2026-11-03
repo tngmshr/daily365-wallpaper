@@ -63,8 +63,16 @@ def resolve_year(year: int, base: dict, overrides: dict, solar_terms: dict) -> d
     return payload
 
 
+FIRST_YEAR = 2027
+
+
+def slot_for(year: int) -> int:
+    """2027 is year 1 of the four-year cycle. Earlier years (2026 and before) stay on the base data."""
+    return 1 if year < FIRST_YEAR else (year - FIRST_YEAR) % 4 + 1
+
+
 def build_year(year: int, data_dir: Path = DATA) -> dict:
-    slot = (year - 2027) % 4 + 1
+    slot = slot_for(year)
     base = json.loads((data_dir / "calendar.json").read_text(encoding="utf-8"))
     overrides = {} if slot == 1 else json.loads(
         (data_dir / "years" / f"slot{slot}.json").read_text(encoding="utf-8")
@@ -89,7 +97,7 @@ def main() -> None:
     except ValueError as error:
         parser.error(str(error))
     write_calendar(payload, output)
-    print(f"{args.year}: slot {(args.year - 2027) % 4 + 1}, {len(calendar_rows(payload))} entries -> {output}")
+    print(f"{args.year}: slot {slot_for(args.year)}, {len(calendar_rows(payload))} entries -> {output}")
 
 
 if __name__ == "__main__":

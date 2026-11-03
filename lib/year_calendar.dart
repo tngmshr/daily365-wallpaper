@@ -41,8 +41,10 @@ class YearCalendar {
   final JsonRow solarTerms;
   final Map<int, Map<String, JsonRow>> _years = {};
 
-  /// 2027 年が 1 年目。4 年で一巡し、2026 年は 4 年目にあたる（Python と同じ計算）。
-  static int slotFor(int year) => (year - 2027) % 4 + 1;
+  static const firstYear = 2027;
+
+  /// 2027 年が 1 年目で、4 年で一巡する。2026 年以前は 1 年目のまま（Python の slot_for と同じ）。
+  static int slotFor(int year) => year < firstYear ? 1 : (year - firstYear) % 4 + 1;
 
   static bool isLeap(int year) => year % 4 == 0 && (year % 100 != 0 || year % 400 == 0);
 

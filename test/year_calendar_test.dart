@@ -13,8 +13,15 @@ void main() {
     calendar = await YearCalendar.load((path) async => File(path).readAsStringSync());
   });
 
-  test('2027 年が 1 年目で、4 年で一巡する（2026 年は 4 年目）', () {
-    expect([for (var y = 2026; y <= 2031; y++) YearCalendar.slotFor(y)], [4, 1, 2, 3, 4, 1]);
+  test('2027 年が 1 年目で、4 年で一巡する。2026 年以前は 1 年目のまま', () {
+    expect([for (var y = 2024; y <= 2031; y++) YearCalendar.slotFor(y)], [1, 1, 1, 1, 2, 3, 4, 1]);
+  });
+
+  test('2026 年は全日が同梱データと同じ（同梱の壁紙を使う）', () {
+    for (final key in calendar.base.keys.where((k) => k != '02-29')) {
+      final parts = key.split('-').map(int.parse).toList();
+      expect(calendar.entryFor(DateTime(2026, parts[0], parts[1]))!.sameAsBase, isTrue, reason: key);
+    }
   });
 
   test('平年は 365 件、うるう年は 02-29 を含む 366 件', () {
