@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter/foundation.dart'
@@ -5,6 +6,8 @@ import 'package:flutter/foundation.dart'
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+import 'day_logic.dart';
 
 void main() => runApp(const DailyApp());
 
@@ -83,7 +86,15 @@ class DailyApp extends StatelessWidget {
 }
 
 class TodayScreen extends StatefulWidget {
-  const TodayScreen({super.key});
+  const TodayScreen({super.key, this.clock = DateTime.now, this.loadCalendar = _bundledCalendar});
+
+  /// 現在時刻。テストで日付の切り替えを再現するために差し替える。
+  final DateTime Function() clock;
+
+  /// calendar.json の中身。テストではファイルから直接渡す。
+  final Future<String> Function() loadCalendar;
+
+  static Future<String> _bundledCalendar() => rootBundle.loadString('assets/data/calendar.json');
 
   @override
   State<TodayScreen> createState() => _TodayScreenState();
@@ -94,17 +105,20 @@ class _TodayScreenState extends State<TodayScreen> with WidgetsBindingObserver {
   bool _wallpaperEnabled = false;
   Map<String, dynamic> _wallpaperStatus = const {};
   Map<String, dynamic> _update = const {};
+  Timer? _midnight;
 
   @override
   void initState() {
     super.initState();
     WidgetsBinding.instance.addObserver(this);
+    _scheduleMidnight();
     _refreshWallpaperStatus();
     _checkUpdate();
   }
 
   @override
   void dispose() {
+    _midnight?.cancel();
     WidgetsBinding.instance.removeObserver(this);
     super.dispose();
   }
@@ -112,9 +126,22 @@ class _TodayScreenState extends State<TodayScreen> with WidgetsBindingObserver {
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
     if (state == AppLifecycleState.resumed) {
+      // ホーム画面の Web アプリや Android で、前日のページを開いたまま復帰した場合に日付を合わせる。
+      setState(() {});
+      _scheduleMidnight();
       _refreshWallpaperStatus();
       _checkUpdate();
     }
+  }
+
+  /// 開いたまま 0 時を過ぎたら、その日のページに描き直す。
+  void _scheduleMidnight() {
+    _midnight?.cancel();
+    _midnight = Timer(untilNextDay(widget.clock()), () {
+      if (!mounted) return;
+      setState(() {});
+      _scheduleMidnight();
+    });
   }
 
   // flutter build web --dart-define=PREVIEW_UPDATE_NOTICE=true shows the notice for design checks.
@@ -141,11 +168,7 @@ class _TodayScreenState extends State<TodayScreen> with WidgetsBindingObserver {
     }
   }
 
-  bool get _hasUpdate {
-    final latest = _update['latestBuild'] as int? ?? 0;
-    return latest > (_update['currentBuild'] as int? ?? latest) &&
-        latest != (_update['dismissedBuild'] as int? ?? 0);
-  }
+  bool get _hasUpdate => shouldShowUpdate(_update);
 
   Future<void> _dismissUpdate() async {
     final latest = _update['latestBuild'] as int? ?? 0;
@@ -258,9 +281,7 @@ class _TodayScreenState extends State<TodayScreen> with WidgetsBindingObserver {
   }
 
   Future<Map<String, DayEntry>> _loadEntries() async {
-    final payload = jsonDecode(
-      await rootBundle.loadString('assets/data/calendar.json'),
-    ) as Map<String, dynamic>;
+    final payload = jsonDecode(await widget.loadCalendar()) as Map<String, dynamic>;
     final list = payload['entries'] as List<dynamic>;
     final loaded = <String, DayEntry>{
       for (final row in list)
@@ -273,12 +294,9 @@ class _TodayScreenState extends State<TodayScreen> with WidgetsBindingObserver {
     return loaded;
   }
 
-  String _keyFor(DateTime date) =>
-      '${date.month.toString().padLeft(2, '0')}-${date.day.toString().padLeft(2, '0')}';
-
   @override
   Widget build(BuildContext context) {
-    final today = DateTime.now();
+    final today = widget.clock();
     return Scaffold(
       body: SafeArea(
         child: FutureBuilder<Map<String, DayEntry>>(
@@ -290,7 +308,7 @@ class _TodayScreenState extends State<TodayScreen> with WidgetsBindingObserver {
             if (!snapshot.hasData) {
               return const Center(child: CircularProgressIndicator());
             }
-            final item = snapshot.data![_keyFor(today)];
+            final item = snapshot.data![dayKey(today)];
             if (item == null) {
               return _message(
                 '${today.month}月${today.day}日',

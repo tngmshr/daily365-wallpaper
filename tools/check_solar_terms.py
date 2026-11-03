@@ -44,7 +44,8 @@ def margin(moment: datetime) -> timedelta:
 
 
 def read_rows(path: Path = CHECK_CSV) -> list[dict]:
-    return list(csv.DictReader(path.open(encoding="utf-8", newline="")))
+    with path.open(encoding="utf-8", newline="") as handle:
+        return list(csv.DictReader(handle))
 
 
 def check(terms: dict, rows: list[dict], calendar: dict | None = None) -> tuple[list[str], list[str]]:

@@ -7,7 +7,7 @@
 
 今日の日付に合わせて、記念日・年中行事の短い説明、仕事メモ、テーマ挿絵を表示するアプリです。通常の365日分に加え、うるう年の2月29日用データも収録しています。
 
-内容と、日付・説明文を画像内に組み込んだ壁紙はインストール時に端末へ入ります。日常利用にChatGPT、生成AI、アカウント、サーバー処理、従量課金APIは必要ありません。出典リンクを開くときと、iPhoneの自動壁紙を切り替えるときだけインターネットを使います。
+内容と、日付・説明文を画像内に組み込んだ壁紙はインストール時に端末へ入ります。日常利用にChatGPT、生成AI、アカウント、サーバー処理、従量課金APIは必要ありません。インターネットを使うのは、出典リンクを開くとき、iPhoneの自動壁紙を切り替えるとき、Android版が翌日分の壁紙（2年目以降の入れ替えと節気の日付を反映したもの）と更新のお知らせ（`version.json`）をGitHub Pagesから取得するときです。取得できない場合、Android版は端末内の壁紙を使います。
 
 ## 配布方法
 
@@ -16,7 +16,7 @@
 
 ## GitHub Pagesで公開する
 
-.github/workflows/deploy-pages.yml が main への更新後にWebアプリをビルドしてPagesへ配置します。
+.github/workflows/deploy-pages.yml が main への更新後にWebアプリをビルドしてPagesへ配置します。配置の前に `tools/validate_calendar.py`、Pythonのテスト、`flutter analyze`、`flutter test` を実行し、どれかが失敗すると公開しません。
 
 1. GitHubに daily365-wallpaper などの**公開リポジトリ**を作ります。
 2. このプロジェクトを main ブランチへpushします。
@@ -31,8 +31,15 @@ Flutter 3.47.2、Android SDK、Python 3、Pillowが必要です。
 
     flutter pub get
     flutter analyze
-    flutter build web --release --base-href "/REPOSITORY/"
+    flutter test
+    python tools/validate_calendar.py
+    python -m unittest discover -s tools -p 'test_*.py'
+    flutter build web --release --no-web-resources-cdn --base-href "/REPOSITORY/"
     python tools/package_web.py
+
+`--no-web-resources-cdn` はCanvasKitをgstaticではなくPagesから配るための指定です。これがないと、ホーム画面に追加したWeb版がオフラインで真っ白になります。`tools/package_web.py` は `service-worker.js` のキャッシュ名に収録ファイルのハッシュを入れるので、内容を変えて公開すると、ホーム画面のWeb版も次回起動時に新しい内容へ入れ替わります（変わっていないファイルは再ダウンロードしません）。同じビルドに2回かけるとエラーになるので、やり直すときは `flutter build web` からやり直します。
+
+`validate_calendar.py` は通常年・うるう日・2〜4年目（`assets/data/years/slot*.json`）について、日付の重複・欠け・順序、文字数、`theme` が `docs/themes.json` と挿絵にあるか、年で日付が動く節目（節分・春分など）に `solar_term` があるか、`solar_terms.json` の各年に日付がそろっているか、壁紙のカードに文章が収まるか（Pillowとフォントが必要。`--skip-layout` で省略）を確かめます。
 
 壁紙素材は `python tools/compose_wallpapers.py` で生成します。挿絵は `assets/illustrations/MM-DD.webp`（PNG・JPGも可）、暦文は `assets/data/calendar.json` を入力にします。挿絵は日付ごとの場面（`scene`）をもとに画像生成AIで作ったものです。Noto Sans JP可変フォント（`tools/fonts/NotoSansJP[wght].ttf`）を使い、1440×3200のマスターから1080×2400のWebPを366枚出力します。指定日のみなら `--only 01-03 09-27`、各月1日の一覧も作るなら `--preview` を付けます。文章が指定の行数に収まらない場合は日付を示して停止します。
 
@@ -52,7 +59,7 @@ build_calendar.py は日付記事の要約を再生成する補助ツールで�
 
 ### 更新のお知らせ
 
-Android版は起動・復帰時（12時間に1回まで）にPagesの `version.json` を読み、`pubspec.yaml` のビルド番号（`+6` の部分）が端末の版より大きければ画面上部にお知らせを出します。「あとで」を押すとその版では再表示しません。`version.json` は `tools/package_web.py` が `pubspec.yaml` と `tools/whats_new.json`（版ごとの変更点、3行まで表示）から作ります。
+Android版は起動・復帰時（12時間に1回まで）にPagesの `version.json` を読み、`pubspec.yaml` のビルド番号（`+6` の部分）が端末の版より大きければ画面上部にお知らせを出します。`--split-per-abi` のAPKは versionCode にABIごとの1000・2000が足されるため、端末側は versionCode を1000で割った余りで比べます。そのためビルド番号は1〜999にします（`package_web.py` が範囲外を止めます）。取得に失敗したときは前回取得した結果を使い、一度も取得できていなければお知らせは出ません。「あとで」を押すとその版では再表示しません。`version.json` は `tools/package_web.py` が `pubspec.yaml` と `tools/whats_new.json`（版ごとの変更点、3行まで表示）から作ります。
 
 順序に注意: **Releasesに新しいAPKを登録してから** `main` に反映します。`main` へのpushでPagesの `version.json` が先に更新されると、ダウンロードボタンが古いAPKを指します。
 

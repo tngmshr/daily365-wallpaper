@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import calendar
 import copy
 import io
 import json
@@ -88,6 +89,46 @@ class BuildYearTests(unittest.TestCase):
                                 (2029, "slot3"), (2030, "slot4"), (2031, self.base["entries"][0]["title"])):
                 with self.subTest(year=year), redirect_stderr(io.StringIO()):
                     self.assertEqual(build_year(year, data)["entries"][0]["title"], title)
+
+    def test_every_published_year_keeps_all_contents(self):
+        """2027-2034: each term on its published date, nothing lost or doubled, leap day only in leap years."""
+        terms = json.loads((DATA / "solar_terms.json").read_text(encoding="utf-8"))
+        base_rows = {row["date"]: row for row in calendar_rows(self.base)}
+        for year in sorted(int(key) for key in terms if not key.startswith("_")):
+            with self.subTest(year=year):
+                result = build_year(year)
+                rows = {row["date"]: row for row in calendar_rows(result)}
+                leap = calendar.isleap(year)
+                self.assertEqual(len(rows), 366 if leap else 365)
+                self.assertEqual("02-29" in rows, leap)
+                for term, target in terms[str(year)].items():
+                    self.assertEqual(rows[target]["solar_term"], term)
+                placed = [row["date"] for row in rows.values() if row.get("solar_term")]
+                self.assertEqual(len(placed), len(terms[str(year)]))
+                slot = (year - 2027) % 4 + 1
+                overrides = {} if slot == 1 else json.loads(
+                    (DATA / "years" / f"slot{slot}.json").read_text(encoding="utf-8"))
+                expected = [overrides.get(key, row)["title"] for key, row in base_rows.items()
+                            if leap or key != "02-29"]
+                self.assertCountEqual([row["title"] for row in rows.values()], expected)
+
+    def test_setsubun_side_of_risshun_moves_with_it(self):
+        # 2029: 立春 is 02-03 (節分 02-02). The 02-03 base topic moves to 02-04 instead of vanishing.
+        before = {row["date"]: row for row in calendar_rows(self.base)}
+        result = {row["date"]: row for row in calendar_rows(build_year(2029))}
+        self.assertEqual(result["02-03"]["title"], "立春")
+        self.assertEqual(result["02-04"]["title"], before["02-03"]["title"])
+        self.assertEqual(result["02-02"]["title"], before["02-02"]["title"])
+
+    def test_year_boundary_switches_slot(self):
+        # 2027-12-31 is slot 1 (base); 2028-01-01 starts slot 2; 2031 returns to slot 1.
+        slot2 = json.loads((DATA / "years" / "slot2.json").read_text(encoding="utf-8"))
+        first = sorted(slot2)[0]
+        with redirect_stderr(io.StringIO()):
+            self.assertEqual({r["date"]: r for r in calendar_rows(build_year(2027))}[first]["title"],
+                             {r["date"]: r for r in calendar_rows(self.base)}[first]["title"])
+            self.assertEqual({r["date"]: r for r in calendar_rows(build_year(2028))}[first]["title"],
+                             slot2[first]["title"])
 
     def test_invalid_target_and_override_are_rejected(self):
         with self.assertRaises(ValueError):
